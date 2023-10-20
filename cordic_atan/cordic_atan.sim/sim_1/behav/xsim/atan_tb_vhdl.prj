@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../cordic_atan.gen/sources_1/ip/cordic_0/sim/cordic_0.vhd" \
+"../../../../cordic_atan.srcs/sources_1/new/atan.vhd" \
+"../../../../cordic_atan.srcs/sim_1/new/atan_tb.vhd" \
+
+# Do not sort compile order
+nosort

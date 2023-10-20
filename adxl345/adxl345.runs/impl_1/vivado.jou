@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Fri Oct 20 18:37:18 2023
+# Process ID: 21552
+# Current directory: C:/Users/Angelo Nutu/Documents/Vivado/Final Project/adxl345/adxl345.runs/impl_1
+# Command line: vivado.exe -log accelerometer.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source accelerometer.tcl -notrace
+# Log file: C:/Users/Angelo Nutu/Documents/Vivado/Final Project/adxl345/adxl345.runs/impl_1/accelerometer.vdi
+# Journal file: C:/Users/Angelo Nutu/Documents/Vivado/Final Project/adxl345/adxl345.runs/impl_1\vivado.jou
+# Running On: LAPTOP-0TDLBDIC, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 4, Host memory: 17002 MB
+#-----------------------------------------------------------
+source accelerometer.tcl -notrace

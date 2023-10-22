@@ -65,20 +65,20 @@ begin
             width => 8
         )
         port map(
-            clk   => clk, 
-            reset => reset, 
-            cpol    => '1', 
-            cpha    => '1',
-            miso    => miso,
-            enable  => spi_ena, 
-            cont    => spi_cont, 
-            divider => clk_freq/10, 
+            clk      => clk, 
+            reset    => reset, 
+            cpol     => '1', 
+            cpha     => '1',
+            miso     => miso,
+            enable   => spi_ena, 
+            cont     => spi_cont, 
+            divider  => clk_freq/10, 
             transmit => transmit, 
-            sclk    => sclk, 
-            cs    => cs, 
-            mosi    => mosi, 
-            busy    => curr_busy, 
-            receive => receive
+            sclk     => sclk, 
+            cs       => cs, 
+            mosi     => mosi, 
+            busy     => curr_busy, 
+            receive  => receive
         );
 
     process(clk, reset)
@@ -88,7 +88,7 @@ begin
             prev_busy      <= '0';               
             spi_ena        <= '0';                    
             spi_cont       <= '0';                   
-            transmit    <= (others => '0');    
+            transmit       <= (others => '0');    
             acceleration_x <= (others => '0'); 
             acceleration_y <= (others => '0'); 
             acceleration_z <= (others => '0'); 

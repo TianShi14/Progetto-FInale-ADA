@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/Angelo Nutu/Documents/Vivado/cordic_atan/cordic_atan.runs/impl_1/atan.tcl"
+  variable script "C:/Users/aless/OneDrive/Documenti/GitHub/Progetto-FInale-ADA/cordic_atan/cordic_atan.runs/impl_1/atan.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,8 +115,6 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {HDL 9-1061} -limit 100000
-set_msg_config -id {HDL 9-1654} -limit 100000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -124,24 +122,21 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param tcl.statsThreshold 360
-  set_param chipscope.maxJobs 2
+  set_param chipscope.maxJobs 4
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7z020clg484-1
-  set_property board_part digilentinc.com:zedboard:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir {C:/Users/Angelo Nutu/Documents/Vivado/cordic_atan/cordic_atan.cache/wt} [current_project]
-  set_property parent.project_path {C:/Users/Angelo Nutu/Documents/Vivado/cordic_atan/cordic_atan.xpr} [current_project]
-  set_property ip_output_repo {{C:/Users/Angelo Nutu/Documents/Vivado/cordic_atan/cordic_atan.cache/ip}} [current_project]
+  set_property webtalk.parent_dir C:/Users/aless/OneDrive/Documenti/GitHub/Progetto-FInale-ADA/cordic_atan/cordic_atan.cache/wt [current_project]
+  set_property parent.project_path C:/Users/aless/OneDrive/Documenti/GitHub/Progetto-FInale-ADA/cordic_atan/cordic_atan.xpr [current_project]
+  set_property ip_output_repo C:/Users/aless/OneDrive/Documenti/GitHub/Progetto-FInale-ADA/cordic_atan/cordic_atan.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet {{C:/Users/Angelo Nutu/Documents/Vivado/cordic_atan/cordic_atan.runs/synth_1/atan.dcp}}
-  read_ip -quiet {{c:/Users/Angelo Nutu/Documents/Vivado/cordic_atan/cordic_atan.srcs/sources_1/ip/cordic_0/cordic_0.xci}}
-  set_property is_enabled true [get_files -all {{c:/Users/Angelo Nutu/Documents/Vivado/cordic_atan/cordic_atan.gen/sources_1/ip/cordic_0/synth/cordic_0.vhd}}]
+  add_files -quiet C:/Users/aless/OneDrive/Documenti/GitHub/Progetto-FInale-ADA/cordic_atan/cordic_atan.runs/synth_1/atan.dcp
+  read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/Progetto-FInale-ADA/cordic_atan/cordic_atan.srcs/sources_1/ip/cordic_0/cordic_0.xci
 OPTRACE "read constraints: implementation" START { }
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
@@ -299,4 +294,34 @@ OPTRACE "route_design write_checkpoint" END { }
 
 OPTRACE "route_design misc" END { }
 OPTRACE "Phase: Route Design" END { }
+OPTRACE "Phase: Write Bitstream" START { ROLLUP_AUTO }
+OPTRACE "write_bitstream setup" START { }
+start_step write_bitstream
+set ACTIVE_STEP write_bitstream
+set rc [catch {
+  create_msg_db write_bitstream.pb
+OPTRACE "read constraints: write_bitstream" START { }
+OPTRACE "read constraints: write_bitstream" END { }
+  catch { write_mem_info -force -no_partial_mmi atan.mmi }
+OPTRACE "write_bitstream setup" END { }
+OPTRACE "write_bitstream" START { }
+  write_bitstream -force atan.bit 
+OPTRACE "write_bitstream" END { }
+OPTRACE "write_bitstream misc" START { }
+OPTRACE "read constraints: write_bitstream_post" START { }
+OPTRACE "read constraints: write_bitstream_post" END { }
+  catch {write_debug_probes -quiet -force atan}
+  catch {file copy -force atan.ltx debug_nets.ltx}
+  close_msg_db -file write_bitstream.pb
+} RESULT]
+if {$rc} {
+  step_failed write_bitstream
+  return -code error $RESULT
+} else {
+  end_step write_bitstream
+  unset ACTIVE_STEP 
+}
+
+OPTRACE "write_bitstream misc" END { }
+OPTRACE "Phase: Write Bitstream" END { }
 OPTRACE "impl_1" END { }

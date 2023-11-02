@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Tue Oct 17 22:50:33 2023
-| Host         : LAPTOP-0TDLBDIC running 64-bit major release  (build 9200)
+| Date         : Thu Nov  2 13:02:56 2023
+| Host         : LAPTOP-ESNLEJG4 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file atan_timing_summary_routed.rpt -pb atan_timing_summary_routed.pb -rpx atan_timing_summary_routed.rpx -warn_on_violation
 | Design       : atan
 | Device       : 7z020-clg484
@@ -41,7 +41,7 @@ Timing Summary Report
 
 Rule       Severity          Description                  Violations  
 ---------  ----------------  ---------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell  899         
+TIMING-17  Critical Warning  Non-clocked sequential cell  894         
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
 
@@ -51,12 +51,12 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (899)
+1. checking no_clock (894)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (913)
-5. checking no_input_delay (33)
-6. checking no_output_delay (17)
+4. checking unconstrained_internal_endpoints (908)
+5. checking no_input_delay (32)
+6. checking no_output_delay (16)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
 9. checking loops (0)
@@ -64,9 +64,9 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (899)
+1. checking no_clock (894)
 --------------------------
- There are 899 register/latch pins with no clock driven by root clock pin: clk (HIGH)
+ There are 894 register/latch pins with no clock driven by root clock pin: clk (HIGH)
 
 
 2. checking constant_clock (0)
@@ -79,23 +79,23 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (913)
+4. checking unconstrained_internal_endpoints (908)
 --------------------------------------------------
- There are 913 pins that are not constrained for maximum delay. (HIGH)
+ There are 908 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
-5. checking no_input_delay (33)
+5. checking no_input_delay (32)
 -------------------------------
- There are 33 input ports with no input delay specified. (HIGH)
+ There are 32 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
-6. checking no_output_delay (17)
+6. checking no_output_delay (16)
 --------------------------------
- There are 17 ports with no output delay specified. (HIGH)
+ There are 16 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -140,7 +140,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-        inf        0.000                      0                  930          inf        0.000                      0                  930           NA           NA                      NA                    NA  
+        inf        0.000                      0                  924          inf        0.000                      0                  924           NA           NA                      NA                    NA  
 
 
 There are no user specified timing constraints.
@@ -209,347 +209,347 @@ Path Group:  (none)
 From Clock:  
   To Clock:  
 
-Max Delay           930 Endpoints
-Min Delay           930 Endpoints
+Max Delay           924 Endpoints
+Min Delay           924 Endpoints
 --------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.711ns  (logic 1.955ns (34.233%)  route 3.756ns (65.767%))
-  Logic Levels:           7  (CARRY4=4 FDRE=1 LUT2=1 LUT4=1)
+  Data Path Delay:        6.085ns  (logic 1.973ns (32.425%)  route 4.112ns (67.575%))
+  Logic Levels:           8  (CARRY4=5 FDRE=1 LUT3=2)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y32          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
-    SLICE_X0Y32          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/Q
-                         net (fo=54, routed)          2.634     3.152    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/x_plus_y_ext[20]
-    SLICE_X0Y21          LUT4 (Prop_lut4_I3_O)        0.146     3.298 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/inst_i_13__0/O
-                         net (fo=1, routed)           1.122     4.420    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/B[3]
-    SLICE_X5Y25          LUT2 (Prop_lut2_I1_O)        0.328     4.748 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1/O
-                         net (fo=1, routed)           0.000     4.748    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1_n_0
-    SLICE_X5Y25          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401     5.149 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.149    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
-    SLICE_X5Y26          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.263 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.263    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
-    SLICE_X5Y27          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.377 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.377    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
-    SLICE_X5Y28          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     5.711 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[1]
-                         net (fo=1, routed)           0.000     5.711    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[17]
-    SLICE_X5Y28          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/D
+    SLICE_X12Y28         FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+    SLICE_X12Y28         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
+                         net (fo=16, routed)          2.441     2.959    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
+    SLICE_X1Y17          LUT3 (Prop_lut3_I0_O)        0.124     3.083 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst_i_1__21/O
+                         net (fo=42, routed)          1.671     4.754    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/CI
+    SLICE_X12Y19         LUT3 (Prop_lut3_I1_O)        0.124     4.878 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1/O
+                         net (fo=1, routed)           0.000     4.878    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1_n_0
+    SLICE_X12Y19         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     5.411 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.411    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
+    SLICE_X12Y20         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.528 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.528    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
+    SLICE_X12Y21         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.645 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.645    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
+    SLICE_X12Y22         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.762 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.762    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
+    SLICE_X12Y23         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     6.085 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[1]
+                         net (fo=1, routed)           0.000     6.085    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[4]
+    SLICE_X12Y23         FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.690ns  (logic 1.934ns (33.990%)  route 3.756ns (66.010%))
-  Logic Levels:           7  (CARRY4=4 FDRE=1 LUT2=1 LUT4=1)
+  Data Path Delay:        6.077ns  (logic 1.965ns (32.336%)  route 4.112ns (67.664%))
+  Logic Levels:           8  (CARRY4=5 FDRE=1 LUT3=2)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y32          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
-    SLICE_X0Y32          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/Q
-                         net (fo=54, routed)          2.634     3.152    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/x_plus_y_ext[20]
-    SLICE_X0Y21          LUT4 (Prop_lut4_I3_O)        0.146     3.298 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/inst_i_13__0/O
-                         net (fo=1, routed)           1.122     4.420    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/B[3]
-    SLICE_X5Y25          LUT2 (Prop_lut2_I1_O)        0.328     4.748 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1/O
-                         net (fo=1, routed)           0.000     4.748    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1_n_0
-    SLICE_X5Y25          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401     5.149 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.149    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
-    SLICE_X5Y26          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.263 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.263    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
-    SLICE_X5Y27          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.377 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.377    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
-    SLICE_X5Y28          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     5.690 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[3]
-                         net (fo=1, routed)           0.000     5.690    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[19]
-    SLICE_X5Y28          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/D
+    SLICE_X12Y28         FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+    SLICE_X12Y28         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
+                         net (fo=16, routed)          2.441     2.959    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
+    SLICE_X1Y17          LUT3 (Prop_lut3_I0_O)        0.124     3.083 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst_i_1__21/O
+                         net (fo=42, routed)          1.671     4.754    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/CI
+    SLICE_X12Y19         LUT3 (Prop_lut3_I1_O)        0.124     4.878 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1/O
+                         net (fo=1, routed)           0.000     4.878    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1_n_0
+    SLICE_X12Y19         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     5.411 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.411    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
+    SLICE_X12Y20         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.528 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.528    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
+    SLICE_X12Y21         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.645 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.645    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
+    SLICE_X12Y22         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.762 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.762    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
+    SLICE_X12Y23         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315     6.077 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[3]
+                         net (fo=1, routed)           0.000     6.077    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[6]
+    SLICE_X12Y23         FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[19]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.630ns  (logic 1.911ns (33.945%)  route 3.719ns (66.055%))
+  Data Path Delay:        6.001ns  (logic 1.889ns (31.479%)  route 4.112ns (68.521%))
+  Logic Levels:           8  (CARRY4=5 FDRE=1 LUT3=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y28         FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+    SLICE_X12Y28         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
+                         net (fo=16, routed)          2.441     2.959    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
+    SLICE_X1Y17          LUT3 (Prop_lut3_I0_O)        0.124     3.083 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst_i_1__21/O
+                         net (fo=42, routed)          1.671     4.754    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/CI
+    SLICE_X12Y19         LUT3 (Prop_lut3_I1_O)        0.124     4.878 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1/O
+                         net (fo=1, routed)           0.000     4.878    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1_n_0
+    SLICE_X12Y19         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     5.411 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.411    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
+    SLICE_X12Y20         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.528 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.528    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
+    SLICE_X12Y21         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.645 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.645    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
+    SLICE_X12Y22         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.762 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.762    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
+    SLICE_X12Y23         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     6.001 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[2]
+                         net (fo=1, routed)           0.000     6.001    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[5]
+    SLICE_X12Y23         FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[19]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        5.982ns  (logic 1.816ns (30.358%)  route 4.166ns (69.642%))
   Logic Levels:           8  (CARRY4=5 FDRE=1 LUT2=1 LUT3=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X7Y30          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
-    SLICE_X7Y30          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
-                         net (fo=12, routed)          1.617     2.073    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
-    SLICE_X9Y26          LUT3 (Prop_lut3_I0_O)        0.124     2.197 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst_i_1__13/O
-                         net (fo=42, routed)          2.102     4.299    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/ADD
-    SLICE_X8Y16          LUT2 (Prop_lut2_I0_O)        0.124     4.423 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1/O
-                         net (fo=1, routed)           0.000     4.423    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1_n_0
-    SLICE_X8Y16          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     4.956 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     4.956    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
-    SLICE_X8Y17          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.073 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.073    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
-    SLICE_X8Y18          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.190 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.190    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
-    SLICE_X8Y19          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.307 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.307    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
-    SLICE_X8Y20          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.323     5.630 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[1]
-                         net (fo=1, routed)           0.000     5.630    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[17]
-    SLICE_X8Y20          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/D
+    SLICE_X12Y28         FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+    SLICE_X12Y28         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
+                         net (fo=16, routed)          2.441     2.959    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
+    SLICE_X1Y17          LUT3 (Prop_lut3_I0_O)        0.124     3.083 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst_i_1__21/O
+                         net (fo=42, routed)          1.725     4.808    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/ADD
+    SLICE_X2Y11          LUT2 (Prop_lut2_I0_O)        0.124     4.932 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[3].carrymux_i_1/O
+                         net (fo=1, routed)           0.000     4.932    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[3].carrymux_i_1_n_0
+    SLICE_X2Y11          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376     5.308 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.308    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
+    SLICE_X2Y12          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.425 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.425    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
+    SLICE_X2Y13          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.542 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.542    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
+    SLICE_X2Y14          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.659 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.659    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
+    SLICE_X2Y15          CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     5.982 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[1]
+                         net (fo=1, routed)           0.000     5.982    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[17]
+    SLICE_X2Y15          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[17]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.622ns  (logic 1.903ns (33.851%)  route 3.719ns (66.149%))
+  Data Path Delay:        5.981ns  (logic 1.869ns (31.250%)  route 4.112ns (68.750%))
+  Logic Levels:           8  (CARRY4=5 FDRE=1 LUT3=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y28         FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+    SLICE_X12Y28         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
+                         net (fo=16, routed)          2.441     2.959    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
+    SLICE_X1Y17          LUT3 (Prop_lut3_I0_O)        0.124     3.083 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst_i_1__21/O
+                         net (fo=42, routed)          1.671     4.754    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/CI
+    SLICE_X12Y19         LUT3 (Prop_lut3_I1_O)        0.124     4.878 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1/O
+                         net (fo=1, routed)           0.000     4.878    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1_n_0
+    SLICE_X12Y19         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     5.411 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.411    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
+    SLICE_X12Y20         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.528 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.528    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
+    SLICE_X12Y21         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.645 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.645    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
+    SLICE_X12Y22         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.762 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.762    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
+    SLICE_X12Y23         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.219     5.981 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[0]
+                         net (fo=1, routed)           0.000     5.981    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[3]
+    SLICE_X12Y23         FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[17]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        5.974ns  (logic 1.808ns (30.265%)  route 4.166ns (69.735%))
   Logic Levels:           8  (CARRY4=5 FDRE=1 LUT2=1 LUT3=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X7Y30          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
-    SLICE_X7Y30          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
-                         net (fo=12, routed)          1.617     2.073    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
-    SLICE_X9Y26          LUT3 (Prop_lut3_I0_O)        0.124     2.197 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst_i_1__13/O
-                         net (fo=42, routed)          2.102     4.299    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/ADD
-    SLICE_X8Y16          LUT2 (Prop_lut2_I0_O)        0.124     4.423 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1/O
-                         net (fo=1, routed)           0.000     4.423    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1_n_0
-    SLICE_X8Y16          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     4.956 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     4.956    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
-    SLICE_X8Y17          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.073 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.073    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
-    SLICE_X8Y18          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.190 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.190    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
-    SLICE_X8Y19          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.307 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.307    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
-    SLICE_X8Y20          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.315     5.622 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[3]
-                         net (fo=1, routed)           0.000     5.622    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[19]
-    SLICE_X8Y20          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/D
+    SLICE_X12Y28         FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+    SLICE_X12Y28         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
+                         net (fo=16, routed)          2.441     2.959    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
+    SLICE_X1Y17          LUT3 (Prop_lut3_I0_O)        0.124     3.083 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst_i_1__21/O
+                         net (fo=42, routed)          1.725     4.808    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/ADD
+    SLICE_X2Y11          LUT2 (Prop_lut2_I0_O)        0.124     4.932 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[3].carrymux_i_1/O
+                         net (fo=1, routed)           0.000     4.932    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[3].carrymux_i_1_n_0
+    SLICE_X2Y11          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376     5.308 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.308    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
+    SLICE_X2Y12          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.425 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.425    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
+    SLICE_X2Y13          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.542 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.542    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
+    SLICE_X2Y14          CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.659 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.659    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
+    SLICE_X2Y15          CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315     5.974 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[3]
+                         net (fo=1, routed)           0.000     5.974    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[19]
+    SLICE_X2Y15          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[19]/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[14]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.616ns  (logic 1.860ns (33.120%)  route 3.756ns (66.880%))
-  Logic Levels:           7  (CARRY4=4 FDRE=1 LUT2=1 LUT4=1)
+  Data Path Delay:        5.968ns  (logic 1.856ns (31.100%)  route 4.112ns (68.900%))
+  Logic Levels:           7  (CARRY4=4 FDRE=1 LUT3=2)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y32          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
-    SLICE_X0Y32          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/Q
-                         net (fo=54, routed)          2.634     3.152    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/x_plus_y_ext[20]
-    SLICE_X0Y21          LUT4 (Prop_lut4_I3_O)        0.146     3.298 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/inst_i_13__0/O
-                         net (fo=1, routed)           1.122     4.420    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/B[3]
-    SLICE_X5Y25          LUT2 (Prop_lut2_I1_O)        0.328     4.748 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1/O
-                         net (fo=1, routed)           0.000     4.748    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1_n_0
-    SLICE_X5Y25          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401     5.149 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.149    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
-    SLICE_X5Y26          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.263 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.263    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
-    SLICE_X5Y27          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.377 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.377    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
-    SLICE_X5Y28          CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239     5.616 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[2]
-                         net (fo=1, routed)           0.000     5.616    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[18]
-    SLICE_X5Y28          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[19]/D
+    SLICE_X12Y28         FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+    SLICE_X12Y28         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
+                         net (fo=16, routed)          2.441     2.959    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
+    SLICE_X1Y17          LUT3 (Prop_lut3_I0_O)        0.124     3.083 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst_i_1__21/O
+                         net (fo=42, routed)          1.671     4.754    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/CI
+    SLICE_X12Y19         LUT3 (Prop_lut3_I1_O)        0.124     4.878 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1/O
+                         net (fo=1, routed)           0.000     4.878    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1_n_0
+    SLICE_X12Y19         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     5.411 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.411    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
+    SLICE_X12Y20         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.528 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.528    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
+    SLICE_X12Y21         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.645 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.645    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
+    SLICE_X12Y22         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     5.968 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/O[1]
+                         net (fo=1, routed)           0.000     5.968    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[0]
+    SLICE_X12Y22         FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[14]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[17]/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[16]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.600ns  (logic 1.844ns (32.929%)  route 3.756ns (67.071%))
-  Logic Levels:           7  (CARRY4=4 FDRE=1 LUT2=1 LUT4=1)
+  Data Path Delay:        5.960ns  (logic 1.848ns (31.007%)  route 4.112ns (68.993%))
+  Logic Levels:           7  (CARRY4=4 FDRE=1 LUT3=2)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y32          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
-    SLICE_X0Y32          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/Q
-                         net (fo=54, routed)          2.634     3.152    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/x_plus_y_ext[20]
-    SLICE_X0Y21          LUT4 (Prop_lut4_I3_O)        0.146     3.298 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/inst_i_13__0/O
-                         net (fo=1, routed)           1.122     4.420    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/B[3]
-    SLICE_X5Y25          LUT2 (Prop_lut2_I1_O)        0.328     4.748 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1/O
-                         net (fo=1, routed)           0.000     4.748    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1_n_0
-    SLICE_X5Y25          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401     5.149 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.149    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
-    SLICE_X5Y26          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.263 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.263    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
-    SLICE_X5Y27          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.377 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.377    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
-    SLICE_X5Y28          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.223     5.600 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[0]
-                         net (fo=1, routed)           0.000     5.600    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[16]
-    SLICE_X5Y28          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[17]/D
+    SLICE_X12Y28         FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+    SLICE_X12Y28         FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
+                         net (fo=16, routed)          2.441     2.959    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
+    SLICE_X1Y17          LUT3 (Prop_lut3_I0_O)        0.124     3.083 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst_i_1__21/O
+                         net (fo=42, routed)          1.671     4.754    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/CI
+    SLICE_X12Y19         LUT3 (Prop_lut3_I1_O)        0.124     4.878 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1/O
+                         net (fo=1, routed)           0.000     4.878    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1_n_0
+    SLICE_X12Y19         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     5.411 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.411    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
+    SLICE_X12Y20         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.528 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.528    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
+    SLICE_X12Y21         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     5.645 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.645    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
+    SLICE_X12Y22         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315     5.960 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/O[3]
+                         net (fo=1, routed)           0.000     5.960    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[2]
+    SLICE_X12Y22         FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[16]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[14]/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.597ns  (logic 1.841ns (32.893%)  route 3.756ns (67.107%))
-  Logic Levels:           6  (CARRY4=3 FDRE=1 LUT2=1 LUT4=1)
+  Data Path Delay:        5.931ns  (logic 1.650ns (27.818%)  route 4.281ns (72.182%))
+  Logic Levels:           5  (CARRY4=2 FDRE=1 LUT3=2)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y32          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
-    SLICE_X0Y32          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/Q
-                         net (fo=54, routed)          2.634     3.152    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/x_plus_y_ext[20]
-    SLICE_X0Y21          LUT4 (Prop_lut4_I3_O)        0.146     3.298 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/inst_i_13__0/O
-                         net (fo=1, routed)           1.122     4.420    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/B[3]
-    SLICE_X5Y25          LUT2 (Prop_lut2_I1_O)        0.328     4.748 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1/O
-                         net (fo=1, routed)           0.000     4.748    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1_n_0
-    SLICE_X5Y25          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401     5.149 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.149    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
-    SLICE_X5Y26          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.263 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.263    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
-    SLICE_X5Y27          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     5.597 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/O[1]
-                         net (fo=1, routed)           0.000     5.597    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[13]
-    SLICE_X5Y27          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[14]/D
+    SLICE_X12Y28         FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+    SLICE_X12Y28         FDRE (Prop_fdre_C_Q)         0.518     0.518 f  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
+                         net (fo=16, routed)          2.442     2.960    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/phase_slice/phase_plus_atan/i_simple_model.carrymux0[0]
+    SLICE_X1Y17          LUT3 (Prop_lut3_I2_O)        0.124     3.084 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/phase_slice/phase_plus_atan/inst_i_1__20/O
+                         net (fo=21, routed)          1.840     4.923    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/CI
+    SLICE_X13Y26         LUT3 (Prop_lut3_I1_O)        0.124     5.047 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[13].carrymux_i_1/O
+                         net (fo=1, routed)           0.000     5.047    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[13].carrymux_i_1_n_0
+    SLICE_X13Y26         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     5.597 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.597    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
+    SLICE_X13Y27         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     5.931 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[1]
+                         net (fo=1, routed)           0.000     5.931    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[17]
+    SLICE_X13Y27         FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[16]/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.576ns  (logic 1.820ns (32.640%)  route 3.756ns (67.360%))
-  Logic Levels:           6  (CARRY4=3 FDRE=1 LUT2=1 LUT4=1)
+  Data Path Delay:        5.910ns  (logic 1.629ns (27.561%)  route 4.281ns (72.439%))
+  Logic Levels:           5  (CARRY4=2 FDRE=1 LUT3=2)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y32          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/C
-    SLICE_X0Y32          FDRE (Prop_fdre_C_Q)         0.518     0.518 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[21]/Q
-                         net (fo=54, routed)          2.634     3.152    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/x_plus_y_ext[20]
-    SLICE_X0Y21          LUT4 (Prop_lut4_I3_O)        0.146     3.298 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/inst_i_13__0/O
-                         net (fo=1, routed)           1.122     4.420    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/B[3]
-    SLICE_X5Y25          LUT2 (Prop_lut2_I1_O)        0.328     4.748 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1/O
-                         net (fo=1, routed)           0.000     4.748    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[7].carrymux_i_1_n_0
-    SLICE_X5Y25          CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.401     5.149 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.149    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
-    SLICE_X5Y26          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114     5.263 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.263    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
-    SLICE_X5Y27          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.313     5.576 r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/O[3]
-                         net (fo=1, routed)           0.000     5.576    cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[15]
-    SLICE_X5Y27          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[16]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[19]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.546ns  (logic 1.827ns (32.944%)  route 3.719ns (67.056%))
-  Logic Levels:           8  (CARRY4=5 FDRE=1 LUT2=1 LUT3=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X7Y30          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
-    SLICE_X7Y30          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
-                         net (fo=12, routed)          1.617     2.073    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
-    SLICE_X9Y26          LUT3 (Prop_lut3_I0_O)        0.124     2.197 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst_i_1__13/O
-                         net (fo=42, routed)          2.102     4.299    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/ADD
-    SLICE_X8Y16          LUT2 (Prop_lut2_I0_O)        0.124     4.423 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1/O
-                         net (fo=1, routed)           0.000     4.423    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1_n_0
-    SLICE_X8Y16          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     4.956 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     4.956    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
-    SLICE_X8Y17          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.073 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.073    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
-    SLICE_X8Y18          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.190 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.190    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
-    SLICE_X8Y19          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.307 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.307    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
-    SLICE_X8Y20          CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.239     5.546 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[2]
-                         net (fo=1, routed)           0.000     5.546    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[18]
-    SLICE_X8Y20          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[19]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[17]/D
-  Path Group:             (none)
-  Path Type:              Max at Slow Process Corner
-  Data Path Delay:        5.526ns  (logic 1.807ns (32.702%)  route 3.719ns (67.298%))
-  Logic Levels:           8  (CARRY4=5 FDRE=1 LUT2=1 LUT3=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X7Y30          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
-    SLICE_X7Y30          FDRE (Prop_fdre_C_Q)         0.456     0.456 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
-                         net (fo=12, routed)          1.617     2.073    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/i_no_async_controls.output_reg[20][19]
-    SLICE_X9Y26          LUT3 (Prop_lut3_I0_O)        0.124     2.197 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/data_slice/y_plus_x_shift/inst_i_1__13/O
-                         net (fo=42, routed)          2.102     4.299    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/ADD
-    SLICE_X8Y16          LUT2 (Prop_lut2_I0_O)        0.124     4.423 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1/O
-                         net (fo=1, routed)           0.000     4.423    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[1].carrymux_i_1_n_0
-    SLICE_X8Y16          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     4.956 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.carrymux0_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     4.956    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_3
-    SLICE_X8Y17          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.073 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[4].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.073    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_7
-    SLICE_X8Y18          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.190 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[8].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.190    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_11
-    SLICE_X8Y19          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.307 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
-                         net (fo=1, routed)           0.000     5.307    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
-    SLICE_X8Y20          CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.219     5.526 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[0]
-                         net (fo=1, routed)           0.000     5.526    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[16]
-    SLICE_X8Y20          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[17]/D
+    SLICE_X12Y28         FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/C
+    SLICE_X12Y28         FDRE (Prop_fdre_C_Q)         0.518     0.518 f  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/Q
+                         net (fo=16, routed)          2.442     2.960    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/phase_slice/phase_plus_atan/i_simple_model.carrymux0[0]
+    SLICE_X1Y17          LUT3 (Prop_lut3_I2_O)        0.124     3.084 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[10].eng/phase_slice/phase_plus_atan/inst_i_1__20/O
+                         net (fo=21, routed)          1.840     4.923    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/CI
+    SLICE_X13Y26         LUT3 (Prop_lut3_I1_O)        0.124     5.047 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[13].carrymux_i_1/O
+                         net (fo=1, routed)           0.000     5.047    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[13].carrymux_i_1_n_0
+    SLICE_X13Y26         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     5.597 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[12].carrymux_CARRY4/CO[3]
+                         net (fo=1, routed)           0.000     5.597    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/carry_simple_15
+    SLICE_X13Y27         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     5.910 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_simple_model.i_gt_1.carrychaingen[16].carrymux_CARRY4/O[3]
+                         net (fo=1, routed)           0.000     5.910    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/D[19]
+    SLICE_X13Y27         FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[11].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[20]/D
   -------------------------------------------------------------------    -------------------
 
 
@@ -559,37 +559,20 @@ Slack:                    inf
 Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[4]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.220ns  (logic 0.164ns (74.580%)  route 0.056ns (25.420%))
-  Logic Levels:           1  (FDRE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X2Y14          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C
-    SLICE_X2Y14          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/Q
-                         net (fo=1, routed)           0.056     0.220    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/phase_out[4]
-    SLICE_X2Y14          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[4]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
   Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C
                             (rising edge-triggered cell FDRE)
   Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[5]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.220ns  (logic 0.164ns (74.580%)  route 0.056ns (25.420%))
+  Data Path Delay:        0.279ns  (logic 0.164ns (58.746%)  route 0.115ns (41.254%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X2Y14          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C
-    SLICE_X2Y14          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/Q
-                         net (fo=1, routed)           0.056     0.220    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/phase_out[5]
-    SLICE_X2Y14          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[5]/D
+    SLICE_X4Y14          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C
+    SLICE_X4Y14          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/Q
+                         net (fo=1, routed)           0.115     0.279    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/phase_out[5]
+    SLICE_X2Y13          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[5]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -598,32 +581,83 @@ Slack:                    inf
   Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[6]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.220ns  (logic 0.164ns (74.580%)  route 0.056ns (25.420%))
+  Data Path Delay:        0.279ns  (logic 0.164ns (58.746%)  route 0.115ns (41.254%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X2Y14          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C
-    SLICE_X2Y14          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/Q
-                         net (fo=1, routed)           0.056     0.220    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/phase_out[6]
-    SLICE_X2Y14          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[6]/D
+    SLICE_X4Y14          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C
+    SLICE_X4Y14          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/Q
+                         net (fo=1, routed)           0.115     0.279    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/phase_out[6]
+    SLICE_X2Y13          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[6]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[8].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[5]/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[9].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.251ns  (logic 0.141ns (56.174%)  route 0.110ns (43.826%))
+  Data Path Delay:        0.280ns  (logic 0.148ns (52.947%)  route 0.132ns (47.053%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y15          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C
-    SLICE_X1Y15          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/Q
-                         net (fo=1, routed)           0.110     0.251    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/S[5]
-    SLICE_X0Y14          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[5]/D
+    SLICE_X8Y22          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[8].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C
+    SLICE_X8Y22          FDRE (Prop_fdre_C_Q)         0.148     0.148 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[8].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/Q
+                         net (fo=3, routed)           0.132     0.280    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[9].eng/cntrl/engine_mode_dly/add_nsub_vect[9]_33[0]
+    SLICE_X8Y21          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[9].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.283ns  (logic 0.148ns (52.311%)  route 0.135ns (47.689%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X4Y27          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C
+    SLICE_X4Y27          FDRE (Prop_fdre_C_Q)         0.148     0.148 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/Q
+                         net (fo=3, routed)           0.135     0.283    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/cntrl/engine_mode_dly/add_nsub_vect[5]_17[0]
+    SLICE_X4Y27          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.284ns  (logic 0.148ns (52.132%)  route 0.136ns (47.868%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X4Y27          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C
+    SLICE_X4Y27          FDRE (Prop_fdre_C_Q)         0.148     0.148 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/Q
+                         net (fo=3, routed)           0.136     0.284    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/cntrl/engine_mode_dly/add_nsub_vect[6]_21[0]
+    SLICE_X4Y27          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[6].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[8].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.284ns  (logic 0.148ns (52.132%)  route 0.136ns (47.868%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X8Y22          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C
+    SLICE_X8Y22          FDRE (Prop_fdre_C_Q)         0.148     0.148 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[7].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/Q
+                         net (fo=3, routed)           0.136     0.284    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[8].eng/cntrl/engine_mode_dly/add_nsub_vect[8]_29[0]
+    SLICE_X8Y22          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[8].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
@@ -632,100 +666,66 @@ Slack:                    inf
   Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[3]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.253ns  (logic 0.141ns (55.730%)  route 0.112ns (44.270%))
+  Data Path Delay:        0.298ns  (logic 0.164ns (55.002%)  route 0.134ns (44.998%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y14          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C
-    SLICE_X1Y14          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/Q
-                         net (fo=1, routed)           0.112     0.253    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/S[3]
-    SLICE_X0Y14          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[3]/D
+    SLICE_X0Y12          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C
+    SLICE_X0Y12          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/Q
+                         net (fo=1, routed)           0.134     0.298    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/S[3]
+    SLICE_X0Y11          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[6]/CE
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.263ns  (logic 0.128ns (48.625%)  route 0.135ns (51.375%))
+  Data Path Delay:        0.301ns  (logic 0.148ns (49.237%)  route 0.153ns (50.763%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y24          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C
-    SLICE_X1Y24          FDRE (Prop_fdre_C_Q)         0.128     0.128 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/Q
-                         net (fo=3, routed)           0.135     0.263    cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/cntrl/engine_mode_dly/add_nsub_vect[1]_2[0]
-    SLICE_X1Y24          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/D
+    SLICE_X0Y9           FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1]/C
+    SLICE_X0Y9           FDRE (Prop_fdre_C_Q)         0.148     0.148 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1]/Q
+                         net (fo=16, routed)          0.153     0.301    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/rdy_cr
+    SLICE_X0Y10          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[6]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[0]/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[7]/CE
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.263ns  (logic 0.164ns (62.300%)  route 0.099ns (37.700%))
+  Data Path Delay:        0.301ns  (logic 0.148ns (49.237%)  route 0.153ns (50.763%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X2Y13          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C
-    SLICE_X2Y13          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/Q
-                         net (fo=1, routed)           0.099     0.263    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/phase_out[0]
-    SLICE_X1Y14          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[0]/D
+    SLICE_X0Y9           FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1]/C
+    SLICE_X0Y9           FDRE (Prop_fdre_C_Q)         0.148     0.148 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1]/Q
+                         net (fo=16, routed)          0.153     0.301    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/rdy_cr
+    SLICE_X0Y10          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[7]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[13]/C
+  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1]/C
                             (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[12]/D
+  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[8]/CE
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.265ns  (logic 0.164ns (61.886%)  route 0.101ns (38.114%))
+  Data Path Delay:        0.301ns  (logic 0.148ns (49.237%)  route 0.153ns (50.763%))
   Logic Levels:           1  (FDRE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X2Y16          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[13]/C
-    SLICE_X2Y16          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[13]/Q
-                         net (fo=1, routed)           0.101     0.265    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/phase_out[12]
-    SLICE_X0Y16          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[12]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[15]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[14]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.265ns  (logic 0.164ns (61.886%)  route 0.101ns (38.114%))
-  Logic Levels:           1  (FDRE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X2Y16          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[15]/C
-    SLICE_X2Y16          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[15]/Q
-                         net (fo=1, routed)           0.101     0.265    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/phase_out[14]
-    SLICE_X0Y16          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[14]/D
-  -------------------------------------------------------------------    -------------------
-
-Slack:                    inf
-  Source:                 cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[17]/D
-  Path Group:             (none)
-  Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.265ns  (logic 0.164ns (61.886%)  route 0.101ns (38.114%))
-  Logic Levels:           1  (FDRE=1)
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-    SLICE_X2Y17          FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/C
-    SLICE_X2Y17          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[13].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[18]/Q
-                         net (fo=1, routed)           0.101     0.265    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/phase_out[17]
-    SLICE_X1Y17          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[17]/D
+    SLICE_X0Y9           FDRE                         0.000     0.000 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1]/C
+    SLICE_X0Y9           FDRE (Prop_fdre_C_Q)         0.148     0.148 r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/gen_rtl.gen_dly.gen_shiftreg.delay_bus_reg[1]/Q
+                         net (fo=16, routed)          0.153     0.301    cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/rdy_cr
+    SLICE_X0Y10          FDRE                                         r  cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[8]/CE
   -------------------------------------------------------------------    -------------------
 
 

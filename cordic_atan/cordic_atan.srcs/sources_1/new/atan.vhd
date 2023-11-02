@@ -5,11 +5,9 @@ entity atan is
     port(
         enable       : in     std_logic;
         clk          : in     std_logic;
-        --xy_tvalid    : in    std_logic;
         x_value      : in     std_logic_vector(15 downto 0);
         y_value      : in     std_logic_vector(15 downto 0);
         angle        : out    std_logic_vector(15 downto 0)
-        --angle_tvalid : out     std_logic
     );
 end atan;
 

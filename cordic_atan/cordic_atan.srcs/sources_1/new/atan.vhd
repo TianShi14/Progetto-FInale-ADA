@@ -62,6 +62,7 @@ begin
                 xy_tvalid <= '1';
         end case;
     end process exits; 
+    
 cordic: entity work.cordic_0
         port map(
             aclk                                 => clk,
@@ -70,7 +71,7 @@ cordic: entity work.cordic_0
             s_axis_cartesian_tvalid              => xy_tvalid,
             m_axis_dout_tdata                    => buffer_angle,
             m_axis_dout_tvalid                   => angle_tvalid,
-            arestn                               => reset
+            aresetn                              => reset
         );
 
 end behavioral;

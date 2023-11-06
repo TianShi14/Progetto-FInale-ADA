@@ -59,10 +59,11 @@ USE cordic_v6_0_18.cordic_v6_0_18;
 ENTITY cordic_0 IS
   PORT (
     aclk : IN STD_LOGIC;
+    aresetn : IN STD_LOGIC;
     s_axis_cartesian_tvalid : IN STD_LOGIC;
-    s_axis_cartesian_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    s_axis_cartesian_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
     m_axis_dout_tvalid : OUT STD_LOGIC;
-    m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+    m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
 END cordic_0;
 
@@ -110,28 +111,30 @@ ARCHITECTURE cordic_0_arch OF cordic_0 IS
       s_axis_phase_tready : OUT STD_LOGIC;
       s_axis_phase_tuser : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       s_axis_phase_tlast : IN STD_LOGIC;
-      s_axis_phase_tdata : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+      s_axis_phase_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       s_axis_cartesian_tvalid : IN STD_LOGIC;
       s_axis_cartesian_tready : OUT STD_LOGIC;
       s_axis_cartesian_tuser : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       s_axis_cartesian_tlast : IN STD_LOGIC;
-      s_axis_cartesian_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      s_axis_cartesian_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
       m_axis_dout_tvalid : OUT STD_LOGIC;
       m_axis_dout_tready : IN STD_LOGIC;
       m_axis_dout_tuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       m_axis_dout_tlast : OUT STD_LOGIC;
-      m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+      m_axis_dout_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
   END COMPONENT cordic_v6_0_18;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF aclk: SIGNAL IS "XIL_INTERFACENAME aclk_intf, ASSOCIATED_BUSIF M_AXIS_DOUT:S_AXIS_PHASE:S_AXIS_CARTESIAN, ASSOCIATED_RESET aresetn, ASSOCIATED_CLKEN aclken, FREQ_HZ 1000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 aclk_intf CLK";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF aresetn: SIGNAL IS "XIL_INTERFACENAME aresetn_intf, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_INFO OF aresetn: SIGNAL IS "xilinx.com:signal:reset:1.0 aresetn_intf RST";
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_dout_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_DOUT TDATA";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF m_axis_dout_tvalid: SIGNAL IS "XIL_INTERFACENAME M_AXIS_DOUT, TDATA_NUM_BYTES 1, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF m_axis_dout_tvalid: SIGNAL IS "XIL_INTERFACENAME M_AXIS_DOUT, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_dout_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_DOUT TVALID";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_cartesian_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_CARTESIAN TDATA";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF s_axis_cartesian_tvalid: SIGNAL IS "XIL_INTERFACENAME S_AXIS_CARTESIAN, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF s_axis_cartesian_tvalid: SIGNAL IS "XIL_INTERFACENAME S_AXIS_CARTESIAN, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_cartesian_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_CARTESIAN TVALID";
 BEGIN
   U0 : cordic_v6_0_18
@@ -145,10 +148,10 @@ BEGIN
       C_HAS_ACLK => 1,
       C_HAS_S_AXIS_CARTESIAN => 1,
       C_HAS_S_AXIS_PHASE => 0,
-      C_HAS_ARESETN => 0,
-      C_INPUT_WIDTH => 8,
+      C_HAS_ARESETN => 1,
+      C_INPUT_WIDTH => 16,
       C_ITERATIONS => 0,
-      C_OUTPUT_WIDTH => 8,
+      C_OUTPUT_WIDTH => 16,
       C_PHASE_FORMAT => 1,
       C_PIPELINE_MODE => -1,
       C_PRECISION => 0,
@@ -158,23 +161,23 @@ BEGIN
       C_TLAST_RESOLUTION => 0,
       C_HAS_S_AXIS_PHASE_TUSER => 0,
       C_HAS_S_AXIS_PHASE_TLAST => 0,
-      C_S_AXIS_PHASE_TDATA_WIDTH => 8,
+      C_S_AXIS_PHASE_TDATA_WIDTH => 16,
       C_S_AXIS_PHASE_TUSER_WIDTH => 1,
       C_HAS_S_AXIS_CARTESIAN_TUSER => 0,
       C_HAS_S_AXIS_CARTESIAN_TLAST => 0,
-      C_S_AXIS_CARTESIAN_TDATA_WIDTH => 16,
+      C_S_AXIS_CARTESIAN_TDATA_WIDTH => 32,
       C_S_AXIS_CARTESIAN_TUSER_WIDTH => 1,
-      C_M_AXIS_DOUT_TDATA_WIDTH => 8,
+      C_M_AXIS_DOUT_TDATA_WIDTH => 16,
       C_M_AXIS_DOUT_TUSER_WIDTH => 1
     )
     PORT MAP (
       aclk => aclk,
       aclken => '1',
-      aresetn => '1',
+      aresetn => aresetn,
       s_axis_phase_tvalid => '0',
       s_axis_phase_tuser => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
       s_axis_phase_tlast => '0',
-      s_axis_phase_tdata => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 8)),
+      s_axis_phase_tdata => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 16)),
       s_axis_cartesian_tvalid => s_axis_cartesian_tvalid,
       s_axis_cartesian_tuser => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 1)),
       s_axis_cartesian_tlast => '0',

@@ -7,6 +7,7 @@ entity atan is
         clk          : in     std_logic;
         x_value      : in     std_logic_vector(15 downto 0);
         y_value      : in     std_logic_vector(15 downto 0);
+        reset        : out    std_logic;
         angle        : out    std_logic_vector(15 downto 0)
     );
 end atan;
@@ -68,7 +69,8 @@ cordic: entity work.cordic_0
             s_axis_cartesian_tdata(15 downto 0)  => y_value,
             s_axis_cartesian_tvalid              => xy_tvalid,
             m_axis_dout_tdata                    => buffer_angle,
-            m_axis_dout_tvalid                   => angle_tvalid
+            m_axis_dout_tvalid                   => angle_tvalid,
+            arestn                               => reset
         );
 
 end behavioral;

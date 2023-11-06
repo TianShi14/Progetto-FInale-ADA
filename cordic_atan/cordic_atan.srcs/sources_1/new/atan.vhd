@@ -20,6 +20,8 @@ signal present_state, next_state : state_type := waits;
 
 signal xy_tvalid : std_logic;
 signal angle_tvalid : std_logic;
+
+signal buffer_angle : std_logic_vector(15 downto 0);
 begin
     --PROCESSO SEQUENZIALE sensibile a clk
     seq: process (clk) is
@@ -41,6 +43,7 @@ begin
                 end if;
             when load =>
                 if angle_tvalid = '1' then
+                    angle <= buffer_angle;
                     next_state <= waits;
                 else
                     next_state <= load;
@@ -64,7 +67,7 @@ cordic: entity work.cordic_0
             s_axis_cartesian_tdata(31 downto 16) => x_value,
             s_axis_cartesian_tdata(15 downto 0)  => y_value,
             s_axis_cartesian_tvalid              => xy_tvalid,
-            m_axis_dout_tdata                    => angle,
+            m_axis_dout_tdata                    => buffer_angle,
             m_axis_dout_tvalid                   => angle_tvalid
         );
 

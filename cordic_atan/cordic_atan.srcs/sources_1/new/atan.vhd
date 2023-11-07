@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 entity atan is
     port(
@@ -8,7 +9,7 @@ entity atan is
         x_value      : in     std_logic_vector(15 downto 0);
         y_value      : in     std_logic_vector(15 downto 0);
         reset        : out    std_logic;
-        angle        : out    std_logic_vector(15 downto 0)
+        thresholds   : out    std_logic_vector(3 downto 0)
     );
 end atan;
 
@@ -19,11 +20,21 @@ type state_type is (waits, load);
 --definizione segnali di stato presente e futuro
 signal present_state, next_state : state_type := waits;
 
-signal xy_tvalid : std_logic;
+signal xy_tvalid    : std_logic;
 signal angle_tvalid : std_logic;
+signal buffer_angle : std_logic_vector(7 downto 0);
 
-signal buffer_angle : std_logic_vector(15 downto 0);
 begin
+    cordic: entity work.cordic_0
+        port map(
+            aclk                                 => clk,
+            s_axis_cartesian_tdata(31 downto 16) => x_value,
+            s_axis_cartesian_tdata(15 downto 0)  => y_value,
+            s_axis_cartesian_tvalid              => xy_tvalid,
+            m_axis_dout_tdata                    => buffer_angle,
+            m_axis_dout_tvalid                   => angle_tvalid,
+            aresetn                              => reset
+        );
     --PROCESSO SEQUENZIALE sensibile a clk
     seq: process (clk) is
     begin
@@ -44,7 +55,20 @@ begin
                 end if;
             when load =>
                 if angle_tvalid = '1' then
-                    angle <= buffer_angle;
+                    thresholds <= (others => '0');
+                    if signed(buffer_angle) >= 0 then
+                        if signed(buffer_angle) <= 16 then
+                            thresholds(0) <= '1';
+                        else
+                            thresholds(1) <= '1';
+                        end if;
+                    else 
+                        if signed(buffer_angle) <= -16 then
+                            thresholds(2) <= '1';
+                        else
+                            thresholds(3) <= '1';
+                        end if;
+                    end if;
                     next_state <= waits;
                 else
                     next_state <= load;
@@ -62,16 +86,5 @@ begin
                 xy_tvalid <= '1';
         end case;
     end process exits; 
-    
-cordic: entity work.cordic_0
-        port map(
-            aclk                                 => clk,
-            s_axis_cartesian_tdata(31 downto 16) => x_value,
-            s_axis_cartesian_tdata(15 downto 0)  => y_value,
-            s_axis_cartesian_tvalid              => xy_tvalid,
-            m_axis_dout_tdata                    => buffer_angle,
-            m_axis_dout_tvalid                   => angle_tvalid,
-            aresetn                              => reset
-        );
 
 end behavioral;

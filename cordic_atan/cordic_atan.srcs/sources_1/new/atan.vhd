@@ -8,7 +8,7 @@ entity atan is
         clk          : in     std_logic;
         x_value      : in     std_logic_vector(15 downto 0);
         y_value      : in     std_logic_vector(15 downto 0);
-        reset        : out    std_logic;
+        reset        : in     std_logic;
         thresholds   : out    std_logic_vector(3 downto 0)
     );
 end atan;
@@ -62,11 +62,11 @@ begin
                         else
                             thresholds(1) <= '1';
                         end if;
-                    else 
+                    else                             thresholds(3) <= '1';
+
                         if signed(buffer_angle) <= -16 then
                             thresholds(2) <= '1';
                         else
-                            thresholds(3) <= '1';
                         end if;
                     end if;
                     next_state <= waits;

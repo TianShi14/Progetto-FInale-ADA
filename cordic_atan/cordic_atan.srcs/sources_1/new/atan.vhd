@@ -38,10 +38,12 @@ begin
     --PROCESSO SEQUENZIALE sensibile a clk
     seq: process (clk) is
     begin
-        if rising_edge(clk) then
+        if reset = '0' then
+            thresholds <= (others => '0');
+        elsif rising_edge(clk) then
             present_state <= next_state;
         end if;
-    end process seq;    
+    end process seq;  
     --PROCESSO DELLO STATO FUTURO sensibile a present_state, enable e angle_tvalid
     fut: process (present_state, enable, angle_tvalid) is
     begin

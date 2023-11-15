@@ -9,7 +9,7 @@ entity atan is
         x_value      : in     std_logic_vector(15 downto 0);
         y_value      : in     std_logic_vector(15 downto 0);
         reset        : in     std_logic;
-        thresholds   : out    std_logic_vector(3 downto 0)
+        angle        : out    std_logic_vector(7 downto 0)
     );
 end atan;
 
@@ -39,7 +39,7 @@ begin
     seq: process (clk) is
     begin
         if reset = '0' then
-            thresholds <= (others => '0');
+            -- fai qualcosa
         elsif rising_edge(clk) then
             present_state <= next_state;
         end if;
@@ -57,19 +57,16 @@ begin
                 end if;
             when load =>
                 if angle_tvalid = '1' then
-                    thresholds <= (others => '0');
-                    if signed(buffer_angle) >= 0 then
-                        if signed(buffer_angle) <= 16 then
-                            thresholds(0) <= '1';
-                        else
-                            thresholds(1) <= '1';
-                        end if;
-                    else                             thresholds(3) <= '1';
-
-                        if signed(buffer_angle) <= -16 then
-                            thresholds(2) <= '1';
-                        else
-                        end if;
+                    if signed(buffer_angle) <= 2 and signed(buffer_angle) >= -2 then
+                        angle <= (others => '0');
+                    elsif signed(buffer_angle) >= 16 then
+                        angle <= std_logic_vector(to_signed(13, angle'length));
+                    elsif signed(buffer_angle) <= -16 then
+                        angle <= std_logic_vector(to_signed(-13, angle'length));
+                    elsif signed(buffer_angle) > 2 then
+                        angle <= std_logic_vector(signed(buffer_angle) - 3);
+                    else
+                        angle <= std_logic_vector(signed(buffer_angle) + 3);
                     end if;
                     next_state <= waits;
                 else

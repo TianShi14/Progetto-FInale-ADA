@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1702153779">
+  <File Type="PA-TCL" Name="randomizer.tcl"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="randomizer_bus_skew_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="randomizer_reports.tcl"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="randomizer_bus_skew_routed.rpx"/>
+  <File Type="INIT-TIMING" Name="randomizer_timing_summary_init.rpt"/>
+  <File Type="OPT-DCP" Name="randomizer_opt.dcp"/>
+  <File Type="OPT-DRC" Name="randomizer_drc_opted.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="randomizer_methodology_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="randomizer.hwdef"/>
+  <File Type="OPT-TIMING" Name="randomizer_timing_summary_opted.rpt"/>
+  <File Type="PWROPT-DCP" Name="randomizer_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="randomizer_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="randomizer_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="randomizer_placed.dcp"/>
+  <File Type="PLACE-IO" Name="randomizer_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="randomizer_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="randomizer_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="randomizer_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="randomizer_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="randomizer_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="randomizer_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="randomizer_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="randomizer_postplace_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="randomizer_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="randomizer_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="randomizer_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-TIMING" Name="randomizer_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="randomizer_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="randomizer_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="randomizer_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="randomizer_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="randomizer_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="randomizer_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="randomizer_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="randomizer_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="randomizer_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="randomizer_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="randomizer_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="randomizer_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="randomizer_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="randomizer_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="randomizer_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="randomizer_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="randomizer_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="randomizer_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="randomizer_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="randomizer_bus_skew_routed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="randomizer_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="randomizer_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="randomizer_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="randomizer_timing_summary_postroute_physopted.pb"/>
+  <File Type="RDI-RDI" Name="randomizer.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="randomizer_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="randomizer_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="randomizer_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="randomizer_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BG-BIT" Name="randomizer.bit"/>
+  <File Type="PDI-FILE" Name="randomizer.pdi"/>
+  <File Type="BG-BIN" Name="randomizer.bin"/>
+  <File Type="NPI_FILE" Name="randomizer.npi"/>
+  <File Type="BITSTR-MSK" Name="randomizer.msk"/>
+  <File Type="RBD_FILE" Name="randomizer.rbd"/>
+  <File Type="BITSTR-RBT" Name="randomizer.rbt"/>
+  <File Type="BITSTR-NKY" Name="randomizer.nky"/>
+  <File Type="BITSTR-BMM" Name="randomizer_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="randomizer.mmi"/>
+  <File Type="RCFI_FILE" Name="randomizer.rcfi"/>
+  <File Type="CFI_FILE" Name="randomizer.cfi"/>
+  <File Type="BG-DRC" Name="randomizer.drc"/>
+  <File Type="RNPI_FILE" Name="randomizer.rnpi"/>
+  <File Type="BG-BGN" Name="randomizer.bgn"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="randomizer.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="randomizer.sysdef"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
+  <File Type="ROUTE-RQS" Name="randomizer_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="randomizer_postroute_physopted.rqs"/>
+  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../game_screen/game_screen.srcs/sources_1/new/randomizer.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/dataStructure.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="randomizer"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

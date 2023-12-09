@@ -9,7 +9,7 @@ entity dataStructure is
         random   : in  std_logic_vector(11 downto 0);
         enable   : out std_logic;
         address  : out std_logic_vector(4 downto 0);
-        data     : out std_logic_vector(30 downto 0);
+        data     : out std_logic_vector(21 downto 0);
         writeEna : out std_logic_vector(0 to 0)
     );
 end dataStructure;
@@ -39,6 +39,24 @@ architecture behavioral of dataStructure is
         end if;
     end function;
     
+    function computeOutput (random: std_logic_vector(11 downto 0)) return std_logic_vector is
+        variable ret: std_logic_vector(20 downto 0);
+    begin
+        ret(20)           := random(11);
+        ret(19 downto 12) := std_logic_vector(to_unsigned(control(random(10 downto 8)) * 48, 8));
+        ret(11 downto 4)  := std_logic_vector(to_unsigned(control(random( 7 downto 5)) * 48, 8));
+        if (random(11) = '1' and ((control(random(10 downto 8)) = 1 and control(random(7 downto 5)) = 3) or (control(random(10 downto 8)) = 3 and control(random(7 downto 5)) = 1))) then
+            if random(0) = '0' then
+                ret(11 downto 4) := std_logic_vector(to_unsigned(0 * 48, 8));
+            else
+                ret(11 downto 4) := std_logic_vector(to_unsigned(4 * 48, 8));
+            end if;
+        end if;
+        ret(3 downto 2)   := random(4 downto 3);
+        ret(1 downto 0)   := random(2 downto 1);
+        return ret;
+    end function;
+    
 --    component blk_mem_gen_0
 --        port (
 --            clka  : in std_logic;
@@ -50,9 +68,10 @@ architecture behavioral of dataStructure is
 --        );
 --    end component;
 
-    type msf is (waitGen, randomize);
-    signal state: msf := waitGen;
-    signal prevRow: integer := 3;
+    type msf is (waitGen, randomize, waitRow);
+    signal state  : msf := waitGen;
+    signal prevRow: integer               := 3;
+    signal currRow: integer range 0 to 19 := 0;
 begin
 
     process(clk)
@@ -64,20 +83,22 @@ begin
                         state <= randomize;
                     end if;
                 when randomize =>
-                    -- fare i controlli
-                    data(30 downto 27) <= random(4 downto 1); --ricorda che per collisioni non servono
-                    data(26)           <= random(11);
-                    data(25 downto 18) <= std_logic_vector(to_unsigned(control(random(10 downto 8)) * 48, 8));
-                    data(17 downto 8)  <= std_logic_vector(to_unsigned((prevRow + row(random(0))) * 48, 8));
-                    prevRow            <= prevRow + row(random(0));
-                    data(7 downto 0)   <= std_logic_vector(to_unsigned(control(random(7 downto 5)) * 48, 8));
-                    -- abbiamo una entità
-                    if random(11) = '0' then 
-                        data(7 downto 0) <= (others => '0');
-                    else 
-                    -- abbiamo 2 entità nella stessa riga
-                          
+                    address  <= std_logic_vector(to_unsigned(currRow, address'length));
+                    writeEna <= "1";
+                    prevRow <= prevRow - 1;
+                    currRow <= currRow + 1;
+                    if prevRow /= 0 then
+                        data <= '1' & computeOutput(random);
+                        prevRow <= row(random(0));
+                    else
+                        data <= (others => '0');
                     end if;
+                    if currRow = 19 then
+                        currRow <= 0;
+                        state <= waitRow;
+                    end if;
+                when others =>
+                    prevRow <= 0;
             end case;
         end if;
     end process;

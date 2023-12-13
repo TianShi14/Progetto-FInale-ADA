@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../generate_frame.srcs/sources_1/new/dataStructure.vhd" \
+"../../../../generate_frame.srcs/sources_1/new/screenDesigner.vhd" \
+"../../../../../game_screen/game_screen.srcs/sources_1/new/randomizer.vhd" \
+"../../../../generate_frame.srcs/sources_1/new/framesMaster.vhd" \
+"../../../../generate_frame.srcs/sim_1/new/testbench.vhd" \
+
+# Do not sort compile order
+nosort

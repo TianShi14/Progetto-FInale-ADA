@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Dec 13 15:00:13 2023
+# Process ID: 43347
+# Current directory: /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/blk_mem_gen_2_synth_1
+# Command line: vivado -log blk_mem_gen_2.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source blk_mem_gen_2.tcl
+# Log file: /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/blk_mem_gen_2_synth_1/blk_mem_gen_2.vds
+# Journal file: /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/blk_mem_gen_2_synth_1/vivado.jou
+# Running On: thisguy, OS: Linux, CPU Frequency: 3347.336 MHz, CPU Physical cores: 4, Host memory: 8077 MB
+#-----------------------------------------------------------
+source blk_mem_gen_2.tcl -notrace

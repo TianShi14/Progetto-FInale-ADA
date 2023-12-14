@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/generate_frame/generate_frame.runs/impl_1'
+HD_PWD='/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -38,6 +38,6 @@ EAStep()
 
 # pre-commands:
 /bin/touch .init_design.begin.rst
-EAStep vivado -log randomizer.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source randomizer.tcl -notrace
+EAStep vivado -log framesMaster.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source framesMaster.tcl -notrace
 
 

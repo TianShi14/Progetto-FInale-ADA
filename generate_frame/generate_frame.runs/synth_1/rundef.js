@@ -27,7 +27,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log randomizer.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source randomizer.tcl" );
+         "-log framesMaster.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source framesMaster.tcl" );
 
 
 

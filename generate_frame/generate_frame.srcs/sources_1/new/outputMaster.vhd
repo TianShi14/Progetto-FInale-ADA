@@ -52,8 +52,6 @@ begin
         variable isStarting: boolean := false;
         variable timeCount : integer := 0;       -- contiamo fino a 3 sec per la transizione
     begin
-        prevClk25 <= clk25;
-        
         case state is
             when game =>
                 clkGame <= clk;
@@ -62,7 +60,7 @@ begin
         end case;
         
         if rising_edge(clk) then
-        
+            prevClk25 <= clk25;
             case state is
                 when start =>
 --                    if active = '1' then
@@ -83,14 +81,19 @@ begin
 --                    if startGame = '1' then
 --                        isStarting := true;
 --                    end if;
-                    state    <= transition;
-                    genFrame <= '1';
+                    r <= (others => '0');
+                    g <= (others => '0');
+                    b <= (others => '0');
+                    if startGame = '1' then
+                        state    <= transition;
+                        genFrame <= '1';
+                    end if;
                 when transition =>
                     genFrame <= '0';
                     r <= (others => '1');
                     g <= (others => '0');
                     b <= (others => '1');
-                    if timeCount < 300_000_000 then
+                    if timeCount < 10 then -- change to 100_000_000
                         timeCount := timeCount + 1;
                     else
                         if endFrame = '1' then  -- aspettare che finisca di disegnare il frame
@@ -101,25 +104,37 @@ begin
                         end if;
                     end if;
                 when game =>
+                    address <= std_logic_vector(to_unsigned(480 * 240 + memCounter, address'length));
                     if active = '1' then
+                        if HCounter = 200 - 1 then                                                           
+                            ena     <= '1';                                                                  
+                        end if;                                                                              
+                        if HCounter > 200 - 1 and HCounter <= 440 - 1 then                                   
+                            ena <= '1';                                                                  
+                            r   <= memGameOut(11 downto 8);                                              
+                            g   <= memGameOut(7  downto 4);                                              
+                            b   <= memGameOut(3  downto 0);                                              
+                        else        
+                            ena <= '0';                                                                         
+                            r   <= "0000";                                                               
+                            g   <= "1111";                                                               
+                            b   <= "0000";                                                               
+                        end if;
                         if prevClk25 = '0' and clk25 = '1' then
                             vgaCount <= vgaCount + 1;                                                            
-                            HCounter <= HCounter + 1;                                                            
-                            if HCounter = 200 - 1 then                                                           
-                                ena     <= '1';                                                                  
-                                address <= std_logic_vector(to_unsigned(480 * 240 + memCounter, address'length));
-                            end if;                                                                              
-                            if HCounter > 200 - 1 and HCounter <= 440 - 1 then                                   
-                                ena     <= '1';                                                                  
-                                address <= std_logic_vector(to_unsigned(480 * 240 + memCounter, address'length));
-                                r       <= memGameOut(11 downto 8);                                              
-                                g       <= memGameOut(7  downto 4);                                              
-                                b       <= memGameOut(3  downto 0);                                              
-                            else                                                                                 
-                                r       <= "0000";                                                               
-                                g       <= "1111";                                                               
-                                b       <= "0000";                                                               
-                            end if;                                                                                 
+                            HCounter <= HCounter + 1; 
+                            if HCounter > 200 - 1 and HCounter <= 440 - 1 then 
+                                if memCounter /= 480 * 240 - 1 then
+                                    memCounter <= memCounter + 1;  
+                                end if;                                                  
+                            elsif HCounter = 640 -1 then
+                                HCounter   <= 0;
+                            end if;       
+                            if vgaCount = 640 * 480 - 1 then
+                                HCounter   <= 0;
+                                vgaCount   <= 0;
+                                memCounter <= 0;
+                            end if;                                                                      
                         end if;
                     end if;
                 when others =>

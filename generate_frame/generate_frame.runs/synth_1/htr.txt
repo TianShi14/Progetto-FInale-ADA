@@ -6,4 +6,4 @@
 # Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 #
 
-vivado -log randomizer.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source randomizer.tcl
+vivado -log framesMaster.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source framesMaster.tcl

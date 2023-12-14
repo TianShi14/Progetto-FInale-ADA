@@ -4,8 +4,13 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity framesMaster is
     port(
-        clk      : in std_logic;
-        genFrame : in std_logic 
+        clk       : in  std_logic;
+        startGame : in  std_logic;
+        hsync     : out std_logic;
+        vsync     : out std_logic;
+        red       : out std_logic_vector(3 downto 0);
+        green     : out std_logic_vector(3 downto 0);
+        blue      : out std_logic_vector(3 downto 0)
     );
 end framesMaster;
 
@@ -31,6 +36,18 @@ architecture behavioral of framesMaster is
     signal addrStruct :  std_logic_vector(4 downto 0);
     signal addrEnt    :  std_logic_vector(13 downto 0);
     signal addrVGA    :  std_logic_vector(17 downto 0);
+    
+    -- segnali per master della VGA e VGA
+    signal clk25mhz   : std_logic;
+    signal active     : std_logic;
+    signal endFrame   : std_logic;
+    signal genFrame   : std_logic;
+    signal clkGame    : std_logic;
+    signal enaGame    : std_logic;
+    signal wenaGame   : std_logic_vector(0 to 0);
+    signal r, g, b    : std_logic_vector(3 downto 0);
+    signal dataGame   : std_logic_vector(11 downto 0);
+    signal addrGame   : std_logic_vector(17 downto 0);
     
     
     signal inutile  :  std_logic_vector(21 downto 0);
@@ -67,6 +84,45 @@ begin
         addrVGA         => addrVGA
     );
     
+    outMaster: entity work.output
+    port map(
+        clk             => clk,
+        clk25           => clk25mhz,
+        startGame       => startGame,
+        active          => active,
+        endFrame        => endFrame,
+        genFrame        => genFrame,
+        r               => r,
+        g               => g,
+        b               => b,
+        clkGame         => clkGame,
+        address         => addrGame,
+        memGameOut      => dataGame,
+        wena            => wenaGame,
+        ena             => enaGame
+    );
+    
+    clk25: entity work.clk25
+    port map(
+        clk             => clk,
+        clk25mhz        => clk25mhz
+    );
+    
+    vga: entity work.vga_driver
+    port map(
+        clk25           => clk25mhz,
+        r               => r,
+        g               => g,
+        b               => b,
+        red             => red,
+        green           => green,
+        blue            => blue,
+        endFrame        => endFrame,
+        hsync           => hsync,
+        vsync           => vsync,
+        active          => active
+    );
+    
     memStruct: entity work.blk_mem_gen_0
     port map(
         clka            => clk,
@@ -99,12 +155,12 @@ begin
         douta           => inutile2,
         ena             => enaVGA,
         wea             => wrVGA,
-        addrb           => (others => '0'),
-        clkb            => clk,
+        addrb           => addrGame,
+        clkb            => clkGame,
         dinb            => inutile2,
-        doutb           => inutile2,
-        enb             => '0',
-        web             => "0"
+        doutb           => dataGame,
+        enb             => enaGame,
+        web             => wenaGame
     );
     
     rand: entity work.randomizer

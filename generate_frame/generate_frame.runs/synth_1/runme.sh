@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/generate_frame/generate_frame.runs/synth_1'
+HD_PWD='/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log randomizer.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source randomizer.tcl
+EAStep vivado -log framesMaster.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source framesMaster.tcl

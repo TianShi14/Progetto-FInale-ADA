@@ -1,0 +1,107 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date         : Thu Dec 14 15:39:59 2023
+| Host         : thisguy running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_control_sets -verbose -file framesMaster_control_sets_placed.rpt
+| Design       : framesMaster
+| Device       : xc7z020
+-----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    29 |
+|    Minimum number of control sets                        |    29 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   103 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    29 |
+| >= 0 to < 4        |     6 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     4 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    12 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              66 |           30 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              43 |           13 |
+| Yes          | No                    | No                     |             178 |           60 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             130 |           39 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------+----------------------------------------+----------------------------------+------------------+----------------+--------------+
+|     Clock Signal     |              Enable Signal             |         Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+----------------------------------------+----------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG       | outMaster/genFrame_i_1_n_0             | outMaster/genFrame0              |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG       | outMaster/memCounter[16]_i_2_n_0       |                                  |                1 |              1 |         1.00 |
+|  clk25mhz_BUFG       | vga/v_rn                               |                                  |                1 |              1 |         1.00 |
+|  clk25/clk50mhz      |                                        |                                  |                1 |              1 |         1.00 |
+|  clk25mhz_BUFG       |                                        |                                  |                2 |              2 |         1.00 |
+|  outMaster/clkb_BUFG |                                        |                                  |                3 |              3 |         1.00 |
+|  clk_IBUF_BUFG       | outMaster/r[3]_i_1_n_0                 | outMaster/g[3]_i_1_n_0           |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG       | sDesigner/addrEnt[12]_i_1_n_0          |                                  |                3 |              4 |         1.33 |
+|  clk_IBUF_BUFG       | sDesigner/addrStruct[4]_i_1_n_0        |                                  |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG       | sDesigner/currRow[4]_i_1_n_0           |                                  |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG       | dStruct/FSM_onehot_state_reg_n_0_[1]   | dStruct/data[11]_i_1_n_0         |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG       | sDesigner/CEB2                         |                                  |                1 |              6 |         6.00 |
+|  outMaster/clkb_BUFG | outMaster/enb                          |                                  |                7 |              7 |         1.00 |
+|  clk_IBUF_BUFG       | outMaster/HCounter_0                   | outMaster/HCounter[6]_i_1_n_0    |                2 |              7 |         3.50 |
+|  clk_IBUF_BUFG       | outMaster/r[3]_i_1_n_0                 | outMaster/genFrame0              |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG       | sDesigner/addrEnt[12]_i_1_n_0          | sDesigner/addrEnt[13]_i_1_n_0    |                4 |             10 |         2.50 |
+|  clk25mhz_BUFG       |                                        | vga/red[3]_i_1_n_0               |                4 |             12 |         3.00 |
+|  clk_IBUF_BUFG       | outMaster/memCounter[16]_i_2_n_0       | outMaster/memCounter[16]_i_1_n_0 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG       | outMaster/FSM_onehot_state_reg_n_0_[2] |                                  |                4 |             18 |         4.50 |
+|  clk_IBUF_BUFG       | outMaster/vgaCount[18]_i_2_n_0         | outMaster/vgaCount[18]_i_1_n_0   |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG       | dStruct/FSM_onehot_state_reg_n_0_[1]   |                                  |                6 |             20 |         3.33 |
+|  clk_IBUF_BUFG       | sDesigner/CEP                          |                                  |                5 |             21 |         4.20 |
+|  clk_IBUF_BUFG       | sDesigner/HCounter                     |                                  |                9 |             22 |         2.44 |
+|  clk_IBUF_BUFG       | dStruct/FSM_onehot_state_reg_n_0_[1]   | dStruct/prevRow[31]_i_1_n_0      |                8 |             30 |         3.75 |
+|  clk25mhz_BUFG       | vga/v_rn                               | vga/v_rn[30]_i_1_n_0             |                8 |             30 |         3.75 |
+|  clk25mhz_BUFG       |                                        | vga/h_rn[30]_i_1_n_0             |                9 |             31 |         3.44 |
+|  clk_IBUF_BUFG       | outMaster/timeCount                    |                                  |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG       | sDesigner/pixelCount                   |                                  |               11 |             36 |         3.27 |
+|  clk_IBUF_BUFG       |                                        |                                  |               24 |             60 |         2.50 |
++----------------------+----------------------------------------+----------------------------------+------------------+----------------+--------------+
+
+

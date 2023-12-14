@@ -11,137 +11,117 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="958.001 ns"></ZoomEndTime>
-      <Cursor1Time time="285.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="53.500001 us"></ZoomEndTime>
+      <Cursor1Time time="39.200000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="190"></ValueColumnWidth>
+      <ValueColumnWidth column_width="184"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="22" />
+   <WVObjectSize size="26" />
    <wvobject type="logic" fp_name="/testbench/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
-      <obj_property name="CustomSignalColor">#808080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/testbench/genFrame">
-      <obj_property name="ElementShortName">genFrame</obj_property>
-      <obj_property name="ObjectShortName">genFrame</obj_property>
-      <obj_property name="CustomSignalColor">#808080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject type="logic" fp_name="/testbench/startGame">
+      <obj_property name="ElementShortName">startGame</obj_property>
+      <obj_property name="ObjectShortName">startGame</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/testbench/master/clk">
+   <wvobject type="logic" fp_name="/testbench/hsync">
+      <obj_property name="ElementShortName">hsync</obj_property>
+      <obj_property name="ObjectShortName">hsync</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/vsync">
+      <obj_property name="ElementShortName">vsync</obj_property>
+      <obj_property name="ObjectShortName">vsync</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/red">
+      <obj_property name="ElementShortName">red[3:0]</obj_property>
+      <obj_property name="ObjectShortName">red[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/green">
+      <obj_property name="ElementShortName">green[3:0]</obj_property>
+      <obj_property name="ObjectShortName">green[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/blue">
+      <obj_property name="ElementShortName">blue[3:0]</obj_property>
+      <obj_property name="ObjectShortName">blue[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/outMaster/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
-      <obj_property name="CustomSignalColor">#808080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/testbench/master/genFrame">
+   <wvobject type="logic" fp_name="/testbench/master/outMaster/clk25">
+      <obj_property name="ElementShortName">clk25</obj_property>
+      <obj_property name="ObjectShortName">clk25</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/outMaster/startGame">
+      <obj_property name="ElementShortName">startGame</obj_property>
+      <obj_property name="ObjectShortName">startGame</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/outMaster/active">
+      <obj_property name="ElementShortName">active</obj_property>
+      <obj_property name="ObjectShortName">active</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/outMaster/endFrame">
+      <obj_property name="ElementShortName">endFrame</obj_property>
+      <obj_property name="ObjectShortName">endFrame</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/outMaster/genFrame">
       <obj_property name="ElementShortName">genFrame</obj_property>
       <obj_property name="ObjectShortName">genFrame</obj_property>
-      <obj_property name="CustomSignalColor">#808080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/random">
-      <obj_property name="ElementShortName">random[11:0]</obj_property>
-      <obj_property name="ObjectShortName">random[11:0]</obj_property>
-      <obj_property name="CustomSignalColor">#808080</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject type="array" fp_name="/testbench/master/outMaster/r">
+      <obj_property name="ElementShortName">r[3:0]</obj_property>
+      <obj_property name="ObjectShortName">r[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/testbench/master/enable">
-      <obj_property name="ElementShortName">enable</obj_property>
-      <obj_property name="ObjectShortName">enable</obj_property>
+   <wvobject type="array" fp_name="/testbench/master/outMaster/g">
+      <obj_property name="ElementShortName">g[3:0]</obj_property>
+      <obj_property name="ObjectShortName">g[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/testbench/master/ena">
+   <wvobject type="array" fp_name="/testbench/master/outMaster/b">
+      <obj_property name="ElementShortName">b[3:0]</obj_property>
+      <obj_property name="ObjectShortName">b[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/outMaster/clkGame">
+      <obj_property name="ElementShortName">clkGame</obj_property>
+      <obj_property name="ObjectShortName">clkGame</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/outMaster/address">
+      <obj_property name="ElementShortName">address[17:0]</obj_property>
+      <obj_property name="ObjectShortName">address[17:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/outMaster/memGameOut">
+      <obj_property name="ElementShortName">memGameOut[11:0]</obj_property>
+      <obj_property name="ObjectShortName">memGameOut[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/outMaster/wena">
+      <obj_property name="ElementShortName">wena[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wena[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/outMaster/ena">
       <obj_property name="ElementShortName">ena</obj_property>
       <obj_property name="ObjectShortName">ena</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/address">
-      <obj_property name="ElementShortName">address[4:0]</obj_property>
-      <obj_property name="ObjectShortName">address[4:0]</obj_property>
+   <wvobject type="other" fp_name="/testbench/master/outMaster/state">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/data">
-      <obj_property name="ElementShortName">data[21:0]</obj_property>
-      <obj_property name="ObjectShortName">data[21:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject type="other" fp_name="/testbench/master/outMaster/vgaCount">
+      <obj_property name="ElementShortName">vgaCount</obj_property>
+      <obj_property name="ObjectShortName">vgaCount</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/writeEna">
-      <obj_property name="ElementShortName">writeEna[0:0]</obj_property>
-      <obj_property name="ObjectShortName">writeEna[0:0]</obj_property>
+   <wvobject type="other" fp_name="/testbench/master/outMaster/memCounter">
+      <obj_property name="ElementShortName">memCounter</obj_property>
+      <obj_property name="ObjectShortName">memCounter</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/dataStruct">
-      <obj_property name="ElementShortName">dataStruct[21:0]</obj_property>
-      <obj_property name="ObjectShortName">dataStruct[21:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject type="other" fp_name="/testbench/master/outMaster/HCounter">
+      <obj_property name="ElementShortName">HCounter</obj_property>
+      <obj_property name="ObjectShortName">HCounter</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/dataEnt">
-      <obj_property name="ElementShortName">dataEnt[11:0]</obj_property>
-      <obj_property name="ObjectShortName">dataEnt[11:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/dataVGA">
-      <obj_property name="ElementShortName">dataVGA[11:0]</obj_property>
-      <obj_property name="ObjectShortName">dataVGA[11:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbench/master/enaStruct">
-      <obj_property name="ElementShortName">enaStruct</obj_property>
-      <obj_property name="ObjectShortName">enaStruct</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbench/master/enaEnt">
-      <obj_property name="ElementShortName">enaEnt</obj_property>
-      <obj_property name="ObjectShortName">enaEnt</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/testbench/master/enaVGA">
-      <obj_property name="ElementShortName">enaVGA</obj_property>
-      <obj_property name="ObjectShortName">enaVGA</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/wrStruct">
-      <obj_property name="ElementShortName">wrStruct[0:0]</obj_property>
-      <obj_property name="ObjectShortName">wrStruct[0:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/wrEnt">
-      <obj_property name="ElementShortName">wrEnt[0:0]</obj_property>
-      <obj_property name="ObjectShortName">wrEnt[0:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/wrVGA">
-      <obj_property name="ElementShortName">wrVGA[0:0]</obj_property>
-      <obj_property name="ObjectShortName">wrVGA[0:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/addrStruct">
-      <obj_property name="ElementShortName">addrStruct[4:0]</obj_property>
-      <obj_property name="ObjectShortName">addrStruct[4:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/addrEnt">
-      <obj_property name="ElementShortName">addrEnt[13:0]</obj_property>
-      <obj_property name="ObjectShortName">addrEnt[13:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/testbench/master/addrVGA">
-      <obj_property name="ElementShortName">addrVGA[17:0]</obj_property>
-      <obj_property name="ObjectShortName">addrVGA[17:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject type="logic" fp_name="/testbench/master/outMaster/prevClk25">
+      <obj_property name="ElementShortName">prevClk25</obj_property>
+      <obj_property name="ObjectShortName">prevClk25</obj_property>
    </wvobject>
 </wave_config>

@@ -22,7 +22,7 @@ entity screenDesigner is
 end screenDesigner;
 
 architecture behavioral of screenDesigner is
-    type fsm is (waitGen, drawAll, drawRow, drawEnt, waitRow);
+    type fsm is (waitGen, drawAll, drawRow, drawEnt, waitRow, flushRow, drawOne);
     signal state: fsm := waitGen;
     
     signal rowCounter  : integer range 0 to 240 * 48 - 1 := 0;
@@ -49,8 +49,8 @@ begin
                 when waitGen =>
                     -- se si riceve il segnale di inizio, disegnare il complesso
                     if draw = '1' then
-                        state     <= drawAll;   
-                        enaStruct <= '1';
+                        state      <= drawAll;   
+                        enaStruct  <= '1';
                         addrStruct <= (others => '0');       
                     end if;
                 when drawAll =>
@@ -75,8 +75,6 @@ begin
                             typeEnt1 <= dataStruct(1 downto 0);
                             typeEnt2 <= dataStruct(3 downto 2);
                             state    <= drawEnt;
-                        else
-                            
                         end if;
                     else
                         enaStruct  <= '1';
@@ -171,6 +169,50 @@ begin
                     end if;  
                 when waitRow =>
                     enaVGA <= '0';
+                    if draw = '1' then
+                        state     <= flushRow;
+                        startAddr <= (19 - currRow) * 48 * 240 - 1;      
+                    end if;
+                when flushRow =>
+                    enaVGA     <= '1';
+                    addrVGA    <= std_logic_vector(to_unsigned(startAddr + rowCounter, addrVGA'length)); 
+                    rowCounter <= rowCounter + 1;
+                    dataVGA    <= "101010101010";
+                    if rowCounter = 240 * 48 - 1 then
+                        rowCounter <= 0;
+                        state      <= drawOne;
+                        enaStruct  <= '1';
+                        addrStruct <= std_logic_vector(to_unsigned(currRow, addrStruct'length));
+                    end if;
+                when drawOne =>
+                    enaVGA    <= '0';
+                    enaStruct <= '0';
+                    if dataStruct(21) = '1' then
+                        state     <= drawRow;
+                        rowData   <= dataStruct;
+                        -- se la posizione x1 è zero allora anticipa 
+                        if dataStruct(19 downto 12) = "00000000" then
+                            enaEnt   <= '1';
+                            addrEnt  <= std_logic_vector(to_unsigned(to_integer(unsigned(dataStruct(3 downto 2))) * 48 * 48, addrEnt'length));
+                            typeEnt1 <= dataStruct(3 downto 2);
+                            typeEnt2 <= dataStruct(1 downto 0);
+                            state    <= drawEnt;
+                        -- se ci sono due entità e la pos x2  è zero allora anticipa
+                        elsif dataStruct(20) = '1' and dataStruct(11 downto 4) = "00000000" then
+                            enaEnt   <= '1';
+                            addrEnt  <= std_logic_vector(to_unsigned(to_integer(unsigned(dataStruct(1 downto 0))) * 48 * 48, addrEnt'length));
+                            typeEnt1 <= dataStruct(1 downto 0);
+                            typeEnt2 <= dataStruct(3 downto 2);
+                            state    <= drawEnt;
+                        end if;
+                    else
+                        if currRow = 20 - 1 then
+                            currRow    <= 0;
+                        else
+                            currRow <= currRow + 1;
+                        end if;
+                        state   <= waitRow;
+                    end if;
             end case;
         end if;
     end process;

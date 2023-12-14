@@ -19,6 +19,7 @@ architecture behavioral of framesMaster is
     signal random     :  std_logic_vector(11 downto 0);
     signal enable     :  std_logic;
     signal ena        :  std_logic;
+    signal newRow     :  std_logic;
     signal address    :  std_logic_vector(4 downto 0);
     signal data       :  std_logic_vector(21 downto 0);
     signal writeEna   :  std_logic_vector(0 to 0);
@@ -38,20 +39,20 @@ architecture behavioral of framesMaster is
     signal addrVGA    :  std_logic_vector(17 downto 0);
     
     -- segnali per master della VGA e VGA
-    signal clk25mhz   : std_logic;
-    signal active     : std_logic;
-    signal endFrame   : std_logic;
-    signal genFrame   : std_logic;
-    signal clkGame    : std_logic;
-    signal enaGame    : std_logic;
-    signal wenaGame   : std_logic_vector(0 to 0);
-    signal r, g, b    : std_logic_vector(3 downto 0);
-    signal dataGame   : std_logic_vector(11 downto 0);
-    signal addrGame   : std_logic_vector(17 downto 0);
+    signal clk25mhz   :  std_logic;
+    signal active     :  std_logic;
+    signal endFrame   :  std_logic;
+    signal genFrame   :  std_logic;
+    signal clkGame    :  std_logic;
+    signal enaGame    :  std_logic;
+    signal wenaGame   :  std_logic_vector(0 to 0);
+    signal r, g, b    :  std_logic_vector(3 downto 0);
+    signal dataGame   :  std_logic_vector(11 downto 0);
+    signal addrGame   :  std_logic_vector(17 downto 0);
     
     
-    signal inutile  :  std_logic_vector(21 downto 0);
-    signal inutile2 :  std_logic_vector(11 downto 0);
+    signal inutile    :  std_logic_vector(21 downto 0);
+    signal inutile2   :  std_logic_vector(11 downto 0);
 begin
     
     dStruct: entity work.dataStructure
@@ -63,6 +64,7 @@ begin
         ena            => ena,
         address        => address,
         data           => data,
+        newRow         => newRow,
         writeEna       => writeEna
     );
     

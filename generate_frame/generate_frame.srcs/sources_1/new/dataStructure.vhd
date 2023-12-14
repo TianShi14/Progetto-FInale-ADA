@@ -6,12 +6,13 @@ entity dataStructure is
     port(
         clk      : in  std_logic;
         genFrame : in  std_logic;
+        newRow   : in  std_logic;
         random   : in  std_logic_vector(11 downto 0);
         enable   : out std_logic;
         ena      : out std_logic;
+        writeEna : out std_logic_vector(0 to 0);
         address  : out std_logic_vector(4 downto 0);
-        data     : out std_logic_vector(21 downto 0);
-        writeEna : out std_logic_vector(0 to 0)
+        data     : out std_logic_vector(21 downto 0)
     );
 end dataStructure;
 
@@ -64,9 +65,9 @@ architecture behavioral of dataStructure is
         return ret;
     end function;
 
-    type msf is (waitGen, randomize, waitRow);
+    type msf is (waitGen, randomizeAll, waitRow, randomizeRow);
     signal state  : msf := waitGen;
-    signal prevRow: integer               := 3;
+    signal prevRow: integer               := 2;
     signal currRow: integer range 0 to 19 := 0;
 begin
 
@@ -76,16 +77,17 @@ begin
             case (state) is
                 when waitGen =>
                     if genFrame = '1' then
-                        state <= randomize;
+                        state <= randomizeAll;
+                        prevRow <= prevRow + row(random(0));
                     end if;
-                when randomize =>
+                when randomizeAll =>
                     address  <= std_logic_vector(to_unsigned(currRow, address'length));
                     writeEna <= "1";
                     ena      <= '1';
-                    prevRow <= prevRow - 1;
-                    currRow <= currRow + 1;
+                    prevRow  <= prevRow - 1;
+                    currRow  <= currRow + 1;
                     if prevRow = 0 then
-                        data <= '1' & computeOutput(random);
+                        data    <= '1' & computeOutput(random);
                         prevRow <= row(random(0));
                     else
                         data <= (others => '0');
@@ -98,6 +100,26 @@ begin
                 when waitRow =>
                     ena    <= '0';
                     enable <= '0';
+                    if newRow = '1' then
+                        state <= randomizeRow;
+                    end if;
+                when randomizeRow =>
+                    address  <= std_logic_vector(to_unsigned(currRow, address'length));
+                    writeEna <= "1";
+                    ena      <= '1';
+                    prevRow  <= prevRow - 1;
+                    currRow  <= currRow + 1;
+                    if prevRow = 0 then
+                        data    <= '1' & computeOutput(random);
+                        prevRow <= row(random(0));
+                    else
+                        data <= (others => '0');
+                    end if;
+                    if currRow = 20 - 1 then
+                        currRow <= 0;
+                    end if;
+                    enable  <= '1';
+                    state   <= waitRow;
             end case;
         end if;
     end process;

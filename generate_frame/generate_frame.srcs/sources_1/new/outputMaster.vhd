@@ -93,7 +93,7 @@ begin
                     r <= (others => '1');
                     g <= (others => '0');
                     b <= (others => '1');
-                    if timeCount < 10 then -- change to 100_000_000
+                    if timeCount < 200_000_000 then
                         timeCount := timeCount + 1;
                     else
                         if endFrame = '1' then  -- aspettare che finisca di disegnare il frame
@@ -116,9 +116,9 @@ begin
                             b   <= memGameOut(3  downto 0);                                              
                         else        
                             ena <= '0';                                                                         
-                            r   <= "0000";                                                               
+                            r   <= "1000";                                                               
                             g   <= "1111";                                                               
-                            b   <= "0000";                                                               
+                            b   <= "0101";                                                               
                         end if;
                         if prevClk25 = '0' and clk25 = '1' then
                             vgaCount <= vgaCount + 1;                                                            

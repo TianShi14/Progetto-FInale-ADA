@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="53.500001 us"></ZoomEndTime>
-      <Cursor1Time time="39.200000 us"></Cursor1Time>
+      <ZoomEndTime time="57.681364 us"></ZoomEndTime>
+      <Cursor1Time time="0.007085 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="404"></NameColumnWidth>
-      <ValueColumnWidth column_width="184"></ValueColumnWidth>
+      <ValueColumnWidth column_width="178"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="26" />
+   <WVObjectSize size="51" />
    <wvobject type="logic" fp_name="/testbench/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -123,5 +123,105 @@
    <wvobject type="logic" fp_name="/testbench/master/outMaster/prevClk25">
       <obj_property name="ElementShortName">prevClk25</obj_property>
       <obj_property name="ObjectShortName">prevClk25</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/sDesigner/draw">
+      <obj_property name="ElementShortName">draw</obj_property>
+      <obj_property name="ObjectShortName">draw</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/sDesigner/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/dataStruct">
+      <obj_property name="ElementShortName">dataStruct[21:0]</obj_property>
+      <obj_property name="ObjectShortName">dataStruct[21:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/dataEnt">
+      <obj_property name="ElementShortName">dataEnt[11:0]</obj_property>
+      <obj_property name="ObjectShortName">dataEnt[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/dataVGA">
+      <obj_property name="ElementShortName">dataVGA[11:0]</obj_property>
+      <obj_property name="ObjectShortName">dataVGA[11:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/sDesigner/enaStruct">
+      <obj_property name="ElementShortName">enaStruct</obj_property>
+      <obj_property name="ObjectShortName">enaStruct</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/sDesigner/enaEnt">
+      <obj_property name="ElementShortName">enaEnt</obj_property>
+      <obj_property name="ObjectShortName">enaEnt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/testbench/master/sDesigner/enaVGA">
+      <obj_property name="ElementShortName">enaVGA</obj_property>
+      <obj_property name="ObjectShortName">enaVGA</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/wrStruct">
+      <obj_property name="ElementShortName">wrStruct[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wrStruct[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/wrEnt">
+      <obj_property name="ElementShortName">wrEnt[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wrEnt[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/wrVGA">
+      <obj_property name="ElementShortName">wrVGA[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wrVGA[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/addrStruct">
+      <obj_property name="ElementShortName">addrStruct[4:0]</obj_property>
+      <obj_property name="ObjectShortName">addrStruct[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/addrEnt">
+      <obj_property name="ElementShortName">addrEnt[13:0]</obj_property>
+      <obj_property name="ObjectShortName">addrEnt[13:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/addrVGA">
+      <obj_property name="ElementShortName">addrVGA[17:0]</obj_property>
+      <obj_property name="ObjectShortName">addrVGA[17:0]</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/testbench/master/sDesigner/state">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/testbench/master/sDesigner/rowCounter">
+      <obj_property name="ElementShortName">rowCounter</obj_property>
+      <obj_property name="ObjectShortName">rowCounter</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/testbench/master/sDesigner/HCounter">
+      <obj_property name="ElementShortName">HCounter</obj_property>
+      <obj_property name="ObjectShortName">HCounter</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/testbench/master/sDesigner/VCounter">
+      <obj_property name="ElementShortName">VCounter</obj_property>
+      <obj_property name="ObjectShortName">VCounter</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/testbench/master/sDesigner/pixelCount">
+      <obj_property name="ElementShortName">pixelCount</obj_property>
+      <obj_property name="ObjectShortName">pixelCount</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/testbench/master/sDesigner/currRow">
+      <obj_property name="ElementShortName">currRow</obj_property>
+      <obj_property name="ObjectShortName">currRow</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/testbench/master/sDesigner/startAddr">
+      <obj_property name="ElementShortName">startAddr</obj_property>
+      <obj_property name="ObjectShortName">startAddr</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/testbench/master/sDesigner/isFirstGen">
+      <obj_property name="ElementShortName">isFirstGen</obj_property>
+      <obj_property name="ObjectShortName">isFirstGen</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/typeEnt1">
+      <obj_property name="ElementShortName">typeEnt1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">typeEnt1[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/typeEnt2">
+      <obj_property name="ElementShortName">typeEnt2[1:0]</obj_property>
+      <obj_property name="ObjectShortName">typeEnt2[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/testbench/master/sDesigner/rowData">
+      <obj_property name="ElementShortName">rowData[21:0]</obj_property>
+      <obj_property name="ObjectShortName">rowData[21:0]</obj_property>
    </wvobject>
 </wave_config>

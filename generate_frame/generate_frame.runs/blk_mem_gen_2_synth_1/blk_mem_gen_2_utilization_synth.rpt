@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Wed Dec 13 15:01:28 2023
+| Date         : Thu Dec 14 11:22:47 2023
 | Host         : thisguy running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_utilization -file blk_mem_gen_2_utilization_synth.rpt -pb blk_mem_gen_2_utilization_synth.pb
 | Design       : blk_mem_gen_2
@@ -34,8 +34,8 @@ Table of Contents
 | Slice LUTs*             |  459 |     0 |          0 |     53200 |  0.86 |
 |   LUT as Logic          |  459 |     0 |          0 |     53200 |  0.86 |
 |   LUT as Memory         |    0 |     0 |          0 |     17400 |  0.00 |
-| Slice Registers         |   28 |     0 |          0 |    106400 |  0.03 |
-|   Register as Flip Flop |   28 |     0 |          0 |    106400 |  0.03 |
+| Slice Registers         |   14 |     0 |          0 |    106400 |  0.01 |
+|   Register as Flip Flop |   14 |     0 |          0 |    106400 |  0.01 |
 |   Register as Latch     |    0 |     0 |          0 |    106400 |  0.00 |
 | F7 Muxes                |  144 |     0 |          0 |     26600 |  0.54 |
 | F8 Muxes                |    0 |     0 |          0 |     13300 |  0.00 |
@@ -59,7 +59,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 28    |          Yes |       Reset |            - |
+| 14    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -154,8 +154,8 @@ Warning! LUT value is adjusted to account for LUT combining.
 | MUXF7    |  144 |               MuxFx |
 | LUT4     |  126 |                 LUT |
 | RAMB36E1 |   77 |        Block Memory |
-| FDRE     |   28 |        Flop & Latch |
 | LUT5     |   26 |                 LUT |
+| FDRE     |   14 |        Flop & Latch |
 | LUT3     |    8 |                 LUT |
 | RAMB18E1 |    3 |        Block Memory |
 | LUT2     |    1 |                 LUT |

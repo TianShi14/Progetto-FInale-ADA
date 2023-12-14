@@ -33,8 +33,7 @@ architecture behavioral of framesMaster is
     signal addrVGA    :  std_logic_vector(17 downto 0);
     
     
-    signal inutile :  std_logic_vector(21 downto 0);
-    
+    signal inutile  :  std_logic_vector(21 downto 0);
     signal inutile2 :  std_logic_vector(11 downto 0);
 begin
     
@@ -105,7 +104,7 @@ begin
         dinb            => inutile2,
         doutb           => inutile2,
         enb             => '0',
-        web             =>  "0"
+        web             => "0"
     );
     
     rand: entity work.randomizer

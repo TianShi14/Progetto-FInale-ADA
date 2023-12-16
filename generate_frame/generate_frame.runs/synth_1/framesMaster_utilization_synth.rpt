@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Thu Dec 14 21:09:02 2023
+| Date         : Sat Dec 16 21:10:37 2023
 | Host         : thisguy running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_utilization -file framesMaster_utilization_synth.rpt -pb framesMaster_utilization_synth.pb
 | Design       : framesMaster
@@ -151,11 +151,11 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | FDRE     |  382 |        Flop & Latch |
 | LUT2     |  114 |                 LUT |
-| LUT4     |   96 |                 LUT |
-| LUT6     |   86 |                 LUT |
-| CARRY4   |   73 |          CarryLogic |
-| LUT5     |   64 |                 LUT |
-| LUT1     |   55 |                 LUT |
+| LUT4     |   94 |                 LUT |
+| LUT6     |   87 |                 LUT |
+| CARRY4   |   74 |          CarryLogic |
+| LUT5     |   63 |                 LUT |
+| LUT1     |   52 |                 LUT |
 | LUT3     |   39 |                 LUT |
 | OBUF     |   14 |                  IO |
 | FDSE     |   14 |        Flop & Latch |

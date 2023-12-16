@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 2
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -89,6 +88,7 @@ set_property ip_output_repo /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+add_files /home/angelonutu/Downloads/file.coe
 read_vhdl -library xil_defaultlib {
   /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/clk25.vhd
   /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/dataStructure.vhd

@@ -144,7 +144,7 @@ output wire [21 : 0] doutb;
     .C_WRITE_DEPTH_B(20),
     .C_READ_DEPTH_B(20),
     .C_ADDRB_WIDTH(5),
-    .C_HAS_MEM_OUTPUT_REGS_A(0),
+    .C_HAS_MEM_OUTPUT_REGS_A(1),
     .C_HAS_MEM_OUTPUT_REGS_B(0),
     .C_HAS_MUX_OUTPUT_REGS_A(0),
     .C_HAS_MUX_OUTPUT_REGS_B(0),

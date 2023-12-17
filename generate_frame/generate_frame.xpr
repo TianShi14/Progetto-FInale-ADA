@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="61" Path="C:/Users/aless/OneDrive/Documenti/GitHub/Progetto-FInale-ADA/generate_frame/generate_frame.xpr">
+<Project Version="7" Minor="61" Path="/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="942d6edee6db415fbb79d76dcc917190"/>
@@ -66,13 +66,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="28"/>
-    <Option Name="WTModelSimExportSim" Val="28"/>
-    <Option Name="WTQuestaExportSim" Val="28"/>
+    <Option Name="WTXSimExportSim" Val="33"/>
+    <Option Name="WTModelSimExportSim" Val="33"/>
+    <Option Name="WTQuestaExportSim" Val="33"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="28"/>
-    <Option Name="WTRivieraExportSim" Val="28"/>
-    <Option Name="WTActivehdlExportSim" Val="28"/>
+    <Option Name="WTVcsExportSim" Val="33"/>
+    <Option Name="WTRivieraExportSim" Val="33"/>
+    <Option Name="WTActivehdlExportSim" Val="33"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -132,7 +132,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../../../Downloads/entities.coe">
+      <File Path="$PPRDIR/../entities.coe">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -252,11 +252,14 @@
     <Simulator Name="Questa">
       <Option Name="Description" Val="Questa Advanced Simulator"/>
     </Simulator>
+    <Simulator Name="Xcelium">
+      <Option Name="Description" Val="Xcelium Parallel Simulator"/>
+    </Simulator>
+    <Simulator Name="VCS">
+      <Option Name="Description" Val="Verilog Compiler Simulator (VCS)"/>
+    </Simulator>
     <Simulator Name="Riviera">
       <Option Name="Description" Val="Riviera-PRO Simulator"/>
-    </Simulator>
-    <Simulator Name="ActiveHDL">
-      <Option Name="Description" Val="Active-HDL Simulator"/>
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="19">

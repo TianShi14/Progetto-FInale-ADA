@@ -16,9 +16,9 @@
     <br />
     <br />
     <h6>
-    <a href="https://github.com/AlessiaRinaldi">Angelo Nutu</a>
+    <a href="https://github.com/TianShi14">Angelo Nutu</a>
     ·
-    <a href="https://github.com/TianShi14">Alessia Rinaldi</a>
+    <a href="https://github.com/AlessiaRinaldi">Alessia Rinaldi</a>
     </h6>
   </p>
 </div>
@@ -87,16 +87,17 @@ The IP component was configured to receive two 16-bit values, representing the x
     - [X] Accelerometer FSM 
 - [X] CORDIC Atan<sub>2</sub>
     - [X] Data conversion
-    - [X] AXI4-S FSM
+    - [X] IP FSM
 - [ ] Data analysis
-  - [ ] Thresholding
-  - [ ] Flagging
+  - [X] Thresholding
+  - [ ] Floating Point IP
 - [ ] GUI Interface
   - [X] VGA Controller
   - [ ] Frame buffers TBD
   - [ ] TBD
 - [ ] Game logic
-  - [ ] TBD
+  - [ ] Collisions
+  - [ ] Refined Movement
 - [ ] Steering Wheel 3D Design TBD 
 
 <p align="right">( <a href="#top">back to top</a> )</p>
@@ -110,15 +111,15 @@ The IP component was configured to receive two 16-bit values, representing the x
 
 <p align="right">(<a href="#top">back to top</a>)</p> Per librerie specifiche e citazioni varie, direi formale e carino da fare ma si vede alla fine -->
 
-## TODO: References and Bibliography
+## References and Bibliography
 
-ZedBoard Hardware User's Guide https://digilent.com/reference/_media/zedboard:zedboard_ug.pdf
+ZedBoard Hardware User's Guide: https://digilent.com/reference/_media/zedboard:zedboard_ug.pdf
 
-ADXL345 Datasheet https://www.analog.com/media/en/technical-documentation/data-sheets/adxl345.pdf
+ADXL345 Datasheet: https://www.analog.com/media/en/technical-documentation/data-sheets/adxl345.pdf
 
-SPI Reference https://www.analog.com/en/analog-dialogue/articles/introduction-to-spi-interface.html
+SPI Reference: https://www.analog.com/en/analog-dialogue/articles/introduction-to-spi-interface.html
 
-CORDIC v6.0 Product Guide (PG105) https://docs.xilinx.com/v/u/en-US/pg105-cordic
+CORDIC v6.0 Product Guide (PG105): https://docs.xilinx.com/v/u/en-US/pg105-cordic
 
-Block Memory Generator v8.4 Product Guide (PG058) https://docs.xilinx.com/v/u/en-US/pg058-blk-mem-gen
+Block Memory Generator v8.4 Product Guide (PG058): https://docs.xilinx.com/v/u/en-US/pg058-blk-mem-gen
 

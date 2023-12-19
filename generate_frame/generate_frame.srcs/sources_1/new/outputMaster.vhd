@@ -52,15 +52,10 @@ begin
         variable isStarting: boolean := false;
         variable timeCount : integer := 0;       -- contiamo fino a 3 sec per la transizione
     begin
-        case state is
-            when game =>
-                clkGame <= clk;
-            when others =>
-                clkGame <= '0';
-        end case;
         
         if rising_edge(clk) then
             prevClk25 <= clk25;
+            clkGame <= clk;
             case state is
                 when start =>
 --                    if active = '1' then

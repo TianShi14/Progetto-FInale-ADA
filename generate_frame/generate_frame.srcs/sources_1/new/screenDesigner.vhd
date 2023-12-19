@@ -167,13 +167,28 @@ begin
                     rowCounter <= rowCounter + 1;
                     HCounter   <= HCounter + 1;
                     if pixelCount = 48 - 1 then
-                        pixelCount <= 0;
+                        pixelCount <= pixelCount; -- needs to be assigned to 0 at some point
                         state      <= drawRow;
                         enaEnt     <= '0';
+--                        if rowData(20) = '1' and to_integer(unsigned(rowData(19 downto 12))) = HCounter + 1 then
+                        
+--                        elsif rowData(20) = '1' and to_integer(unsigned(rowData(11 downto 4))) = HCounter + 1 then
+                        
+--                        end if;
                         if rowData(20) = '1' and (to_integer(unsigned(rowData(19 downto 12))) = HCounter + 1 or to_integer(unsigned(rowData(11 downto 4))) = HCounter + 1) then
-                            typeEnt1 <= typeEnt2;
-                            state    <= drawEnt;
-                            enaEnt   <= '1';
+                            if count < 2 then
+                                count      <= count + 1;
+                                enaEnt     <= '1';
+                                addrEnt    <= std_logic_vector(to_unsigned(to_integer(unsigned(typeEnt2)) * 48 * 48 + count + 48 * VCounter, addrEnt'length));
+                            end if;
+                            if count = 1 then
+                                enaVGA     <= '0';
+                                rowCounter <= rowCounter;
+                                HCounter   <= HCounter;
+                                pixelCount <= 0;
+                                typeEnt1   <= typeEnt2;
+                                state      <= drawEnt;
+                            end if;
                         end if;
                     end if;
                     if HCounter = 240 - 1 then

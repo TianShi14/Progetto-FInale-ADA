@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
--- Date        : Sun Dec 17 21:48:05 2023
+-- Date        : Mon Dec 18 13:46:40 2023
 -- Host        : thisguy running 64-bit Ubuntu 20.04.6 LTS
--- Command     : write_vhdl -force -mode synth_stub
---               /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top blk_mem_gen_2 -prefix
+--               blk_mem_gen_2_ blk_mem_gen_2_stub.vhdl
 -- Design      : blk_mem_gen_2
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1

@@ -16,7 +16,7 @@ begin
     begin
         if rising_edge(clk) then
             lfsr(11 downto 1) <= lfsr(10 downto 0);
-            lfsr(0) <= lfsr(11) xor lfsr(10) xor lfsr(9) xor lfsr(8) xor lfsr(7) xor lfsr(6) xor lfsr(5) xor lfsr(4) xor lfsr(3) xor lfsr(2) xor lfsr(1) xor lfsr(0);
+            lfsr(0) <= lfsr(1) xor lfsr(4) xor lfsr(6) xor lfsr(11);
             random <= lfsr;
         end if;
     end process;

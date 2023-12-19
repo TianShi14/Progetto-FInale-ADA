@@ -32,20 +32,20 @@ architecture behavioral of dataStructure is
         end if;
     end function;
     
-    function control2 (posX: std_logic_vector(2 downto 0)) return std_logic_vector is
-    begin
-        if posX = "000" or posX = "001" then
-            return "00000000";
-        elsif posX = "010" then
-            return "00110000";
-        elsif posX = "011" or posX = "100" then
-            return "01100000";
-        elsif posX = "101" then
-            return "10010000";
-        else
-            return "11000000";
-        end if;
-    end function;
+--    function control2 (posX: std_logic_vector(2 downto 0)) return std_logic_vector is
+--    begin
+--        if posX = "000" or posX = "001" then
+--            return "00000000";
+--        elsif posX = "010" then
+--            return "00110000";
+--        elsif posX = "011" or posX = "100" then
+--            return "01100000";
+--        elsif posX = "101" then
+--            return "10010000";
+--        else
+--            return "11000000";
+--        end if;
+--    end function;
     
     function row (distance: std_logic) return integer is
     begin
@@ -64,10 +64,10 @@ architecture behavioral of dataStructure is
         else
             ret(20) := random(11);   -- salva il numero di entità
         end if;  
-        ret(19 downto 12):= control2(random(10 downto 8)); 
-        ret(11 downto  4):= control2(random(7  downto 5));                                  
-        --ret(19 downto 12) := std_logic_vector(to_unsigned(control(random(10 downto 8)) * 48, 8));       -- salva posX1
-        --ret(11 downto 4)  := std_logic_vector(to_unsigned(control(random( 7 downto 5)) * 48, 8));       -- salva posX2
+--        ret(19 downto 12):= control2(random(10 downto 8)); 
+--        ret(11 downto  4):= control2(random(7  downto 5));                                  
+        ret(19 downto 12) := std_logic_vector(to_unsigned(control(random(10 downto 8)) * 48, 8));       -- salva posX1
+        ret(11 downto 4)  := std_logic_vector(to_unsigned(control(random( 7 downto 5)) * 48, 8));       -- salva posX2
         -- Se vi sono due entità e si trovano in posizione 1 e 3, sposta la seconda entità
         if (random(11) = '1' and ((control(random(10 downto 8)) = 1 and control(random(7 downto 5)) = 3) or (control(random(10 downto 8)) = 3 and control(random(7 downto 5)) = 1))) then
             -- Se l'ultimo bit randomizzato è 0 spostala in posizione 0, sennò in posizione 4

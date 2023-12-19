@@ -30,6 +30,7 @@ architecture behavioral of screenDesigner is
     signal VCounter    : integer range 0 to 48 - 1       := 0;
     signal pixelCount  : integer range 0 to 48 - 1       := 0;
     signal currRow     : integer range 0 to 20 - 1       := 0;
+    signal count       : integer := 0;
     signal startAddr   : integer := 0;
     signal isFirstGen  : boolean := true;
     
@@ -55,7 +56,7 @@ begin
                     end if;
                 when drawAll =>
                     enaVGA <= '0';
-                    if dataStruct(21) = '1' then
+                    if dataStruct(21) = '1' then -- se la riga è valida
                         state     <= drawRow;
                         enaStruct <= '0';
                         
@@ -76,12 +77,12 @@ begin
                             typeEnt2 <= dataStruct(3 downto 2);
                             state    <= drawEnt;
                         end if;
-                    else
+                    else -- se la riga non è valida
                         enaStruct  <= '1';
                         addrStruct <= std_logic_vector(to_unsigned(currRow + 1, addrStruct'length));
                         currRow    <= currRow + 1;
                     end if;
-                    if currRow = 20 - 1 then
+                    if currRow = 20 - 1 then -- se la riga corrente è l'ultima
                         currRow    <= 0;
                         enaStruct  <= '0';
                         isFirstGen <= false;
@@ -91,19 +92,24 @@ begin
                     enaVGA <= '0';
                     rowCounter <= rowCounter + 1;
                     HCounter <= HCounter + 1;
-                    if HCounter = to_integer(unsigned(rowData(19 downto 12))) - 1 then
+                    if HCounter >= to_integer(unsigned(rowData(19 downto 12))) - 2 then
+                        count <= count + 1;
                         typeEnt1 <= rowData(3 downto 2);
                         typeEnt2 <= rowData(1 downto 0);
                         enaEnt   <= '1';
-                        addrEnt  <= std_logic_vector(to_unsigned(to_integer(unsigned(rowData(3 downto 2))) * 48 * 48, addrEnt'length));
-                        state    <= drawEnt;
-                    elsif rowData(20) = '1' and HCounter = to_integer(unsigned(rowData(11 downto 4))) - 1 then
+                        addrEnt  <= std_logic_vector(to_unsigned(to_integer(unsigned(rowData(3 downto 2))) * 48 * 48 + count + VCounter * 48, addrEnt'length));
+                    elsif rowData(20) = '1' and HCounter >= to_integer(unsigned(rowData(11 downto 4))) - 2 then
+                        count <= count + 1;
                         typeEnt1 <= rowData(1 downto 0);
                         typeEnt2 <= rowData(3 downto 2);
                         enaEnt   <= '1';
-                        addrEnt  <= std_logic_vector(to_unsigned(to_integer(unsigned(rowData(1 downto 0))) * 48 * 48, addrEnt'length));
-                        state    <= drawEnt;
+                        addrEnt  <= std_logic_vector(to_unsigned(to_integer(unsigned(rowData(1 downto 0))) * 48 * 48 + count + VCounter * 48, addrEnt'length));
                     end if;
+                    if HCounter = to_integer(unsigned(rowData(19 downto 12))) - 1 then
+                        state    <= drawEnt;
+                    elsif rowData(20) = '1' and HCounter = to_integer(unsigned(rowData(11 downto 4))) - 1 then
+                        state    <= drawEnt;
+                    end if;  
                     if HCounter = 240 - 1 then
                         HCounter <= 0;
                         if VCounter = 48 - 1 then
@@ -126,10 +132,36 @@ begin
                             VCounter <= VCounter + 1;
                         end if;
                     end if;
+                    if HCounter > 240 - 1 - 2  and to_integer(unsigned(rowData(19 downto 12))) = 0 then
+                        count <= count + 1;
+                        typeEnt1 <= rowData(1 downto 0);
+                        typeEnt2 <= rowData(3 downto 2);
+                        enaEnt   <= '1';
+                        addrEnt  <= std_logic_vector(to_unsigned(to_integer(unsigned(rowData(1 downto 0))) * 48 * 48 + count + VCounter * 48, addrEnt'length));
+                        if HCounter = 240 - 1 then
+                            if VCounter /= 48 - 1 then
+                                state <= drawEnt;
+                            end if;
+                        end if;
+                    elsif HCounter > 240 - 1 - 2  and rowData(20) = '1' and to_integer(unsigned(rowData(11 downto 4))) = 0 then
+                        count <= count + 1;
+                        typeEnt1 <= rowData(1 downto 0);
+                        typeEnt2 <= rowData(3 downto 2);
+                        enaEnt   <= '1';
+                        addrEnt  <= std_logic_vector(to_unsigned(to_integer(unsigned(rowData(1 downto 0))) * 48 * 48 + count + VCounter * 48, addrEnt'length));
+                        if HCounter = 240 - 1 then
+                            if VCounter /= 48 - 1 then
+                                state <= drawEnt;
+                            end if;
+                        end if;
+                    end if;
                 when drawEnt =>
+                    count      <= 0;
                     enaVGA     <= '1';
                     addrVGA    <= std_logic_vector(to_unsigned(startAddr + rowCounter, addrVGA'length));
-                    addrEnt    <= std_logic_vector(to_unsigned(to_integer(unsigned(typeEnt1)) * 48 * 48 + pixelCount + 48 * VCounter, addrEnt'length));
+                    if pixelCount <= 45 then
+                        addrEnt    <= std_logic_vector(to_unsigned(to_integer(unsigned(typeEnt1)) * 48 * 48 + pixelCount + 48 * VCounter + 2, addrEnt'length));
+                    end if;
                     dataVGA    <= dataEnt;
                     pixelCount <= pixelCount + 1;
                     rowCounter <= rowCounter + 1;
@@ -167,13 +199,36 @@ begin
                             VCounter <= VCounter + 1;
                         end if;
                     end if;  
-                when waitRow =>
+                    if HCounter > 240 - 1 - 2  and to_integer(unsigned(rowData(19 downto 12))) = 0 then
+                        count <= count + 1;
+                        typeEnt1 <= rowData(1 downto 0);
+                        typeEnt2 <= rowData(3 downto 2);
+                        enaEnt   <= '1';
+                        addrEnt  <= std_logic_vector(to_unsigned(to_integer(unsigned(rowData(1 downto 0))) * 48 * 48 + count + VCounter * 48, addrEnt'length));
+                        if HCounter = 240 - 1 then
+                            if VCounter /= 48 - 1 then
+                                state <= drawEnt;
+                            end if;
+                        end if;
+                    elsif HCounter > 240 - 1 - 2  and rowData(20) = '1' and to_integer(unsigned(rowData(11 downto 4))) = 0 then
+                        count <= count + 1;
+                        typeEnt1 <= rowData(1 downto 0);
+                        typeEnt2 <= rowData(3 downto 2);
+                        enaEnt   <= '1';
+                        addrEnt  <= std_logic_vector(to_unsigned(to_integer(unsigned(rowData(1 downto 0))) * 48 * 48 + count + VCounter * 48, addrEnt'length));
+                        if HCounter = 240 - 1 then
+                            if VCounter /= 48 - 1 then
+                                state <= drawEnt;
+                            end if;
+                        end if;
+                    end if;
+                when waitRow => -- aspetta fine di una riga
                     enaVGA <= '0';
                     if draw = '1' then
                         state     <= flushRow;
                         startAddr <= (19 - currRow) * 48 * 240 - 1;      
                     end if;
-                when flushRow =>
+                when flushRow => -- 
                     enaVGA     <= '1';
                     addrVGA    <= std_logic_vector(to_unsigned(startAddr + rowCounter, addrVGA'length)); 
                     rowCounter <= rowCounter + 1;

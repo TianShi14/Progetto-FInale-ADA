@@ -55,7 +55,7 @@ begin
         
         if rising_edge(clk) then
             prevClk25 <= clk25;
-            clkGame <= clk;
+            
             case state is
                 when start =>
 --                    if active = '1' then
@@ -138,5 +138,6 @@ begin
             
         end if;
     end process;
+    clkGame <= clk;
 
 end behavioral;

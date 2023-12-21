@@ -167,7 +167,7 @@ begin
                     rowCounter <= rowCounter + 1;
                     HCounter   <= HCounter + 1;
                     if pixelCount = 48 - 1 then
-                        pixelCount <= pixelCount; -- needs to be assigned to 0 at some point
+                        pixelCount <= 0; -- needs to be assigned to 0 at some point
                         state      <= drawRow;
                         enaEnt     <= '0';
 --                        if rowData(20) = '1' and to_integer(unsigned(rowData(19 downto 12))) = HCounter + 1 then
@@ -176,6 +176,7 @@ begin
                         
 --                        end if;
                         if rowData(20) = '1' and (to_integer(unsigned(rowData(19 downto 12))) = HCounter + 1 or to_integer(unsigned(rowData(11 downto 4))) = HCounter + 1) then
+                            pixelCount <= pixelCount; 
                             if count < 2 then
                                 count      <= count + 1;
                                 enaEnt     <= '1';

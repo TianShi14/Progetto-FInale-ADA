@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Tue Dec 19 22:22:05 2023
-| Host         : thisguy running 64-bit Ubuntu 20.04.6 LTS
+| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date         : Thu Dec 21 10:41:09 2023
+| Host         : LAPTOP-ESNLEJG4 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file framesMaster_control_sets_placed.rpt
 | Design       : framesMaster
 | Device       : xc7z020
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |    34 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   116 |
+| Unused register locations in slices containing registers |   117 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -58,55 +58,55 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              59 |           28 |
+| No           | No                    | No                     |              58 |           33 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              43 |           14 |
-| Yes          | No                    | No                     |             188 |           72 |
+| No           | Yes                   | No                     |              43 |           11 |
+| Yes          | No                    | No                     |             203 |           75 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             170 |           52 |
+| Yes          | Yes                   | No                     |             155 |           47 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+------------------------------------------+----------------------------------+------------------+----------------+--------------+
-|     Clock Signal     |               Enable Signal              |         Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
-+----------------------+------------------------------------------+----------------------------------+------------------+----------------+--------------+
-|  clk25/clk50mhz      |                                          |                                  |                1 |              1 |         1.00 |
-|  clk25mhz_BUFG       | vga/v_rn                                 |                                  |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG       | outMaster/genFrame_i_1_n_0               | outMaster/genFrame0              |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG       | outMaster/memCounter[16]_i_2_n_0         |                                  |                1 |              1 |         1.00 |
-|  clk25mhz_BUFG       |                                          |                                  |                2 |              2 |         1.00 |
-|  outMaster/clkb_BUFG |                                          |                                  |                3 |              3 |         1.00 |
-|  clk_IBUF_BUFG       | sDesigner/HCounter[3]_i_1_n_0            | sDesigner/HCounter[7]_i_1__0_n_0 |                2 |              4 |         2.00 |
-|  clk_IBUF_BUFG       | outMaster/r[3]_i_1_n_0                   | outMaster/g[3]_i_1_n_0           |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG       | sDesigner/HCounter[3]_i_1_n_0            |                                  |                3 |              4 |         1.33 |
-|  clk_IBUF_BUFG       | sDesigner/pixelCount[5]_i_2_n_0          | sDesigner/pixelCount[5]_i_1_n_0  |                3 |              5 |         1.67 |
-|  clk_IBUF_BUFG       | sDesigner/p_0_in                         |                                  |                3 |              5 |         1.67 |
-|  clk_IBUF_BUFG       | sDesigner/addrStruct[4]_i_1_n_0          |                                  |                3 |              5 |         1.67 |
-|  clk_IBUF_BUFG       | sDesigner/VCounter[5]_i_1_n_0            |                                  |                2 |              6 |         3.00 |
-|  clk_IBUF_BUFG       | dStruct/FSM_sequential_state_reg_n_0_[0] | dStruct/data[11]_i_1_n_0         |                3 |              6 |         2.00 |
-|  clk_IBUF_BUFG       | sDesigner/ena                            |                                  |                1 |              6 |         6.00 |
-|  outMaster/clkb_BUFG | outMaster/enb                            |                                  |                6 |              7 |         1.17 |
-|  clk_IBUF_BUFG       | outMaster/HCounter                       | outMaster/HCounter[6]_i_1_n_0    |                2 |              7 |         3.50 |
-|  clk_IBUF_BUFG       | outMaster/r[3]_i_1_n_0                   | outMaster/genFrame0              |                2 |              8 |         4.00 |
-|  clk25mhz_BUFG       |                                          | vga/red[3]_i_1_n_0               |                5 |             12 |         2.40 |
-|  clk_IBUF_BUFG       | sDesigner/dataVGA[10]_i_2_n_0            | sDesigner/dataVGA[10]_i_1_n_0    |                5 |             12 |         2.40 |
-|  clk_IBUF_BUFG       | sDesigner/addrEnt[13]_i_1_n_0            |                                  |               10 |             14 |         1.40 |
-|  clk_IBUF_BUFG       | sDesigner/rowCounter[13]_i_2_n_0         | sDesigner/rowCounter[13]_i_1_n_0 |                3 |             14 |         4.67 |
-|  clk_IBUF_BUFG       | outMaster/memCounter[16]_i_2_n_0         | outMaster/memCounter[16]_i_1_n_0 |                4 |             16 |         4.00 |
-|  clk_IBUF_BUFG       | outMaster/vgaCount[18]_i_2_n_0           | outMaster/vgaCount[18]_i_1_n_0   |                5 |             18 |         3.60 |
-|  clk_IBUF_BUFG       | outMaster/FSM_onehot_state_reg_n_0_[2]   |                                  |                4 |             18 |         4.50 |
-|  clk_IBUF_BUFG       | sDesigner/dataVGA[10]_i_2_n_0            |                                  |                5 |             18 |         3.60 |
-|  clk_IBUF_BUFG       | dStruct/FSM_sequential_state_reg_n_0_[0] |                                  |                4 |             18 |         4.50 |
-|  clk_IBUF_BUFG       | sDesigner/rowData[20]_i_1_n_0            |                                  |                7 |             21 |         3.00 |
-|  clk25mhz_BUFG       | vga/v_rn                                 | vga/v_rn[30]_i_1_n_0             |                8 |             30 |         3.75 |
-|  clk25mhz_BUFG       |                                          | vga/p_0_in                       |                9 |             31 |         3.44 |
-|  clk_IBUF_BUFG       | outMaster/timeCount                      |                                  |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG       | dStruct/prevRow[31]_i_1_n_0              |                                  |               14 |             32 |         2.29 |
-|  clk_IBUF_BUFG       | sDesigner/CEA2                           | sDesigner/count[30]_i_1_n_0      |               13 |             45 |         3.46 |
-|  clk_IBUF_BUFG       |                                          |                                  |               22 |             53 |         2.41 |
-+----------------------+------------------------------------------+----------------------------------+------------------+----------------+--------------+
++-----------------+------------------------------------------+----------------------------------+------------------+----------------+--------------+
+|   Clock Signal  |               Enable Signal              |         Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------+------------------------------------------+----------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG  | sDesigner/pixelCount[5]_i_2_n_0          |                                  |                1 |              1 |         1.00 |
+|  clk25mhz_BUFG  | vga/v_rn                                 |                                  |                1 |              1 |         1.00 |
+|  clk25/clk50mhz |                                          |                                  |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG  | outMaster/memCounter[16]_i_2_n_0         |                                  |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG  | outMaster/genFrame_i_1_n_0               | outMaster/genFrame0              |                1 |              1 |         1.00 |
+|  clk25mhz_BUFG  |                                          |                                  |                2 |              2 |         1.00 |
+|  clk_IBUF_BUFG  | sDesigner/pixelCount[5]_i_2_n_0          | sDesigner/pixelCount[5]_i_1_n_0  |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG  | sDesigner/HCounter[3]_i_1_n_0            | sDesigner/HCounter[7]_i_1__0_n_0 |                3 |              4 |         1.33 |
+|  clk_IBUF_BUFG  | outMaster/r[3]_i_1_n_0                   | outMaster/g[3]_i_1_n_0           |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG  | sDesigner/HCounter[3]_i_1_n_0            |                                  |                3 |              4 |         1.33 |
+|  clk_IBUF_BUFG  | sDesigner/p_0_in                         |                                  |                1 |              5 |         5.00 |
+|  clk_IBUF_BUFG  | sDesigner/addrStruct[4]_i_1_n_0          |                                  |                1 |              5 |         5.00 |
+|  clk_IBUF_BUFG  | dStruct/FSM_sequential_state_reg_n_0_[0] | dStruct/data[11]_i_1_n_0         |                3 |              6 |         2.00 |
+|  clk_IBUF_BUFG  | sDesigner/ena                            |                                  |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG  | sDesigner/VCounter[5]_i_1_n_0            |                                  |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG  | outMaster/HCounter                       | outMaster/HCounter[6]_i_1_n_0    |                2 |              7 |         3.50 |
+|  clk_IBUF_BUFG  | outMaster/enb                            |                                  |                4 |              7 |         1.75 |
+|  clk_IBUF_BUFG  | outMaster/r[3]_i_1_n_0                   | outMaster/genFrame0              |                1 |              8 |         8.00 |
+|  clk25mhz_BUFG  |                                          | vga/red[3]_i_1_n_0               |                2 |             12 |         6.00 |
+|  clk_IBUF_BUFG  | sDesigner/dataVGA[10]_i_2_n_0            | sDesigner/dataVGA[10]_i_1_n_0    |                5 |             12 |         2.40 |
+|  clk_IBUF_BUFG  | sDesigner/rowCounter[13]_i_1_n_0         |                                  |                5 |             14 |         2.80 |
+|  clk_IBUF_BUFG  | sDesigner/addrEnt[13]_i_1_n_0            |                                  |                7 |             14 |         2.00 |
+|  clk_IBUF_BUFG  | outMaster/memCounter[16]_i_2_n_0         | outMaster/memCounter[16]_i_1_n_0 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG  | dStruct/FSM_sequential_state_reg_n_0_[0] |                                  |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG  | outMaster/FSM_onehot_state_reg_n_0_[2]   |                                  |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG  | sDesigner/dataVGA[10]_i_2_n_0            |                                  |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG  | outMaster/vgaCount[18]_i_2_n_0           | outMaster/vgaCount[18]_i_1_n_0   |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG  | sDesigner/rowData[20]_i_1_n_0            |                                  |                9 |             21 |         2.33 |
+|  clk25mhz_BUFG  | vga/v_rn                                 | vga/v_rn[30]_i_1_n_0             |                8 |             30 |         3.75 |
+|  clk25mhz_BUFG  |                                          | vga/p_0_in                       |                9 |             31 |         3.44 |
+|  clk_IBUF_BUFG  | dStruct/prevRow[31]_i_1_n_0              |                                  |               15 |             32 |         2.13 |
+|  clk_IBUF_BUFG  | outMaster/timeCount                      |                                  |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG  | sDesigner/CEA2                           | sDesigner/count[30]_i_1_n_0      |               12 |             45 |         3.75 |
+|  clk_IBUF_BUFG  |                                          |                                  |               30 |             55 |         1.83 |
++-----------------+------------------------------------------+----------------------------------+------------------+----------------+--------------+
 
 

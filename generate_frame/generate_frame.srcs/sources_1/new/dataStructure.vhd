@@ -91,7 +91,7 @@ begin
     process(clk)
     begin
         if rising_edge(clk) then
-            case (state) is
+            case state is
                 when waitGen =>
                     if genFrame = '1' then
                         state <= randomizeAll;

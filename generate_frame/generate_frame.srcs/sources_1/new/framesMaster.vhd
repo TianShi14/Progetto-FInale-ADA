@@ -54,6 +54,11 @@ architecture behavioral of framesMaster is
     signal inutile    :  std_logic_vector(21 downto 0);
     signal inutile2   :  std_logic_vector(11 downto 0);
 begin
+    rand: entity work.randomizer
+    port map(
+        clk             => clk,
+        random          => random
+    );
     
     dStruct: entity work.dataStructure
     port map(
@@ -68,23 +73,41 @@ begin
         writeEna       => writeEna
     );
     
-    sDesigner: entity work.screenDesigner
+    sDesigner: entity work.newScreen
     port map(
-        clk             => clk,
-        draw            => enable,
-        dataStruct      => dataStruct,
-        dataEnt         => dataEnt,
-        dataVGA         => dataVGA,
-        enaStruct       => enaStruct,
-        enaEnt          => enaEnt,
-        enaVGA          => enaVGA,
-        wrStruct        => wrStruct,
-        wrEnt           => wrEnt,
-        wrVGA           => wrVGA,
-        addrStruct      => addrStruct,
-        addrEnt         => addrEnt,
-        addrVGA         => addrVGA
+        clk            => clk,
+        draw           => enable,
+        sData          => dataStruct,
+        eData          => dataEnt,
+        vData          => dataVGA,
+        sEna           => enaStruct,
+        eEna           => enaEnt,
+        vEna           => enaVGA,
+        sWr            => wrStruct,
+        eWr            => wrEnt,
+        vWr            => wrVGA,
+        sAddr          => addrStruct,
+        eAddr          => addrEnt,
+        vAddr          => addrVGA
     );
+    
+--    sDesigner: entity work.screenDesigner
+--    port map(
+--        clk             => clk,
+--        draw            => enable,
+--        dataStruct      => dataStruct,
+--        dataEnt         => dataEnt,
+--        dataVGA         => dataVGA,
+--        enaStruct       => enaStruct,
+--        enaEnt          => enaEnt,
+--        enaVGA          => enaVGA,
+--        wrStruct        => wrStruct,
+--        wrEnt           => wrEnt,
+--        wrVGA           => wrVGA,
+--        addrStruct      => addrStruct,
+--        addrEnt         => addrEnt,
+--        addrVGA         => addrVGA
+--    );
     
     outMaster: entity work.output
     port map(
@@ -165,9 +188,4 @@ begin
         web             => wenaGame
     );
     
-    rand: entity work.randomizer
-    port map(
-        clk             => clk,
-        random          => random
-    );
 end behavioral;

@@ -1,6 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/outputMaster.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'output'
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/framesMaster.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'framesMaster'
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sim_1/new/testbench.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'testbench'

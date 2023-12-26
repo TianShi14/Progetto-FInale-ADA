@@ -14,11 +14,11 @@ architecture behavioral of testbench is
     signal blue      : std_logic_vector(3 downto 0);
 begin
 
-    startGame <= '1' after 20ps;
+    startGame <= '1' after 50ns;
 
     clk_gen: process
     begin
-        wait for 5ps;
+        wait for 10ns;
         clk <= not clk;
     end process;
 

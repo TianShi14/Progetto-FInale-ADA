@@ -22,7 +22,7 @@ entity newScreen is
 end newScreen;
 
 architecture behavioral of newScreen is
-    type fsm is (waitSignal, prepareData, drawEntity);
+    type fsm is (waitSignal, wasteClk, prepareData, drawEntity);
     
     signal state    : fsm := waitSignal;
     signal row      : natural range 0 to 20 - 1      := 0;
@@ -82,13 +82,15 @@ begin
                     -- se si riceve il segnale d'inizio
                     if draw = '1' then
                         sEna  <= '1';
-                        state <= prepareData;
+                        state <= wasteClk;
                     end if;
                 -- gestisce il disegno di tutte la riga
                 -- in  <- waitSignal: sEna = 1, eEna = 0, vEna = 0
                 -- in  <- drawEntity: sEna = 0, eEna = 0, vEna = 1, row++ (continue = false)
                 -- in  <- drawEntity: sEna = 1, eEna = 0, vEna = 1        (continue = true )
                 -- out -> drawEntity: sEna = 0, eEna = 1, vEna = 0
+                when wasteClk =>
+                    state <= prepareData;
                 when prepareData =>
                     vEna <= '0';
                     if sData(21) = '1' then
@@ -122,6 +124,7 @@ begin
                                 state    <= waitSignal;
                             else
                                 row      <= row + 1;
+                                state    <= wasteClk;
                             end if;
                         else
                             sEna  <= '0';
@@ -164,7 +167,7 @@ begin
                                 end if;
                                 if firstGen then
                                     sEna  <= '1';
-                                    state <= prepareData;
+                                    state <= wasteClk;
                                 else
                                     state <= waitSignal;
                                 end if;

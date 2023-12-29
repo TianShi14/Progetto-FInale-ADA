@@ -13,7 +13,7 @@ view structure
 
 do {blk_mem_gen_2.udo}
 
-run
+run 1000ns
 
 endsim
 

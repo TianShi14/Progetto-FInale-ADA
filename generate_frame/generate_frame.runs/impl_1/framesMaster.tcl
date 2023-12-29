@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/impl_1/framesMaster.tcl"
+  variable script "C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.runs/impl_1/framesMaster.tcl"
   variable category "vivado_impl"
 }
 
@@ -122,28 +122,28 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 2
+  set_param chipscope.maxJobs 4
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7z020clg484-1
-  set_property board_part_repo_paths {/root/.Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store} [current_project]
+  set_property board_part_repo_paths {C:/Users/aless/AppData/Roaming/Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store} [current_project]
   set_property board_part avnet.com:zedboard:part0:1.4 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.cache/wt [current_project]
-  set_property parent.project_path /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.xpr [current_project]
-  set_property ip_output_repo /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.cache/wt [current_project]
+  set_property parent.project_path C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.xpr [current_project]
+  set_property ip_output_repo C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/framesMaster.dcp
-  read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2.xci
-  read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
-  read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3.xci
+  add_files -quiet C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/framesMaster.dcp
+  read_ip -quiet C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2.xci
+  read_ip -quiet C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+  read_ip -quiet C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3.xci
 OPTRACE "read constraints: implementation" START { }
-  read_xdc /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc
+  read_xdc C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

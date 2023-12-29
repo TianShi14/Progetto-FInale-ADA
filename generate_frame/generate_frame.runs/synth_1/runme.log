@@ -2,16 +2,17 @@
 *** Running vivado
     with args -log framesMaster.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source framesMaster.tcl
 
-WARNING: Default location for XILINX_HLS not found
+
 
 ****** Vivado v2022.2 (64-bit)
-  **** SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
   **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source framesMaster.tcl -notrace
-Command: read_checkpoint -auto_incremental -incremental /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/utils_1/imports/synth_1/randomizer.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/utils_1/imports/synth_1/randomizer.dcp for incremental synthesis
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1039.684 ; gain = 155.809
+Command: read_checkpoint -auto_incremental -incremental C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/utils_1/imports/synth_1/randomizer.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/utils_1/imports/synth_1/randomizer.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top framesMaster -part xc7z020clg484-1
 Starting synth_design
@@ -20,97 +21,85 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 28184
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-7075] Helper process launched with PID 21096
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1968.512 ; gain = 371.770 ; free physical = 679 ; free virtual = 5139
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1403.077; parent = 1193.058; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 2971.309; parent = 1971.484; children = 999.824
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1889.250 ; gain = 408.660
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'framesMaster' [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/framesMaster.vhd:17]
-INFO: [Synth 8-638] synthesizing module 'randomizer' [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/game_screen/game_screen.srcs/sources_1/new/randomizer.vhd:11]
-INFO: [Synth 8-256] done synthesizing module 'randomizer' (0#1) [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/game_screen/game_screen.srcs/sources_1/new/randomizer.vhd:11]
-INFO: [Synth 8-638] synthesizing module 'dataStructure' [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/dataStructure.vhd:19]
-INFO: [Synth 8-256] done synthesizing module 'dataStructure' (0#1) [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/dataStructure.vhd:19]
-INFO: [Synth 8-638] synthesizing module 'newScreen' [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/newScreen.vhd:24]
-INFO: [Synth 8-256] done synthesizing module 'newScreen' (0#1) [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/newScreen.vhd:24]
-INFO: [Synth 8-638] synthesizing module '\output ' [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/outputMaster.vhd:23]
-INFO: [Synth 8-256] done synthesizing module '\output ' (0#1) [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/outputMaster.vhd:23]
-INFO: [Synth 8-638] synthesizing module 'clk25' [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/clk25.vhd:11]
-INFO: [Synth 8-256] done synthesizing module 'clk25' (0#1) [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/clk25.vhd:11]
-INFO: [Synth 8-638] synthesizing module 'vga_driver' [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/vga.vhd:17]
-INFO: [Synth 8-256] done synthesizing module 'vga_driver' (0#1) [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/vga.vhd:17]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/.Xil/Vivado-28139-thisguy/realtime/blk_mem_gen_0_stub.vhdl:23]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_3' [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/.Xil/Vivado-28139-thisguy/realtime/blk_mem_gen_3_stub.vhdl:15]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_2' [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/.Xil/Vivado-28139-thisguy/realtime/blk_mem_gen_2_stub.vhdl:23]
-INFO: [Synth 8-256] done synthesizing module 'framesMaster' (0#1) [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/framesMaster.vhd:17]
-WARNING: [Synth 8-3848] Net newRow in module/entity framesMaster does not have driver. [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/framesMaster.vhd:22]
+INFO: [Synth 8-638] synthesizing module 'framesMaster' [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/framesMaster.vhd:17]
+INFO: [Synth 8-638] synthesizing module 'randomizer' [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/game_screen/game_screen.srcs/sources_1/new/randomizer.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'randomizer' (0#1) [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/game_screen/game_screen.srcs/sources_1/new/randomizer.vhd:11]
+INFO: [Synth 8-638] synthesizing module 'dataStructure' [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/dataStructure.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'dataStructure' (0#1) [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/dataStructure.vhd:19]
+INFO: [Synth 8-638] synthesizing module 'newScreen' [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/newScreen.vhd:24]
+INFO: [Synth 8-256] done synthesizing module 'newScreen' (0#1) [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/newScreen.vhd:24]
+INFO: [Synth 8-638] synthesizing module '\output ' [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/outputMaster.vhd:23]
+INFO: [Synth 8-256] done synthesizing module '\output ' (0#1) [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/outputMaster.vhd:23]
+INFO: [Synth 8-638] synthesizing module 'clk25' [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/clk25.vhd:11]
+INFO: [Synth 8-256] done synthesizing module 'clk25' (0#1) [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/clk25.vhd:11]
+INFO: [Synth 8-638] synthesizing module 'vga_driver' [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/vga.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'vga_driver' (0#1) [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/vga.vhd:17]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/.Xil/Vivado-23096-LAPTOP-ESNLEJG4/realtime/blk_mem_gen_0_stub.vhdl:23]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_3' [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/.Xil/Vivado-23096-LAPTOP-ESNLEJG4/realtime/blk_mem_gen_3_stub.vhdl:15]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_2' [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/.Xil/Vivado-23096-LAPTOP-ESNLEJG4/realtime/blk_mem_gen_2_stub.vhdl:23]
+INFO: [Synth 8-256] done synthesizing module 'framesMaster' (0#1) [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/framesMaster.vhd:17]
+WARNING: [Synth 8-3848] Net newRow in module/entity framesMaster does not have driver. [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/framesMaster.vhd:22]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2043.449 ; gain = 446.707 ; free physical = 757 ; free virtual = 5218
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1403.077; parent = 1193.058; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3043.277; parent = 2043.453; children = 999.824
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1986.871 ; gain = 506.281
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2061.262 ; gain = 464.520 ; free physical = 760 ; free virtual = 5221
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1403.077; parent = 1193.058; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3061.090; parent = 2061.266; children = 999.824
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1986.871 ; gain = 506.281
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2061.262 ; gain = 464.520 ; free physical = 760 ; free virtual = 5221
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1403.077; parent = 1193.058; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3061.090; parent = 2061.266; children = 999.824
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1986.871 ; gain = 506.281
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2061.262 ; gain = 0.000 ; free physical = 758 ; free virtual = 5219
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1986.871 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2/blk_mem_gen_2_in_context.xdc] for cell 'memVGA'
-Finished Parsing XDC File [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2/blk_mem_gen_2_in_context.xdc] for cell 'memVGA'
-Parsing XDC File [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'memStruct'
-Finished Parsing XDC File [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'memStruct'
-Parsing XDC File [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3/blk_mem_gen_3_in_context.xdc] for cell 'memEnt'
-Finished Parsing XDC File [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3/blk_mem_gen_3_in_context.xdc] for cell 'memEnt'
-Parsing XDC File [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc:362]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 35]]'. [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc:372]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc:375]
-Finished Parsing XDC File [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/framesMaster_propImpl.xdc].
+Parsing XDC File [c:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2/blk_mem_gen_2_in_context.xdc] for cell 'memVGA'
+Finished Parsing XDC File [c:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2/blk_mem_gen_2_in_context.xdc] for cell 'memVGA'
+Parsing XDC File [c:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'memStruct'
+Finished Parsing XDC File [c:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'memStruct'
+Parsing XDC File [c:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3/blk_mem_gen_3_in_context.xdc] for cell 'memEnt'
+Finished Parsing XDC File [c:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3/blk_mem_gen_3_in_context.xdc] for cell 'memEnt'
+Parsing XDC File [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 33]]'. [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc:362]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 35]]'. [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc:372]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc:375]
+Finished Parsing XDC File [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/constrs_1/new/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/framesMaster_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/framesMaster_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/dont_touch.xdc]
+Parsing XDC File [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2219.012 ; gain = 0.000 ; free physical = 669 ; free virtual = 5130
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2073.621 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2219.012 ; gain = 0.000 ; free physical = 669 ; free virtual = 5130
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2073.621 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'memEnt' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'memStruct' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'memVGA' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 736 ; free virtual = 5197
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.905; parent = 1197.101; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 2073.641 ; gain = 593.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 736 ; free virtual = 5197
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.905; parent = 1197.101; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 2073.641 ; gain = 593.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -119,12 +108,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for memVGA. (constraint file  auto ge
 Applied set_property KEEP_HIERARCHY = SOFT for memStruct. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for memEnt. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 736 ; free virtual = 5197
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.905; parent = 1197.101; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 2073.641 ; gain = 593.051
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'dataStructure'
-WARNING: [Synth 8-3936] Found unconnected internal register 'vStart_reg' and it is trimmed from '19' to '18' bits. [/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/newScreen.vhd:99]
+WARNING: [Synth 8-3936] Found unconnected internal register 'vStart_reg' and it is trimmed from '19' to '18' bits. [C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/newScreen.vhd:101]
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'newScreen'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'output'
 ---------------------------------------------------------------------------------------------------
@@ -139,11 +126,12 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
-              waitsignal |                              001 |                               00
-             preparedata |                              010 |                               01
-              drawentity |                              100 |                               10
+              waitsignal |                               00 |                               00
+                wasteclk |                               01 |                               01
+             preparedata |                               10 |                               10
+              drawentity |                               11 |                               11
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'newScreen'
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'newScreen'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -153,9 +141,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'output'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 724 ; free virtual = 5186
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.905; parent = 1197.101; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 2073.641 ; gain = 593.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -196,7 +182,7 @@ Detailed RTL Component Info :
 	   3 Input   19 Bit        Muxes := 1     
 	   2 Input   17 Bit        Muxes := 1     
 	   3 Input   17 Bit        Muxes := 1     
-	   3 Input   14 Bit        Muxes := 1     
+	   4 Input   14 Bit        Muxes := 1     
 	   2 Input   12 Bit        Muxes := 2     
 	   2 Input   10 Bit        Muxes := 2     
 	   3 Input    8 Bit        Muxes := 1     
@@ -205,13 +191,11 @@ Detailed RTL Component Info :
 	   2 Input    5 Bit        Muxes := 4     
 	   2 Input    4 Bit        Muxes := 8     
 	   3 Input    4 Bit        Muxes := 3     
-	   3 Input    3 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 3     
-	   4 Input    2 Bit        Muxes := 1     
-	   2 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 16    
-	   4 Input    1 Bit        Muxes := 4     
-	   3 Input    1 Bit        Muxes := 20    
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 6     
+	   2 Input    1 Bit        Muxes := 14    
+	   4 Input    1 Bit        Muxes := 16    
+	   3 Input    1 Bit        Muxes := 8     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -233,9 +217,7 @@ DSP Report: register sDesigner/vStart_reg is absorbed into DSP sDesigner/vStart_
 DSP Report: operator vStart0 is absorbed into DSP sDesigner/vStart_reg.
 DSP Report: operator sDesigner/vStart1 is absorbed into DSP sDesigner/vStart_reg.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 693 ; free virtual = 5160
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1406.905; parent = 1197.101; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:25 . Memory (MB): peak = 2073.641 ; gain = 593.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -256,25 +238,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 567 ; free virtual = 5034
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1543.714; parent = 1334.094; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 2073.641 ; gain = 593.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 563 ; free virtual = 5029
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1549.144; parent = 1339.523; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:36 . Memory (MB): peak = 2078.883 ; gain = 598.293
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 562 ; free virtual = 5029
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1549.751; parent = 1340.131; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:36 . Memory (MB): peak = 2079.973 ; gain = 599.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -292,49 +268,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 551 ; free virtual = 5018
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1550.021; parent = 1340.400; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:43 . Memory (MB): peak = 2079.973 ; gain = 599.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 551 ; free virtual = 5018
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1550.036; parent = 1340.416; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:43 . Memory (MB): peak = 2079.973 ; gain = 599.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 551 ; free virtual = 5018
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1550.067; parent = 1340.447; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:43 . Memory (MB): peak = 2079.973 ; gain = 599.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 551 ; free virtual = 5018
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1550.067; parent = 1340.447; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:43 . Memory (MB): peak = 2079.973 ; gain = 599.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 551 ; free virtual = 5018
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1550.067; parent = 1340.447; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:43 . Memory (MB): peak = 2079.973 ; gain = 599.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 551 ; free virtual = 5018
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1550.083; parent = 1340.463; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:43 . Memory (MB): peak = 2079.973 ; gain = 599.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -363,42 +327,40 @@ Report Cell Usage:
 +------+------------+------+
 |1     |blk_mem_gen |     3|
 |4     |BUFG        |     2|
-|5     |CARRY4      |    77|
+|5     |CARRY4      |    78|
 |6     |DSP48E1     |     1|
-|7     |LUT1        |    55|
-|8     |LUT2        |    96|
-|9     |LUT3        |    54|
-|10    |LUT4        |    94|
-|11    |LUT5        |    39|
-|12    |LUT6        |    40|
-|13    |FDRE        |   351|
+|7     |LUT1        |    52|
+|8     |LUT2        |    93|
+|9     |LUT3        |    51|
+|10    |LUT4        |    89|
+|11    |LUT5        |    43|
+|12    |LUT6        |    41|
+|13    |FDRE        |   350|
 |14    |FDSE        |     8|
 |15    |IBUF        |     2|
 |16    |OBUF        |    14|
 +------+------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 551 ; free virtual = 5018
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1550.149; parent = 1340.532; children = 210.020
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3186.824; parent = 2187.000; children = 999.824
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:43 . Memory (MB): peak = 2079.973 ; gain = 599.383
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:30 . Memory (MB): peak = 2219.012 ; gain = 464.520 ; free physical = 615 ; free virtual = 5082
-Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 2219.012 ; gain = 622.270 ; free physical = 615 ; free virtual = 5082
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:41 . Memory (MB): peak = 2079.973 ; gain = 512.613
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:43 . Memory (MB): peak = 2079.973 ; gain = 599.383
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2219.012 ; gain = 0.000 ; free physical = 725 ; free virtual = 5192
-INFO: [Netlist 29-17] Analyzing 78 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 2088.738 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 79 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2219.012 ; gain = 0.000 ; free physical = 680 ; free virtual = 5147
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2092.391 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: d86e15a0
+Synth Design complete, checksum: ef998dc6
 INFO: [Common 17-83] Releasing license: Synthesis
 46 Infos, 9 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:37 . Memory (MB): peak = 2219.012 ; gain = 898.715 ; free physical = 894 ; free virtual = 5358
-INFO: [Common 17-1381] The checkpoint '/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/framesMaster.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:49 . Memory (MB): peak = 2092.391 ; gain = 1011.523
+INFO: [Common 17-1381] The checkpoint 'C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1/framesMaster.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file framesMaster_utilization_synth.rpt -pb framesMaster_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Dec 23 10:08:11 2023...
+INFO: [Common 17-206] Exiting Vivado at Fri Dec 29 17:11:13 2023...

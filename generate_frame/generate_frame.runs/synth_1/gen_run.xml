@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1703322441" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/randomizer.dcp">
-  <File Type="RDS-RDS" Name="framesMaster.vds"/>
-  <File Type="REPORTS-TCL" Name="framesMaster_reports.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1703866132" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/randomizer.dcp">
   <File Type="PA-TCL" Name="framesMaster.tcl"/>
-  <File Type="RDS-DCP" Name="framesMaster.dcp"/>
+  <File Type="RDS-PROPCONSTRS" Name="framesMaster_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="framesMaster_reports.tcl"/>
+  <File Type="RDS-RDS" Name="framesMaster.vds"/>
   <File Type="RDS-UTIL" Name="framesMaster_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="framesMaster_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="framesMaster.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="framesMaster_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="framesMaster_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2.xci">
@@ -78,12 +81,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../file.coe">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../Entities.coe">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>

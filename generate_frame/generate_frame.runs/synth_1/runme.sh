@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/aless/OneDrive/Desktop/ada/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1'
+HD_PWD='C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

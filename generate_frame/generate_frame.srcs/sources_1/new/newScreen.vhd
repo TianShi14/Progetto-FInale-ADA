@@ -22,7 +22,7 @@ entity newScreen is
 end newScreen;
 
 architecture behavioral of newScreen is
-    type fsm is (waitSignal, wasteClk, prepareData, drawEntity);
+    type fsm is (waitSignal, wasteClk, prepareData, wasteH, drawEntity);
     
     signal state    : fsm := waitSignal;
     signal row      : natural range 0 to 20 - 1      := 0;
@@ -102,7 +102,7 @@ begin
                             eStart   <= getEntityAddress(sData(1 downto 0));
                             eAddr    <= getEntityAddress(sData(1 downto 0));
                             eEna     <= '1';
-                            state    <= drawEntity;
+                            state    <= wasteH;
                             -- si deve passare alla prossima riga
                             continue <= false;
                         else
@@ -111,7 +111,7 @@ begin
                             eStart   <= getEntityAddress(sData(3 downto 2));
                             eAddr    <= getEntityAddress(sData(3 downto 2));
                             eEna     <= '1';
-                            state    <= drawEntity;
+                            state    <= wasteH;
                             -- si ricorda se c'è una seconda entità da disegnare
                             continue <= sData(20) = '1';
                         end if;
@@ -140,13 +140,16 @@ begin
                 -- in  <- prepareData: sEna = 0, eEna = 1, vEna = 0
                 -- out -> prepareData: sEna = 0, eEna = 0, vEna = 1, row++ (continue = false)
                 -- out -> prepareData: sEna = 1, eEna = 0, vEna = 1        (continue = true )
+                when wasteH =>
+                    eAddr <= getEntityAddress(eStart, 1);
+                    state <= drawEntity;
                 when drawEntity =>
                     -- disegna nella memoria della VGA
                     vEna  <= '1';
                     vAddr <= getVgaAddress(vStart, hCount, vCount);
                     vData <= eData;
                     -- prepara il prossimo pixel dalla memoria delle entità
-                    eAddr <= getEntityAddress(eStart, entCount);
+                    eAddr <= getEntityAddress(eStart, entCount + 1);----------------------------------------- 
                     -- incremento dei contatori
                     entCount <= entCount + 1;
                     if hCount = 48 - 1 then

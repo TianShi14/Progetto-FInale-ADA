@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1703866132" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/randomizer.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1704301899" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/randomizer.dcp">
   <File Type="PA-TCL" Name="framesMaster.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="framesMaster_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="framesMaster_reports.tcl"/>
@@ -81,6 +81,12 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../file.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../../../../../Downloads/aborto.coe">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>

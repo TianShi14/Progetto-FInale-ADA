@@ -70,8 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
-set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -92,7 +90,8 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 add_files C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/entities.coe
 add_files C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/file.coe
-add_files c:/Users/aless/Downloads/aborto.coe
+add_files C:/Users/aless/Downloads/aborto.coe
+add_files c:/Users/aless/Downloads/entities.coe
 read_vhdl -library xil_defaultlib {
   C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/clk25.vhd
   C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/dataStructure.vhd

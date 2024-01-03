@@ -149,7 +149,7 @@ begin
                     vAddr <= getVgaAddress(vStart, hCount, vCount);
                     vData <= eData;
                     -- prepara il prossimo pixel dalla memoria delle entità
-                    eAddr <= getEntityAddress(eStart, entCount + 1);----------------------------------------- 
+                    eAddr <= getEntityAddress(eStart, entCount + 2);----------------------------------------- 
                     -- incremento dei contatori
                     entCount <= entCount + 1;
                     if hCount = 48 - 1 then

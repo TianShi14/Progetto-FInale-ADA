@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Wed Jan  3 18:13:43 2024
+| Date         : Wed Jan  3 21:37:02 2024
 | Host         : LAPTOP-ESNLEJG4 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file framesMaster_control_sets_placed.rpt
 | Design       : framesMaster
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    23 |
-|    Minimum number of control sets                        |    23 |
+| Total control sets                                       |    24 |
+|    Minimum number of control sets                        |    24 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    70 |
+| Unused register locations in slices containing registers |    78 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,10 +39,10 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    23 |
+| Total control sets |    24 |
 | >= 0 to < 4        |     3 |
-| >= 4 to < 6        |     3 |
-| >= 6 to < 8        |     5 |
+| >= 4 to < 6        |     5 |
+| >= 6 to < 8        |     4 |
 | >= 8 to < 10       |     1 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     1 |
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              63 |           30 |
+| No           | No                    | No                     |              60 |           27 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              43 |           13 |
-| Yes          | No                    | No                     |             175 |           60 |
+| Yes          | No                    | No                     |             180 |           65 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              97 |           28 |
+| Yes          | Yes                   | No                     |              95 |           28 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,29 +73,30 @@ Table of Contents
 +-----------------+------------------------------------------+----------------------------------+------------------+----------------+--------------+
 |   Clock Signal  |               Enable Signal              |         Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
 +-----------------+------------------------------------------+----------------------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG  | outMaster/genFrame_i_1_n_0               | outMaster/genFrame0              |                1 |              1 |         1.00 |
 |  clk25/clk50mhz |                                          |                                  |                1 |              1 |         1.00 |
-|  clk25mhz_BUFG  |                                          |                                  |                1 |              2 |         2.00 |
-|  clk_IBUF_BUFG  | outMaster/r[3]_i_1_n_0                   | outMaster/g[3]_i_1_n_0           |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG  | outMaster/genFrame_i_1_n_0               | outMaster/genFrame0              |                1 |              1 |         1.00 |
+|  clk25mhz_BUFG  |                                          |                                  |                2 |              2 |         1.00 |
 |  clk_IBUF_BUFG  | dStruct/FSM_sequential_state_reg_n_0_[0] | dStruct/data[3]_i_1_n_0          |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG  | outMaster/r[3]_i_1_n_0                   | outMaster/g[3]_i_1_n_0           |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG  | outMaster/HCounter_0                     |                                  |                2 |              5 |         2.50 |
+|  clk_IBUF_BUFG  | outMaster/HCounter_0                     | outMaster/HCounter[5]_i_1_n_0    |                1 |              5 |         5.00 |
 |  clk_IBUF_BUFG  | sDesigner/row                            |                                  |                2 |              5 |         2.50 |
 |  clk_IBUF_BUFG  | sDesigner/CEB2                           |                                  |                2 |              6 |         3.00 |
-|  clk_IBUF_BUFG  | outMaster/HCounter_0                     | outMaster/HCounter[6]_i_1_n_0    |                1 |              7 |         7.00 |
 |  clk_IBUF_BUFG  | outMaster/enb                            |                                  |                5 |              7 |         1.40 |
-|  clk_IBUF_BUFG  | sDesigner/eAddr[13]_i_1_n_0              |                                  |                3 |              7 |         2.33 |
+|  clk_IBUF_BUFG  | sDesigner/eAddr[13]_i_1_n_0              |                                  |                2 |              7 |         3.50 |
 |  clk_IBUF_BUFG  | sDesigner/eAddr[13]_i_1_n_0              | sDesigner/eAddr[7]_i_1_n_0       |                2 |              7 |         3.50 |
-|  clk_IBUF_BUFG  | outMaster/r[3]_i_1_n_0                   | outMaster/genFrame0              |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG  | outMaster/r[3]_i_1_n_0                   | outMaster/genFrame0              |                3 |              8 |         2.67 |
 |  clk25mhz_BUFG  |                                          | vga/red[3]_i_1_n_0               |                4 |             12 |         3.00 |
-|  clk_IBUF_BUFG  | outMaster/memCounter[16]_i_2_n_0         | outMaster/memCounter[16]_i_1_n_0 |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG  | outMaster/memCounter[16]_i_2_n_0         | outMaster/memCounter[16]_i_1_n_0 |                4 |             17 |         4.25 |
+|  clk_IBUF_BUFG  | outMaster/FSM_onehot_state_reg_n_0_[2]   |                                  |                6 |             18 |         3.00 |
 |  clk_IBUF_BUFG  | outMaster/vgaCount[18]_i_2_n_0           | outMaster/vgaCount[18]_i_1_n_0   |                5 |             18 |         3.60 |
-|  clk_IBUF_BUFG  | outMaster/FSM_onehot_state_reg_n_0_[2]   |                                  |                4 |             18 |         4.50 |
-|  clk_IBUF_BUFG  | dStruct/FSM_sequential_state_reg_n_0_[0] |                                  |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG  | dStruct/FSM_sequential_state_reg_n_0_[0] |                                  |                8 |             20 |         2.50 |
 |  clk25mhz_BUFG  |                                          | vga/h_rn[30]_i_1_n_0             |                9 |             31 |         3.44 |
 |  clk25mhz_BUFG  | vga/v_rn                                 | vga/v_rn[30]_i_1_n_0             |                9 |             31 |         3.44 |
+|  clk_IBUF_BUFG  | dStruct/prevRow[31]_i_1_n_0              |                                  |               14 |             32 |         2.29 |
 |  clk_IBUF_BUFG  | outMaster/timeCount                      |                                  |                8 |             32 |         4.00 |
-|  clk_IBUF_BUFG  | dStruct/prevRow[31]_i_1_n_0              |                                  |               15 |             32 |         2.13 |
 |  clk_IBUF_BUFG  | sDesigner/CEP                            |                                  |               16 |             48 |         3.00 |
-|  clk_IBUF_BUFG  |                                          |                                  |               28 |             60 |         2.14 |
+|  clk_IBUF_BUFG  |                                          |                                  |               24 |             57 |         2.38 |
 +-----------------+------------------------------------------+----------------------------------+------------------+----------------+--------------+
 
 

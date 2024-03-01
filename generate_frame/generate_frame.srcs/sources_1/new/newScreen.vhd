@@ -22,9 +22,13 @@ entity newScreen is
 end newScreen;
 
 architecture behavioral of newScreen is
-    type fsm is (waitSignal, wasteClk, prepareData, wasteH, drawEntity);
+    type fsm is (waitSignal, wasteClk, prepareData, wasteH, drawEntity, setStreet);
+    
+    constant rowPx : natural := 240 * 48;
+    constant entPx : natural := 48 * 48;
     
     signal state    : fsm := waitSignal;
+    signal count    : natural range 0 to rowPx       := 0; -- rowPx non rowPx - 1
     signal row      : natural range 0 to 20 - 1      := 0;
     signal hCount   : natural range 0 to 48 - 1      := 0;
     signal vCount   : natural range 0 to 48 - 1      := 0;
@@ -32,10 +36,7 @@ architecture behavioral of newScreen is
     signal vStart   : natural;
     signal continue : boolean := false;
     signal firstGen : boolean := true;
-    signal eStart   : std_logic_vector(13 downto 0); 
-    
-    constant rowPx : natural := 240 * 48;
-    constant entPx : natural := 48 * 48;
+    signal eStart   : std_logic_vector(13 downto 0);     
     
     -- indirizzo di partenza dell'entità
     function getEntityAddress (
@@ -81,8 +82,13 @@ begin
                 when waitSignal => 
                     -- se si riceve il segnale d'inizio
                     if draw = '1' then
-                        sEna  <= '1';
-                        state <= wasteClk;
+                        if firstGen then
+                            sEna   <= '1';
+                            state  <= wasteClk;
+                        else
+                            vStart <= (19 - row) * rowPx;
+                            state  <= setStreet;
+                        end if;
                     end if;
                 -- gestisce il disegno di tutte la riga
                 -- in  <- waitSignal: sEna = 1, eEna = 0, vEna = 0
@@ -142,7 +148,7 @@ begin
                 -- out -> prepareData: sEna = 1, eEna = 0, vEna = 1        (continue = true )
                 when wasteH =>
                     eAddr <= getEntityAddress(eStart, 1);
-                    state <= drawEntity;
+                    state <= drawEntity;         
                 when drawEntity =>
                     -- disegna nella memoria della VGA
                     vEna  <= '1';
@@ -180,6 +186,19 @@ begin
                         end if;
                     else
                         hCount <= hCount + 1;
+                    end if;
+                when setStreet => 
+                    count  <= count + 1;
+                    vEna   <= '1';
+                    vData  <= x"AAA";
+                    vAddr  <= std_logic_vector(to_unsigned(vStart, vAddr'length));
+                    vStart <= vStart + 1;
+                    
+                    if count = rowPx then
+                        count <= 0;
+                        vEna  <= '0';
+                        sEna   <= '1';
+                        state  <= wasteClk;
                     end if;
             end case;
         end if;

@@ -16,7 +16,8 @@ entity output is
         address    : out std_logic_vector(17 downto 0);        -- mem Game address  
         memGameOut : in  std_logic_vector(11 downto 0);        -- data out Game mem 
         wena       : out std_logic_vector(0 to 0);
-        ena        : out std_logic                                                                                                       
+        ena        : out std_logic;
+        newRow     : out std_logic                             --                                                                                            
     );
 end output;
 
@@ -28,23 +29,7 @@ architecture behavioral of output is
     signal HCounter     : integer range 0 to 640 - 1   := 0;
     signal prevClk25    : std_logic;
     
---    component blk_mem_gen_0
---        port (
---            clka  : in  std_logic;
---            addra : in  std_logic_vector(18 downto 0);
---            douta : out std_logic_vector(11 downto 0) 
---        );
---    end component;
 begin
-
---    romStart: blk_mem_gen_0
---    port map(
---        clka  => clkStart,
---        addra => address,
---        douta => romStartOut
---    );
-    
---    address <= std_logic_vector(to_unsigned(memCounter, address'length));
 
     wena <= "0";
 

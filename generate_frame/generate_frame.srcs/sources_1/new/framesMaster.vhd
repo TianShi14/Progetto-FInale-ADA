@@ -124,7 +124,8 @@ begin
         address         => addrGame,
         memGameOut      => dataGame,
         wena            => wenaGame,
-        ena             => enaGame
+        ena             => enaGame,
+        newRow          => newRow
     );
     
     clk25: entity work.clk25

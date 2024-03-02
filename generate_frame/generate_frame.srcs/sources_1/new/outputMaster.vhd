@@ -17,7 +17,7 @@ entity output is
         memGameOut : in  std_logic_vector(11 downto 0);        -- data out Game mem 
         wena       : out std_logic_vector(0 to 0);
         ena        : out std_logic;
-        newRow     : out std_logic                             --                                                                                            
+        newRow     : out std_logic                                                                                                                         
     );
 end output;
 
@@ -27,6 +27,11 @@ architecture behavioral of output is
     signal vgaCount     : integer range 0 to 640*480-1 := 0;    -- global counter
     signal memCounter   : integer range 0 to 480*240-1 := 0;    -- Mem counter  
     signal HCounter     : integer range 0 to 640 - 1   := 0;
+    signal pixelN       : integer range 0 to 48 - 1    := 0; 
+    signal rowN         : integer range 0 to 20 - 1    := 10;
+    signal startAddr    : integer := 480 * 240;
+    signal flipCount    : integer := 0;
+    signal flip         : boolean := false;
     signal prevClk25    : std_logic;
     
 begin
@@ -36,6 +41,8 @@ begin
     process (clk)
         variable isStarting: boolean := false;
         variable timeCount : integer := 0;       -- contiamo fino a 3 sec per la transizione
+        variable rowNN     : integer;
+        variable pixelNN   : integer;
     begin
         
         if rising_edge(clk) then
@@ -73,7 +80,7 @@ begin
                     r <= (others => '1');
                     g <= (others => '0');
                     b <= (others => '1');
-                    if timeCount < 2 then  -- 200_000_000
+                    if timeCount < 200_000_000 then  -- 200_000_000
                         timeCount := timeCount + 1;
                     else
                         if endFrame = '1' then  -- aspettare che finisca di disegnare il frame
@@ -84,7 +91,16 @@ begin
                         end if;
                     end if;
                 when game =>
-                    address <= std_logic_vector(to_unsigned(480 * 240 + memCounter, address'length));
+                    newRow <= '0';
+                    if not flip then
+                        address <= std_logic_vector(to_unsigned(startAddr + memCounter, address'length));
+                        if startAddr + memCounter = 960 * 240 - 1 then
+                            flip      <= true;
+                            flipCount <= memCounter;
+                        end if;
+                    else
+                        address <= std_logic_vector(to_unsigned(memCounter - flipCount - 1, address'length));
+                    end if;
                     if active = '1' then
                         if HCounter = 200 - 1 then                                                           
                             ena     <= '1';                                                                  
@@ -114,6 +130,25 @@ begin
                                 HCounter   <= 0;
                                 vgaCount   <= 0;
                                 memCounter <= 0;
+                                flip <= false;
+                                if pixelN = 0 then
+                                    if not isStarting then
+                                        isStarting := true;
+                                    else
+                                        newRow <= '1';
+                                    end if;
+                                    pixelNN := 47;
+                                    if rowN = 0 then
+                                        rowNN := 19;
+                                    else
+                                        rowNN := rowN - 1;
+                                    end if;
+                                else
+                                    pixelNN := pixelN - 1;
+                                end if;
+                                pixelN <= pixelNN;
+                                rowN   <= rowNN;
+                                startAddr  <= (48 * rowNN + pixelNN) * 240;
                             end if;                                                                      
                         end if;
                     end if;

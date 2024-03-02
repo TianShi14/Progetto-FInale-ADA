@@ -59,7 +59,7 @@ begin
                 blue  <= (others => '0');                
             end if;
             
-            if (h_rn >= h_str - 1 and h_rn < h_end - 1) and (v_rn >= v_str - 1 and v_rn < v_end - 1) then
+            if (h_rn >= h_str - 2 and h_rn < h_end - 2) and (v_rn >= v_str - 2 and v_rn < v_end - 2) then
                 active <= '1';
             else 
                 active <= '0';

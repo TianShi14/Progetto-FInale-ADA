@@ -32,6 +32,7 @@ architecture behavioral of output is
     signal startAddr    : integer := 480 * 240;
     signal flipCount    : integer := 0;
     signal flip         : boolean := false;
+    signal isStarting   : boolean := false;
     signal prevClk25    : std_logic;
     
 begin
@@ -39,7 +40,6 @@ begin
     wena <= "0";
 
     process (clk)
-        variable isStarting: boolean := false;
         variable timeCount : integer := 0;       -- contiamo fino a 3 sec per la transizione
         variable rowNN     : integer;
         variable pixelNN   : integer;
@@ -130,10 +130,10 @@ begin
                                 HCounter   <= 0;
                                 vgaCount   <= 0;
                                 memCounter <= 0;
-                                flip <= false;
+                                flip       <= false;
                                 if pixelN = 0 then
                                     if not isStarting then
-                                        isStarting := true;
+                                        isStarting <= true;
                                     else
                                         newRow <= '1';
                                     end if;
@@ -152,8 +152,6 @@ begin
                             end if;                                                                      
                         end if;
                     end if;
-                when others =>
-                    isStarting := false;  -- cosa a caso per sintesi
             end case;
             
         end if;

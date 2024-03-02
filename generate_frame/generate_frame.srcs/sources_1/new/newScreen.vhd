@@ -190,7 +190,7 @@ begin
                 when setStreet => 
                     count  <= count + 1;
                     vEna   <= '1';
-                    vData  <= x"AAA";
+                    vData  <= x"000";
                     vAddr  <= std_logic_vector(to_unsigned(vStart, vAddr'length));
                     vStart <= vStart + 1;
                     

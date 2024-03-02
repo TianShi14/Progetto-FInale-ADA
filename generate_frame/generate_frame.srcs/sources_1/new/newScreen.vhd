@@ -177,6 +177,10 @@ begin
                                 if firstGen then
                                     sEna  <= '1';
                                     state <= wasteClk;
+                                    if row = 20 - 1 then
+                                        firstGen <= false;
+                                        state    <= waitSignal;
+                                    end if;
                                 else
                                     state <= waitSignal;
                                 end if;
@@ -190,7 +194,7 @@ begin
                 when setStreet => 
                     count  <= count + 1;
                     vEna   <= '1';
-                    vData  <= x"000";
+                    vData  <= x"AAA";
                     vAddr  <= std_logic_vector(to_unsigned(vStart, vAddr'length));
                     vStart <= vStart + 1;
                     

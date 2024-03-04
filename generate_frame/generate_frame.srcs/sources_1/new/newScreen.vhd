@@ -207,23 +207,24 @@ begin
                 when setStreet => 
                     count  <= count + 1;
                     vEna   <= '1';
-                    if color = 0 then
-                        vData  <= x"000";
-                    elsif color = 1 then
-                        vData  <= x"A00";
-                    elsif color = 2 then
-                        vData  <= x"0A0";
-                    elsif color = 3 then
-                        vData  <= x"00A";
-                    elsif color = 4 then
-                        vData  <= x"AA0";
-                    elsif color = 5 then
-                        vData  <= x"0AA";
-                    elsif color = 6 then
-                        vData  <= x"A0A";
-                    elsif color = 7 then
-                        vData  <= x"AAA";  
-                    end if;
+--                    if color = 0 then
+--                        vData  <= x"000";
+--                    elsif color = 1 then
+--                        vData  <= x"A00";
+--                    elsif color = 2 then
+--                        vData  <= x"0A0";
+--                    elsif color = 3 then
+--                        vData  <= x"00A";
+--                    elsif color = 4 then
+--                        vData  <= x"AA0";
+--                    elsif color = 5 then
+--                        vData  <= x"0AA";
+--                    elsif color = 6 then
+--                        vData  <= x"A0A";
+--                    elsif color = 7 then
+--                        vData  <= x"AAA";  
+--                    end if;
+                    vData  <= x"AAA";
                     vAddr  <= std_logic_vector(to_unsigned(vStart, vAddr'length));
                     vStart <= vStart + 1;
                     

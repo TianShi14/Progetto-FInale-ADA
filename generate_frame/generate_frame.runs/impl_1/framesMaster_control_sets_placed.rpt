@@ -1,0 +1,110 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date         : Mon Mar  4 17:13:45 2024
+| Host         : thisguy running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_control_sets -verbose -file framesMaster_control_sets_placed.rpt
+| Design       : framesMaster
+| Device       : xc7z020
+-----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    32 |
+|    Minimum number of control sets                        |    32 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   101 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    32 |
+| >= 0 to < 4        |     4 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     7 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     2 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    15 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              43 |           29 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              43 |           15 |
+| Yes          | No                    | No                     |             283 |           94 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             106 |           32 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-----------------+------------------------------------------+----------------------------------------+------------------+----------------+--------------+
+|   Clock Signal  |               Enable Signal              |            Set/Reset Signal            | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------+------------------------------------------+----------------------------------------+------------------+----------------+--------------+
+|  clk25/clk50mhz |                                          |                                        |                1 |              1 |         1.00 |
+|  clk25mhz_BUFG  | vga/v_rn                                 |                                        |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG  | outMaster/memCounter[16]_i_2_n_0         |                                        |                1 |              1 |         1.00 |
+|  clk25mhz_BUFG  |                                          |                                        |                2 |              2 |         1.00 |
+|  clk_IBUF_BUFG  | outMaster/HCounter[9]_i_1_n_0            | outMaster/pixelN[5]_i_1_n_0            |                1 |              5 |         5.00 |
+|  clk_IBUF_BUFG  | outMaster/HCounter[9]_i_1_n_0            |                                        |                3 |              5 |         1.67 |
+|  clk_IBUF_BUFG  | outMaster/r[3]_i_1_n_0                   | outMaster/FSM_onehot_state_reg_n_0_[1] |                3 |              5 |         1.67 |
+|  clk_IBUF_BUFG  | sDesigner/row                            |                                        |                3 |              5 |         1.67 |
+|  clk_IBUF_BUFG  | sDesigner/vData[10]_i_2_n_0              | sDesigner/vData[10]_i_1_n_0            |                3 |              6 |         2.00 |
+|  clk_IBUF_BUFG  | dStruct/FSM_sequential_state_reg_n_0_[0] | dStruct/data[11]_i_1_n_0               |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG  | sDesigner/CEB2                           |                                        |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG  | sDesigner/eAddr[13]_i_1_n_0              | sDesigner/eAddr[7]_i_1_n_0             |                2 |              7 |         3.50 |
+|  clk_IBUF_BUFG  | outMaster/enb                            |                                        |                7 |              7 |         1.00 |
+|  clk_IBUF_BUFG  | outMaster/r[3]_i_1_n_0                   |                                        |                3 |              7 |         2.33 |
+|  clk_IBUF_BUFG  | sDesigner/eAddr[13]_i_1_n_0              |                                        |                3 |              7 |         2.33 |
+|  clk25mhz_BUFG  |                                          | vga/red[3]_i_1_n_0                     |                6 |             12 |         2.00 |
+|  clk_IBUF_BUFG  | sDesigner/count[13]_i_2_n_0              | sDesigner/count[13]_i_1_n_0            |                4 |             13 |         3.25 |
+|  clk_IBUF_BUFG  | outMaster/memCounter[16]_i_2_n_0         | outMaster/memCounter[16]_i_1_n_0       |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG  | outMaster/flipCount                      |                                        |                5 |             17 |         3.40 |
+|  clk_IBUF_BUFG  | outMaster/vgaCount[18]_i_2_n_0           | outMaster/vgaCount[18]_i_1_n_0         |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG  | dStruct/FSM_sequential_state_reg_n_0_[0] |                                        |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG  | sDesigner/entCount                       |                                        |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG  | sDesigner/CEC                            |                                        |                5 |             18 |         3.60 |
+|  clk_IBUF_BUFG  | outMaster/FSM_onehot_state_reg_n_0_[2]   |                                        |                6 |             19 |         3.17 |
+|  clk_IBUF_BUFG  | dStruct/E[0]                             |                                        |                6 |             24 |         4.00 |
+|  clk_IBUF_BUFG  | sDesigner/vData[10]_i_2_n_0              |                                        |                7 |             24 |         3.43 |
+|  clk25mhz_BUFG  | vga/v_rn                                 | vga/v_rn[30]_i_1_n_0                   |                8 |             30 |         3.75 |
+|  clk25mhz_BUFG  |                                          | vga/p_0_in                             |                9 |             31 |         3.44 |
+|  clk_IBUF_BUFG  | outMaster/timeCount                      |                                        |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG  | dStruct/prevRow[31]_i_1_n_0              |                                        |               12 |             32 |         2.67 |
+|  clk_IBUF_BUFG  |                                          |                                        |               26 |             40 |         1.54 |
+|  clk_IBUF_BUFG  | outMaster/pixelN[5]_i_1_n_0              |                                        |               12 |             42 |         3.50 |
++-----------------+------------------------------------------+----------------------------------------+------------------+----------------+--------------+
+
+

@@ -111,10 +111,16 @@ begin
                             ena     <= '1';                                                                  
                         end if;                                                                              
                         if HCounter > 200 - 1 and HCounter <= 440 - 1 then                                   
-                            ena <= '1';                                                                  
-                            r   <= memGameOut(11 downto 8);                                              
-                            g   <= memGameOut(7  downto 4);                                              
-                            b   <= memGameOut(3  downto 0);                                              
+                            ena <= '1';
+                            if memGameOut(11 downto 8) = x"9" and memGameOut(7  downto 4) = x"9" and memGameOut(3  downto 0) = x"9" then
+                                r <= x"A";
+                                g <= x"A";
+                                b <= x"A"; 
+                            else                                                             
+                                r   <= memGameOut(11 downto 8);                                              
+                                g   <= memGameOut(7  downto 4);                                              
+                                b   <= memGameOut(3  downto 0);   
+                            end if;                                           
                         else        
                             ena <= '0';                                                                         
                             r   <= "1000";                                                               

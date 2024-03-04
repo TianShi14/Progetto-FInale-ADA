@@ -17,7 +17,8 @@ entity output is
         memGameOut : in  std_logic_vector(11 downto 0);        -- data out Game mem 
         wena       : out std_logic_vector(0 to 0);
         ena        : out std_logic;
-        newRow     : out std_logic                                                                                                                         
+        newRow     : out std_logic;
+        enable     : out std_logic                                                                                                                       
     );
 end output;
 
@@ -74,13 +75,15 @@ begin
                     if startGame = '1' then
                         state    <= transition;
                         genFrame <= '1';
+                        enable    <= '1';
                     end if;
                 when transition =>
+                    enable   <= '0';
                     genFrame <= '0';
                     r <= (others => '1');
                     g <= (others => '0');
                     b <= (others => '1');
-                    if timeCount < 200_000_000 then  -- 200_000_000
+                    if timeCount < 2 then  -- 200_000_000
                         timeCount := timeCount + 1;
                     else
                         if endFrame = '1' then  -- aspettare che finisca di disegnare il frame
@@ -95,8 +98,10 @@ begin
                     if not flip then
                         address <= std_logic_vector(to_unsigned(startAddr + memCounter, address'length));
                         if startAddr + memCounter = 960 * 240 - 1 then
-                            flip      <= true;
-                            flipCount <= memCounter;
+                            if memCounter /= 480 * 240 - 1 then
+                                flip      <= true;
+                                flipCount <= memCounter;
+                            end if;
                         end if;
                     else
                         address <= std_logic_vector(to_unsigned(memCounter - flipCount - 1, address'length));

@@ -53,11 +53,16 @@ architecture behavioral of framesMaster is
     
     signal inutile    :  std_logic_vector(21 downto 0);
     signal inutile2   :  std_logic_vector(11 downto 0);
+    
+    signal e : std_logic;
+    signal request : std_logic;
 begin
     rand: entity work.randomizer
     port map(
         clk             => clk,
-        random          => random
+        random          => random,
+        enable          => e,
+        request         => request
     );
     
     dStruct: entity work.dataStructure
@@ -70,7 +75,8 @@ begin
         address        => address,
         data           => data,
         newRow         => newRow,
-        writeEna       => writeEna
+        writeEna       => writeEna,
+        request        => request
     );
     
     sDesigner: entity work.newScreen
@@ -125,7 +131,8 @@ begin
         memGameOut      => dataGame,
         wena            => wenaGame,
         ena             => enaGame,
-        newRow          => newRow
+        newRow          => newRow,
+        enable          => e
     );
     
     clk25: entity work.clk25

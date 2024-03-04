@@ -12,7 +12,8 @@ entity dataStructure is
         ena      : out std_logic;
         writeEna : out std_logic_vector(0 to 0);
         address  : out std_logic_vector(4 downto 0);
-        data     : out std_logic_vector(21 downto 0)
+        data     : out std_logic_vector(21 downto 0);
+        request  : out std_logic
     );
 end dataStructure;
 
@@ -96,6 +97,7 @@ begin
                     if genFrame = '1' then
                         state <= randomizeAll;
                         prevRow <= prevRow + row(random(0));
+                        request <= '1';
                     end if;
                 when randomizeAll =>
                     address  <= std_logic_vector(to_unsigned(currRow, address'length));
@@ -113,14 +115,17 @@ begin
                         currRow <= 0;
                         state   <= waitRow;
                         enable  <= '1';
+                        request  <= '0';
                     end if;
                 when waitRow =>
                     ena    <= '0';
                     enable <= '0';
                     if newRow = '1' then
                         state <= randomizeRow;
+                        request <= '1';
                     end if;
                 when randomizeRow =>
+                    request  <= '0';
                     address  <= std_logic_vector(to_unsigned(currRow, address'length));
                     writeEna <= "1";
                     ena      <= '1';

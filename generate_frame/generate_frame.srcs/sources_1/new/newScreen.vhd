@@ -36,7 +36,9 @@ architecture behavioral of newScreen is
     signal vStart   : natural;
     signal continue : boolean := false;
     signal firstGen : boolean := true;
-    signal eStart   : std_logic_vector(13 downto 0);     
+    signal eStart   : std_logic_vector(13 downto 0);  
+    
+    signal color : natural range 0 to 7 := 0;   
     
     -- indirizzo di partenza dell'entità
     function getEntityAddress (
@@ -86,6 +88,7 @@ begin
                             sEna   <= '1';
                             state  <= wasteClk;
                         else
+                            
                             vStart <= (19 - row) * rowPx;
                             state  <= setStreet;
                         end if;
@@ -136,6 +139,11 @@ begin
                             sEna  <= '0';
                             if row = 20 - 1 then
                                 row <= 0;
+                                if color = 7 then
+                                    color <= 0;
+                                else 
+                                    color <= color + 1;
+                                end if;
                             else
                                 row <= row + 1;
                             end if;
@@ -171,6 +179,11 @@ begin
                             else
                                 if row = 20 - 1 then
                                     row <= 0;
+                                    if color = 7 then
+                                    color <= 0;
+                                else 
+                                    color <= color + 1;
+                                end if;
                                 else
                                     row <= row + 1;
                                 end if;
@@ -194,7 +207,23 @@ begin
                 when setStreet => 
                     count  <= count + 1;
                     vEna   <= '1';
-                    vData  <= x"AAA";
+                    if color = 0 then
+                        vData  <= x"000";
+                    elsif color = 1 then
+                        vData  <= x"A00";
+                    elsif color = 2 then
+                        vData  <= x"0A0";
+                    elsif color = 3 then
+                        vData  <= x"00A";
+                    elsif color = 4 then
+                        vData  <= x"AA0";
+                    elsif color = 5 then
+                        vData  <= x"0AA";
+                    elsif color = 6 then
+                        vData  <= x"A0A";
+                    elsif color = 7 then
+                        vData  <= x"AAA";  
+                    end if;
                     vAddr  <= std_logic_vector(to_unsigned(vStart, vAddr'length));
                     vStart <= vStart + 1;
                     

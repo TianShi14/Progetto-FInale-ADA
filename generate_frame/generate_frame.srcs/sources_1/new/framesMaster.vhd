@@ -28,15 +28,18 @@ architecture behavioral of framesMaster is
     signal dataStruct :  std_logic_vector(21 downto 0);
     signal dataEnt    :  std_logic_vector(11 downto 0);
     signal dataVGA    :  std_logic_vector(11 downto 0);
+    signal dataAngel  :  std_logic_vector(11 downto 0);
     signal enaStruct  :  std_logic;
     signal enaEnt     :  std_logic;
     signal enaVGA     :  std_logic;
+    signal enaAngel   :  std_logic;
     signal wrStruct   :  std_logic_vector(0 to 0);
     signal wrEnt      :  std_logic_vector(0 to 0);
     signal wrVGA      :  std_logic_vector(0 to 0);
     signal addrStruct :  std_logic_vector(4 downto 0);
     signal addrEnt    :  std_logic_vector(13 downto 0);
     signal addrVGA    :  std_logic_vector(17 downto 0);
+    signal addrAngel  :  std_logic_vector(12 downto 0);
     
     -- segnali per master della VGA e VGA
     signal clk25mhz   :  std_logic;
@@ -54,8 +57,10 @@ architecture behavioral of framesMaster is
     signal inutile    :  std_logic_vector(21 downto 0);
     signal inutile2   :  std_logic_vector(11 downto 0);
     
-    signal e : std_logic;
+    signal e       : std_logic;
     signal request : std_logic;
+    
+    signal playerX : natural := 95;
 begin
     rand: entity work.randomizer
     port map(
@@ -132,7 +137,11 @@ begin
         wena            => wenaGame,
         ena             => enaGame,
         newRow          => newRow,
-        enable          => e
+        enable          => e,
+        playerX         => playerX,
+        addrAngel       => addrAngel,
+        dataAngel       => dataAngel,
+        enaAngel        => enaAngel 
     );
     
     clk25: entity work.clk25
@@ -172,12 +181,12 @@ begin
         web             => wrStruct
     );
     
-    memEnt: entity work.blk_mem_gen_3
+    memAngel: entity work.blk_mem_gen_1
     port map(
         clka            => clk,
-        addra           => addrEnt,
-        ena             => enaEnt,
-        douta           => dataEnt
+        addra           => addrAngel,
+        douta           => dataAngel,
+        ena             => enaAngel
     );
     
     memVGA: entity work.blk_mem_gen_2
@@ -196,4 +205,11 @@ begin
         web             => wenaGame
     );
     
+    memEnt: entity work.blk_mem_gen_3
+    port map(
+        clka            => clk,
+        addra           => addrEnt,
+        ena             => enaEnt,
+        douta           => dataEnt
+    );
 end behavioral;

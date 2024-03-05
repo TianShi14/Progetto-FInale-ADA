@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date             : Mon Mar  4 17:14:29 2024
-| Host             : thisguy running 64-bit Ubuntu 20.04.6 LTS
+| Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date             : Tue Mar  5 15:18:48 2024
+| Host             : LAPTOP-ESNLEJG4 running 64-bit major release  (build 9200)
 | Command          : report_power -file framesMaster_power_routed.rpt -pb framesMaster_power_summary_routed.pb -rpx framesMaster_power_routed.rpx
 | Design           : framesMaster
 | Device           : xc7z020clg484-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.135        |
+| Total On-Chip Power (W)  | 0.140        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.025        |
+| Dynamic (W)              | 0.029        |
 | Device Static (W)        | 0.111        |
 | Effective TJA (C/W)      | 11.5         |
 | Max Ambient (C)          | 83.4         |
@@ -52,20 +52,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.006 |        3 |       --- |             --- |
-| Slice Logic    |     0.002 |     1876 |       --- |             --- |
-|   LUT as Logic |     0.002 |      799 |     53200 |            1.50 |
-|   CARRY4       |    <0.001 |      128 |     13300 |            0.96 |
-|   Register     |    <0.001 |      475 |    106400 |            0.45 |
+| Clocks         |     0.005 |        3 |       --- |             --- |
+| Slice Logic    |     0.002 |     2067 |       --- |             --- |
+|   LUT as Logic |     0.002 |      885 |     53200 |            1.66 |
+|   CARRY4       |    <0.001 |      145 |     13300 |            1.09 |
+|   Register     |    <0.001 |      532 |    106400 |            0.50 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.13 |
-|   Others       |     0.000 |      174 |       --- |             --- |
+|   Others       |     0.000 |      183 |       --- |             --- |
 |   F7/F8 Muxes  |     0.000 |       99 |     53200 |            0.19 |
-| Signals        |     0.006 |     1992 |       --- |             --- |
-| Block RAM      |     0.011 |     83.5 |       140 |           59.64 |
+| Signals        |     0.006 |     2131 |       --- |             --- |
+| Block RAM      |     0.015 |       86 |       140 |           61.43 |
 | DSPs           |    <0.001 |        2 |       220 |            0.91 |
 | I/O            |    <0.001 |       16 |       200 |            8.00 |
 | Static Power   |     0.111 |          |           |                 |
-| Total          |     0.135 |          |           |                 |
+| Total          |     0.140 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.033 |       0.024 |      0.009 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.037 |       0.028 |      0.009 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -84,7 +84,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.004 |       0.001 |      0.003 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.005 |       0.001 |      0.003 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -151,18 +151,21 @@ Table of Contents
 +------------------------+-----------+
 | Name                   | Power (W) |
 +------------------------+-----------+
-| framesMaster           |     0.025 |
-|   dStruct              |     0.002 |
-|   memEnt               |     0.002 |
-|     U0                 |     0.002 |
-|       inst_blk_mem_gen |     0.002 |
-|   memStruct            |     0.001 |
+| framesMaster           |     0.029 |
+|   dStruct              |     0.001 |
+|   memAngel             |     0.001 |
 |     U0                 |     0.001 |
 |       inst_blk_mem_gen |     0.001 |
-|   memVGA               |     0.011 |
-|     U0                 |     0.011 |
-|       inst_blk_mem_gen |     0.011 |
-|   outMaster            |     0.004 |
+|   memEnt               |     0.003 |
+|     U0                 |     0.003 |
+|       inst_blk_mem_gen |     0.003 |
+|   memStruct            |     0.002 |
+|     U0                 |     0.002 |
+|       inst_blk_mem_gen |     0.002 |
+|   memVGA               |     0.013 |
+|     U0                 |     0.013 |
+|       inst_blk_mem_gen |     0.013 |
+|   outMaster            |     0.005 |
 |   sDesigner            |     0.004 |
 +------------------------+-----------+
 

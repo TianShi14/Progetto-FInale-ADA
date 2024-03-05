@@ -17,23 +17,32 @@ entity output is
         memGameOut : in  std_logic_vector(11 downto 0);        -- data out Game mem 
         wena       : out std_logic_vector(0 to 0);
         ena        : out std_logic;
+        
         newRow     : out std_logic;
-        enable     : out std_logic                                                                                                                       
+        enable     : out std_logic;
+        playerX    : in  natural;
+        -- segnali per mem Angel
+        dataAngel  : in  std_logic_vector(11 downto 0);
+        addrAngel  : out std_logic_vector(12 downto 0);       
+        enaAngel   : out std_logic                                                                                                                    
     );
 end output;
 
 architecture behavioral of output is
     type msf is (start, transition, game);                      -- state types
     signal state        : msf := start;                         -- state machine 
-    signal vgaCount     : integer range 0 to 640*480-1 := 0;    -- global counter
-    signal memCounter   : integer range 0 to 480*240-1 := 0;    -- Mem counter  
-    signal HCounter     : integer range 0 to 640 - 1   := 0;
-    signal pixelN       : integer range 0 to 48 - 1    := 0; 
-    signal rowN         : integer range 0 to 20 - 1    := 10;
+    signal vgaCount     : integer range 0 to 640*480-1      := 0;    -- global counter
+    signal memCounter   : integer range 0 to 480*240-1      := 0;    -- Mem counter  
+    signal HCounter     : integer range 0 to 640 - 1        := 0;
+    signal pixelN       : integer range 0 to 48 - 1         := 0; 
+    signal rowN         : integer range 0 to 20 - 1         := 10;
+    signal angelCount   : integer range 0 to 48*48 - 1      := 0;
+    signal trCount      : integer range 0 to 10_000_000 - 1 := 0;
     signal startAddr    : integer := 480 * 240;
     signal flipCount    : integer := 0;
     signal flip         : boolean := false;
     signal isStarting   : boolean := false;
+    signal move         : boolean := false;
     signal prevClk25    : std_logic;
     
 begin
@@ -83,7 +92,7 @@ begin
                     r <= (others => '1');
                     g <= (others => '0');
                     b <= (others => '1');
-                    if timeCount < 2 then  -- 200_000_000
+                    if timeCount < 200_000_000 then  -- 200_000_000
                         timeCount := timeCount + 1;
                     else
                         if endFrame = '1' then  -- aspettare che finisca di disegnare il frame
@@ -107,27 +116,53 @@ begin
                         address <= std_logic_vector(to_unsigned(memCounter - flipCount - 1, address'length));
                     end if;
                     if active = '1' then
+                        if memCounter > 240 * 48 * 9 - 1 and HCounter >= playerX + 200 - 1 and HCounter < playerX + 200 + 48 - 1 then
+                            enaAngel  <= '1';
+                            if move then 
+                                addrAngel <= std_logic_vector(to_unsigned(angelCount, addrAngel'length));
+                            else
+                                addrAngel <= std_logic_vector(to_unsigned(48 * 48 + angelCount, addrAngel'length));
+                            end if;
+                        else
+                            enaAngel  <= '0';
+                        end if;
                         if HCounter = 200 - 1 then                                                           
                             ena     <= '1';                                                                  
                         end if;                                                                              
                         if HCounter > 200 - 1 and HCounter <= 440 - 1 then                                   
                             ena <= '1';
-                            if memGameOut(11 downto 8) = x"9" and memGameOut(7  downto 4) = x"9" and memGameOut(3  downto 0) = x"9" then
-                                r <= x"A";
-                                g <= x"A";
-                                b <= x"A"; 
-                            else                                                             
-                                r   <= memGameOut(11 downto 8);                                              
-                                g   <= memGameOut(7  downto 4);                                              
-                                b   <= memGameOut(3  downto 0);   
+                            if memCounter > 240 * 48 * 9 - 1 and HCounter >= playerX + 200 and HCounter < playerX + 200 + 48 
+                            and dataAngel /= x"D15" then
+                                r <= dataAngel(11 downto 8);
+                                g <= dataAngel(7  downto 4);
+                                b <= dataAngel(3  downto 0);
+                            else 
+                                if memGameOut(11 downto 8) = x"9" and memGameOut(7 downto 4) = x"9" and memGameOut(3 downto 0) = x"9" then
+                                    r   <= x"A";
+                                    g   <= x"A";
+                                    b   <= x"A"; 
+                                else                                                             
+                                    r   <= memGameOut(11 downto 8);                                              
+                                    g   <= memGameOut(7  downto 4);                                              
+                                    b   <= memGameOut(3  downto 0);   
+                                end if;
                             end if;                                           
-                        else        
+                        else        -- verde
                             ena <= '0';                                                                         
                             r   <= "1000";                                                               
                             g   <= "1111";                                                               
                             b   <= "0101";                                                               
                         end if;
                         if prevClk25 = '0' and clk25 = '1' then
+                            if trCount >= 10_000_000 - 1 then
+                                move    <= not move;
+                                trCount <= 0;
+                            else
+                                trCount <= trCount + 1;
+                            end if;
+                            if memCounter > 240 * 48 * 9 - 1 and HCounter >= playerX + 200 and HCounter < playerX + 200 + 48 then
+                                angelCount <= angelCount + 1;
+                            end if;
                             vgaCount <= vgaCount + 1;                                                            
                             HCounter <= HCounter + 1; 
                             if HCounter > 200 - 1 and HCounter <= 440 - 1 then 
@@ -141,6 +176,7 @@ begin
                                 HCounter   <= 0;
                                 vgaCount   <= 0;
                                 memCounter <= 0;
+                                angelCount <= 0;
                                 flip       <= false;
                                 if pixelN = 0 then
                                     if not isStarting then

@@ -60,24 +60,6 @@ begin
             
             case state is
                 when start =>
---                    if active = '1' then
---                        r <= romStartOut(11 downto 8);
---                        g <= romStartOut (7 downto 4);
---                        b <= romStartOut (3 downto 0);
---                        if prevClk25 = '0' and clk25 = '1' then -- rising edge di clk25 mhz
---                            memCounter <= memCounter + 1;
---                            if memCounter = 640*480-1 then
---                                memCounter <= 0;
---                                if isStarting then
---                                    genFrame <= '1';
---                                    state <= transition;
---                                end if;
---                            end if;
---                        end if;
---                    end if;
---                    if startGame = '1' then
---                        isStarting := true;
---                    end if;
                     r <= (others => '0');
                     g <= (others => '0');
                     b <= (others => '0');
@@ -92,7 +74,7 @@ begin
                     r <= (others => '1');
                     g <= (others => '0');
                     b <= (others => '1');
-                    if timeCount < 200_000_000 then  -- 200_000_000
+                    if timeCount < 200_000_000 then  
                         timeCount := timeCount + 1;
                     else
                         if endFrame = '1' then  -- aspettare che finisca di disegnare il frame
@@ -160,7 +142,7 @@ begin
                             else
                                 trCount <= trCount + 1;
                             end if;
-                            if memCounter > 240 * 48 * 9 - 1 and HCounter >= playerX + 200 and HCounter < playerX + 200 + 48 then
+                            if memCounter > 240 * 48 * 9 - 1 and HCounter >= playerX + 200 - 1 and HCounter < playerX + 200 + 48 - 1 then -------
                                 angelCount <= angelCount + 1;
                             end if;
                             vgaCount <= vgaCount + 1;                                                            

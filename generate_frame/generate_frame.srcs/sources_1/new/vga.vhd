@@ -28,7 +28,7 @@ architecture Behavioral of vga_driver is
     -- vertical definition
     constant v_tots : natural := 525 - 1;
     constant v_sync : natural := 2 - 1;
-    constant v_str  : natural := v_sync + 35;
+    constant v_str  : natural := v_sync + 33;
     constant v_end  : natural := v_str + 480;
     
 begin

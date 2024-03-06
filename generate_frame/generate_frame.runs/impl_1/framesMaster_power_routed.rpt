@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Tue Mar  5 15:18:48 2024
+| Date             : Wed Mar  6 11:41:07 2024
 | Host             : LAPTOP-ESNLEJG4 running 64-bit major release  (build 9200)
 | Command          : report_power -file framesMaster_power_routed.rpt -pb framesMaster_power_summary_routed.pb -rpx framesMaster_power_routed.rpx
 | Design           : framesMaster
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.005 |        3 |       --- |             --- |
-| Slice Logic    |     0.002 |     2067 |       --- |             --- |
-|   LUT as Logic |     0.002 |      885 |     53200 |            1.66 |
+| Clocks         |     0.006 |        3 |       --- |             --- |
+| Slice Logic    |     0.002 |     2070 |       --- |             --- |
+|   LUT as Logic |     0.002 |      882 |     53200 |            1.66 |
 |   CARRY4       |    <0.001 |      145 |     13300 |            1.09 |
 |   Register     |    <0.001 |      532 |    106400 |            0.50 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.13 |
 |   Others       |     0.000 |      183 |       --- |             --- |
 |   F7/F8 Muxes  |     0.000 |       99 |     53200 |            0.19 |
-| Signals        |     0.006 |     2131 |       --- |             --- |
-| Block RAM      |     0.015 |       86 |       140 |           61.43 |
+| Signals        |     0.005 |     2130 |       --- |             --- |
+| Block RAM      |     0.014 |       86 |       140 |           61.43 |
 | DSPs           |    <0.001 |        2 |       220 |            0.91 |
 | I/O            |    <0.001 |       16 |       200 |            8.00 |
 | Static Power   |     0.111 |          |           |                 |
@@ -152,13 +152,13 @@ Table of Contents
 | Name                   | Power (W) |
 +------------------------+-----------+
 | framesMaster           |     0.029 |
-|   dStruct              |     0.001 |
+|   dStruct              |     0.002 |
 |   memAngel             |     0.001 |
 |     U0                 |     0.001 |
 |       inst_blk_mem_gen |     0.001 |
-|   memEnt               |     0.003 |
-|     U0                 |     0.003 |
-|       inst_blk_mem_gen |     0.003 |
+|   memEnt               |     0.002 |
+|     U0                 |     0.002 |
+|       inst_blk_mem_gen |     0.002 |
 |   memStruct            |     0.002 |
 |     U0                 |     0.002 |
 |       inst_blk_mem_gen |     0.002 |

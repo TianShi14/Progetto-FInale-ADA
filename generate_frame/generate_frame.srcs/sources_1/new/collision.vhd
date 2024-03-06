@@ -2,20 +2,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
---entity collision is
---    port(
---        clk      : in  std_logic;
---        check    : in  std_logic;
---        playerY  : in  std_logic_vector(4 downto 0);
---        playerX  : in  std_logic_vector(7 downto 0);
---        memOut   : in  std_logic_vector(17 downto 0);
---        death    : out std_logic;
---        ena      : out std_logic;
---        wr       : out std_logic_vector(0 to 0);
---        address  : out std_logic_vector(4 downto 0)
---    );
---end collision;
-
 entity collision is
     port(
         clk      : in  std_logic;
@@ -64,6 +50,12 @@ architecture behavioral of collision is
         variable enU : integer := (19 - row) * 48;
         variable enL : integer := (20 - row) * 48 - 1;
     begin
+        if plU < 0 then
+            plU := 960 + plU;
+        end if;
+        if plL < 0 then
+            plL := 960 + plL;
+        end if;
         if (plU > enU and plU < enL) or (plL > enU and plL < enL) then
             return true;
         else
@@ -113,58 +105,3 @@ begin
         end if;
     end process;
 end behavioral;
---architecture behavioral of collision is
---    type fsm is (waits, wasteClk, checks);
-    
---    signal state    : fsm     := waits;
---    signal firstRow : boolean := true;
---begin
---    wr    <= "0";
-        
---    process(clk)
---    begin
---        if rising_edge(clk) then
---            case state is
---                when waits   =>
---                    if check = '1' then
---                        address <= playerY;
---                        ena     <= '1';
---                        state   <= checks;
---                    end if;
---                when wasteClk =>
---                    state <= checks;
---                when checks   =>
---                    if memOut(17) = '1' then
---                        if (to_integer(unsigned(playerX)) >= to_integer(unsigned(memOut(15 downto 8))) and 
---                                to_integer(unsigned(playerX)) <= to_integer(unsigned(memOut(15 downto 8))) + 48)
---                            or
---                           (to_integer(unsigned(playerX)) + 48 >= to_integer(unsigned(memOut(15 downto 8))) and 
---                                to_integer(unsigned(playerX)) + 48 <= to_integer(unsigned(memOut(15 downto 8))) + 48)
---                            then
---                                death <= '1';
---                        elsif memOut(16) = '1' and
---                           ((to_integer(unsigned(playerX)) >= to_integer(unsigned(memOut(7 downto 0))) and 
---                                to_integer(unsigned(playerX)) <= to_integer(unsigned(memOut(7 downto 0))) + 48)
---                            or
---                           (to_integer(unsigned(playerX)) + 48 >= to_integer(unsigned(memOut(7 downto 0))) and 
---                                to_integer(unsigned(playerX)) + 48 <= to_integer(unsigned(memOut(7 downto 0))) + 48))
---                            then
---                                death <= '1';
---                        end if;
---                    end if;
---                    if firstRow then
---                        firstRow <= false;
---                        if playerY = "00010011" then
---                            address <= (others => '0');
---                        else
---                            address <= std_logic_vector(to_unsigned(to_integer(unsigned(playerY)) + 1, address'length));
---                        end if;
---                    else
---                        firstRow <= true;
---                        ena      <= '0';
---                        state    <= waits;
---                    end if;
---            end case;
---        end if;
---    end process;
---end behavioral;

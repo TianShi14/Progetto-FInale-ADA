@@ -175,6 +175,9 @@ begin
                                 else
                                     pixelNN := pixelN - 1;
                                 end if;
+                                
+                                
+                                
                                 pixelN <= pixelNN;
                                 rowN   <= rowNN;
                                 startAddr  <= (48 * rowNN + pixelNN) * 240;

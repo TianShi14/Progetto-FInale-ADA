@@ -71,7 +71,6 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
-set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -94,8 +93,10 @@ add_files C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/gener
 add_files C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/imports/Progetto-Finale-ADA/file.coe
 add_files C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/entities.coe
 add_files C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/definitivo.coe
+add_files C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/angel.coe
 read_vhdl -library xil_defaultlib {
   C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/clk25.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/collision.vhd
   C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/dataStructure.vhd
   C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/imports/Progetto-Finale-ADA/game_screen/game_screen.srcs/sources_1/new/randomizer.vhd
   C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/new/newScreen.vhd
@@ -114,6 +115,9 @@ set_property used_in_implementation false [get_files -all c:/Users/aless/OneDriv
 
 read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci
 set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1_ooc.xdc]
+
+read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.srcs/sources_1/ip/blk_mem_gen_4/blk_mem_gen_4.xci
+set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/generate_frame/generate_frame.gen/sources_1/ip/blk_mem_gen_4/blk_mem_gen_4_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

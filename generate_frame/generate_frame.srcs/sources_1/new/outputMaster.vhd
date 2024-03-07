@@ -24,12 +24,18 @@ entity output is
         -- segnali per mem Angel
         dataAngel  : in  std_logic_vector(11 downto 0);
         addrAngel  : out std_logic_vector(12 downto 0);       
-        enaAngel   : out std_logic                                                                                                                    
+        enaAngel   : out std_logic;
+        -----------------collisioni----------
+        death      : in  std_logic;
+        row        : out std_logic_vector(4  downto 0); 
+        playerY    : out std_logic_vector(8  downto 0); 
+        check      : out std_logic;
+        multiple   : out std_logic                                                                                                                 
     );
 end output;
 
 architecture behavioral of output is
-    type msf is (start, transition, game);                      -- state types
+    type msf is (start, transition, game, dead);                      -- state types
     signal state        : msf := start;                         -- state machine 
     signal vgaCount     : integer range 0 to 640*480-1      := 0;    -- global counter
     signal memCounter   : integer range 0 to 480*240-1      := 0;    -- Mem counter  
@@ -45,6 +51,7 @@ architecture behavioral of output is
     signal move         : boolean := false;
     signal prevClk25    : std_logic;
     
+    
 begin
 
     wena <= "0";
@@ -53,6 +60,12 @@ begin
         variable timeCount : integer := 0;       -- contiamo fino a 3 sec per la transizione
         variable rowNN     : integer;
         variable pixelNN   : integer;
+        -------------------collisioni
+        variable row_v     : integer; 
+        variable playerY_v : integer; 
+        variable multiple_v: std_logic;
+        variable rowSup_v  : integer;
+        -----------------------------
     begin
         
         if rising_edge(clk) then
@@ -85,6 +98,7 @@ begin
                         end if;
                     end if;
                 when game =>
+                    check  <= '0';
                     newRow <= '0';
                     if not flip then
                         address <= std_logic_vector(to_unsigned(startAddr + memCounter, address'length));
@@ -176,16 +190,53 @@ begin
                                     pixelNN := pixelN - 1;
                                 end if;
                                 
+                                -- parte dedicata alle collisioni ----------------------
+                                if (rowN = 10 and pixelN = 0) or rowN < 10 then
+                                    if pixelN = 0 then
+                                        row_v      := 19 - rowN - 9; -- controllare che sia rowN e non rowNN
+                                        rowSup_v   := row_v;
+                                        multiple_v := '0';
+                                    else
+                                        row_v      := 19 - rowN - 10; -- controllare che sia rowN e non rowNN
+                                        rowSup_v   := row_v + 1;
+                                        multiple_v := '1';
+                                    end if;
+                                else
+                                    if pixelN = 0 then
+                                        row_v      := 19 + 19 - rowN - 8; -- controllare che sia rowN e non rowNN
+                                        rowSup_v   := row_v;
+                                        multiple_v := '0';
+                                    else
+                                        row_v      := 19 + 19 - rowN - 9; -- controllare che sia rowN e non rowNN
+                                        rowSup_v   := row_v + 1;
+                                        multiple_v := '1';
+                                        if rowN = 10 then
+                                            rowSup_v   := 2;
+                                        end if;
+                                    end if;
+                                end if;
                                 
+                                playerY_v := (20 - rowSup_v) * 48 - 1 + pixelN;
                                 
+                                playerY  <= std_logic_vector(to_unsigned(playerY_v, playerY'length));
+                                row      <= std_logic_vector(to_unsigned(row_v, row'length));
+                                multiple <= multiple_v; 
+                                check    <= '1';
+                                --------------------------------------------------------
                                 pixelN <= pixelNN;
                                 rowN   <= rowNN;
                                 startAddr  <= (48 * rowNN + pixelNN) * 240;
                             end if;                                                                      
                         end if;
                     end if;
+                when dead =>
+                    r <= x"F";
+                    g <= x"F";
+                    b <= x"F";
             end case;
-            
+            if death = '1' then
+                state <= dead;
+            end if;
         end if;
     end process;
     clkGame <= clk;

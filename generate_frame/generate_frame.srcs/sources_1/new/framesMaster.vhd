@@ -29,17 +29,21 @@ architecture behavioral of framesMaster is
     signal dataEnt    :  std_logic_vector(11 downto 0);
     signal dataVGA    :  std_logic_vector(11 downto 0);
     signal dataAngel  :  std_logic_vector(11 downto 0);
+    signal dataColl   :  std_logic_vector(17 downto 0);
     signal enaStruct  :  std_logic;
     signal enaEnt     :  std_logic;
     signal enaVGA     :  std_logic;
     signal enaAngel   :  std_logic;
+    signal enaColl    :  std_logic;
     signal wrStruct   :  std_logic_vector(0 to 0);
     signal wrEnt      :  std_logic_vector(0 to 0);
     signal wrVGA      :  std_logic_vector(0 to 0);
+    signal wrColl     :  std_logic_vector(0 to 0);
     signal addrStruct :  std_logic_vector(4 downto 0);
     signal addrEnt    :  std_logic_vector(13 downto 0);
     signal addrVGA    :  std_logic_vector(17 downto 0);
     signal addrAngel  :  std_logic_vector(12 downto 0);
+    signal addrColl   :  std_logic_vector(4 downto 0);
     
     -- segnali per master della VGA e VGA
     signal clk25mhz   :  std_logic;
@@ -56,11 +60,20 @@ architecture behavioral of framesMaster is
     
     signal inutile    :  std_logic_vector(21 downto 0);
     signal inutile2   :  std_logic_vector(11 downto 0);
+    signal inutile3   :  std_logic_vector(17 downto 0);
     
     signal e       : std_logic;
     signal request : std_logic;
     
     signal playerX : natural := 95;
+    
+    -- segnali per collisioni
+    signal check    : std_logic;
+    signal multiple : std_logic;
+    signal row      : std_logic_vector(4  downto 0);
+    signal playerY  : std_logic_vector(8  downto 0);
+    signal death    : std_logic;
+    
 begin
     rand: entity work.randomizer
     port map(
@@ -141,13 +154,33 @@ begin
         playerX         => playerX,
         addrAngel       => addrAngel,
         dataAngel       => dataAngel,
-        enaAngel        => enaAngel 
+        enaAngel        => enaAngel,
+        death           => death,
+        row             => row,
+        playerY         => playerY,
+        check           => check,
+        multiple        => multiple
     );
     
     clk25: entity work.clk25
     port map(
         clk             => clk,
         clk25mhz        => clk25mhz
+    );
+    
+    collision: entity work.collision
+    port map(
+        clk             => clk,
+        check           => check,
+        multiple        => multiple,
+        row             => row,
+        playerX         => std_logic_vector(to_unsigned(95, 8)),
+        playerY         => playerY,
+        memOut          => dataColl,
+        death           => death,
+        ena             => enaColl,
+        wr              => wrColl,
+        address         => addrColl
     );
     
     vga: entity work.vga_driver
@@ -211,5 +244,21 @@ begin
         addra           => addrEnt,
         ena             => enaEnt,
         douta           => dataEnt
+    );
+    
+    memColl: entity work.blk_mem_gen_4
+    port map(
+        clka            => clk,
+        addra           => address,
+        dina            => data(21 downto 4),
+        douta           => inutile3,
+        ena             => ena,
+        wea             => writeEna,
+        addrb           => addrColl,
+        clkb            => clk,
+        dinb            => inutile3,
+        doutb           => dataColl,
+        enb             => enaColl,
+        web             => wrColl
     );
 end behavioral;

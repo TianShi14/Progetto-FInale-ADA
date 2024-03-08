@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date                      : Fri Mar  8 10:49:58 2024
+| Date                      : Fri Mar  8 11:33:38 2024
 | Host                      : thisguy running 64-bit Ubuntu 20.04.6 LTS
 | Command                   : report_io -file framesMaster_io_placed.rpt
 | Design                    : framesMaster

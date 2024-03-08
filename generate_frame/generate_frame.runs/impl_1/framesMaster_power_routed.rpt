@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date             : Fri Mar  8 10:50:44 2024
+| Date             : Fri Mar  8 11:34:21 2024
 | Host             : thisguy running 64-bit Ubuntu 20.04.6 LTS
 | Command          : report_power -file framesMaster_power_routed.rpt -pb framesMaster_power_summary_routed.pb -rpx framesMaster_power_routed.rpx
 | Design           : framesMaster
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.141        |
+| Total On-Chip Power (W)  | 0.140        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.030        |
@@ -53,19 +53,19 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.006 |        3 |       --- |             --- |
-| Slice Logic    |     0.002 |     2847 |       --- |             --- |
-|   LUT as Logic |     0.002 |     1320 |     53200 |            2.48 |
-|   CARRY4       |    <0.001 |      265 |     13300 |            1.99 |
-|   Register     |    <0.001 |      656 |    106400 |            0.62 |
+| Slice Logic    |     0.002 |     2873 |       --- |             --- |
+|   LUT as Logic |     0.002 |     1336 |     53200 |            2.51 |
+|   CARRY4       |    <0.001 |      266 |     13300 |            2.00 |
+|   Register     |    <0.001 |      664 |    106400 |            0.62 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.13 |
 |   F7/F8 Muxes  |    <0.001 |       99 |     53200 |            0.19 |
 |   Others       |     0.000 |      186 |       --- |             --- |
-| Signals        |     0.005 |     2681 |       --- |             --- |
+| Signals        |     0.005 |     2711 |       --- |             --- |
 | Block RAM      |     0.016 |     86.5 |       140 |           61.79 |
 | DSPs           |    <0.001 |        2 |       220 |            0.91 |
 | I/O            |    <0.001 |       16 |       200 |            8.00 |
 | Static Power   |     0.111 |          |           |                 |
-| Total          |     0.141 |          |           |                 |
+| Total          |     0.140 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.038 |       0.029 |      0.009 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.037 |       0.028 |      0.009 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -166,7 +166,7 @@ Table of Contents
 |   memVGA               |     0.011 |
 |     U0                 |     0.011 |
 |       inst_blk_mem_gen |     0.011 |
-|   outMaster            |     0.003 |
+|   outMaster            |     0.002 |
 |   sDesigner            |     0.004 |
 +------------------------+-----------+
 

@@ -66,6 +66,7 @@ architecture behavioral of framesMaster is
     signal request : std_logic;
     
     signal playerX : natural := 95;
+    signal playerXX: std_logic_vector(7 downto 0);
     
     -- segnali per collisioni
     signal check    : std_logic;
@@ -174,7 +175,7 @@ begin
         check           => check,
         multiple        => multiple,
         row             => row,
-        playerX         => std_logic_vector(to_unsigned(95, 8)),
+        playerX         => playerXX,
         playerY         => playerY,
         memOut          => dataColl,
         death           => death,
@@ -269,6 +270,7 @@ begin
         if rising_edge(clk) then
             if conta = 4 * 640 * 480 - 1 then
                 conta := 0;
+                playerXX <= std_logic_vector(to_unsigned(playerX, playerXX'length));
                 if left then
                     if playerX = 0 then
                         left := false;

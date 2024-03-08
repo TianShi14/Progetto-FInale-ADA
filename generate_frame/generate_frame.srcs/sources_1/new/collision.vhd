@@ -9,7 +9,7 @@ entity collision is
         multiple : in  std_logic;
         row      : in  std_logic_vector(4  downto 0);
         playerX  : in  std_logic_vector(7  downto 0);
-        playerY  : in  std_logic_vector(8  downto 0);
+        playerY  : in  std_logic_vector(9  downto 0);
         memOut   : in  std_logic_vector(17 downto 0);
         death    : out std_logic;
         ena      : out std_logic;
@@ -42,7 +42,7 @@ architecture behavioral of collision is
     end function;
     
     function collisionY(
-        playerY : std_logic_vector(8 downto 0);
+        playerY : std_logic_vector(9 downto 0);
         row     : integer
     ) return boolean is
         variable plU : integer := to_integer(unsigned(playerY) - 41);
@@ -86,6 +86,7 @@ begin
                         address <= std_logic_vector(to_unsigned(currRow, address'length) + 1);
                         currRow <= currRow + 1;
                         state   <= wasteClk;
+                        mul     <= '0';
                     else
                         state   <= waits;
                     end if;

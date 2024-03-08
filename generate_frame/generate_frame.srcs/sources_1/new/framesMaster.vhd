@@ -71,7 +71,7 @@ architecture behavioral of framesMaster is
     signal check    : std_logic;
     signal multiple : std_logic;
     signal row      : std_logic_vector(4  downto 0);
-    signal playerY  : std_logic_vector(8  downto 0);
+    signal playerY  : std_logic_vector(9  downto 0);
     signal death    : std_logic;
     
 begin
@@ -261,4 +261,31 @@ begin
         enb             => enaColl,
         web             => wrColl
     );
+    
+    process(clk)
+    variable left : boolean := false;
+    variable conta: integer range 0 to 4 * 640 * 480 - 1 := 0;
+    begin
+        if rising_edge(clk) then
+            if conta = 4 * 640 * 480 - 1 then
+                conta := 0;
+                if left then
+                    if playerX = 0 then
+                        left := false;
+                    else
+                        playerX <= playerX - 1;
+                    end if;
+                else
+                    if playerX = 192 then
+                        left := true;
+                    else
+                        playerX <= playerX + 1;
+                    end if;
+                end if;
+            else
+                conta := conta + 1;
+            end if;
+            
+        end if;
+    end process;
 end behavioral;

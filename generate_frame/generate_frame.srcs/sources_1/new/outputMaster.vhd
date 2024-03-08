@@ -28,7 +28,7 @@ entity output is
         -----------------collisioni----------
         death      : in  std_logic;
         row        : out std_logic_vector(4  downto 0); 
-        playerY    : out std_logic_vector(8  downto 0); 
+        playerY    : out std_logic_vector(9  downto 0); 
         check      : out std_logic;
         multiple   : out std_logic                                                                                                                 
     );
@@ -44,6 +44,8 @@ architecture behavioral of output is
     signal rowN         : integer range 0 to 20 - 1         := 10;
     signal angelCount   : integer range 0 to 48*48 - 1      := 0;
     signal trCount      : integer range 0 to 10_000_000 - 1 := 0;
+    signal rowCount     : integer range 0 to 20 * 48 - 1    := 20 * 48 - 1;
+    signal bigRow       : integer range 0 to 20 - 1 := 0;
     signal startAddr    : integer := 480 * 240;
     signal flipCount    : integer := 0;
     signal flip         : boolean := false;
@@ -60,12 +62,7 @@ begin
         variable timeCount : integer := 0;       -- contiamo fino a 3 sec per la transizione
         variable rowNN     : integer;
         variable pixelNN   : integer;
-        -------------------collisioni
-        variable row_v     : integer; 
-        variable playerY_v : integer; 
-        variable multiple_v: std_logic;
-        variable rowSup_v  : integer;
-        -----------------------------
+        
     begin
         
         if rising_edge(clk) then
@@ -87,7 +84,7 @@ begin
                     r <= (others => '1');
                     g <= (others => '0');
                     b <= (others => '1');
-                    if timeCount < 200_000_000 then  
+                    if timeCount < 600_000_000 then  
                         timeCount := timeCount + 1;
                     else
                         if endFrame = '1' then  -- aspettare che finisca di disegnare il frame
@@ -98,8 +95,9 @@ begin
                         end if;
                     end if;
                 when game =>
-                    check  <= '0';
-                    newRow <= '0';
+                    check    <= '0';
+                    multiple <= '1';
+                    newRow   <= '0';
                     if not flip then
                         address <= std_logic_vector(to_unsigned(startAddr + memCounter, address'length));
                         if startAddr + memCounter = 960 * 240 - 1 then
@@ -179,6 +177,12 @@ begin
                                         isStarting <= true;
                                     else
                                         newRow <= '1';
+                                        if bigRow = 20 - 1 then
+                                            bigRow <= 0;
+                                        else 
+                                            bigRow <= bigRow + 1;
+                                        end if;
+                                        multiple <= '0';
                                     end if;
                                     pixelNN := 47;
                                     if rowN = 0 then
@@ -189,38 +193,18 @@ begin
                                 else
                                     pixelNN := pixelN - 1;
                                 end if;
-                                
-                                -- parte dedicata alle collisioni ----------------------
-                                if (rowN = 10 and pixelN = 0) or rowN < 10 then
-                                    if pixelN = 0 then
-                                        row_v      := 19 - rowN - 9; -- controllare che sia rowN e non rowNN
-                                        rowSup_v   := row_v;
-                                        multiple_v := '0';
-                                    else
-                                        row_v      := 19 - rowN - 10; -- controllare che sia rowN e non rowNN
-                                        rowSup_v   := row_v + 1;
-                                        multiple_v := '1';
-                                    end if;
+                                if rowCount = 0 then
+                                    rowCount <= 960 - 1;
                                 else
-                                    if pixelN = 0 then
-                                        row_v      := 19 + 19 - rowN - 8; -- controllare che sia rowN e non rowNN
-                                        rowSup_v   := row_v;
-                                        multiple_v := '0';
-                                    else
-                                        row_v      := 19 + 19 - rowN - 9; -- controllare che sia rowN e non rowNN
-                                        rowSup_v   := row_v + 1;
-                                        multiple_v := '1';
-                                        if rowN = 10 then
-                                            rowSup_v   := 2;
-                                        end if;
-                                    end if;
+                                    rowCount <= rowCount - 1;
                                 end if;
+                                -- parte dedicata alle collisioni ----------------------
                                 
-                                playerY_v := (20 - rowSup_v) * 48 - 1 + pixelN;
                                 
-                                playerY  <= std_logic_vector(to_unsigned(playerY_v, playerY'length));
-                                row      <= std_logic_vector(to_unsigned(row_v, row'length));
-                                multiple <= multiple_v; 
+--                                playerY  <= std_logic_vector(to_unsigned(playerY_v, playerY'length));
+--                                row      <= std_logic_vector(to_unsigned(row_v, row'length));
+                                playerY  <= std_logic_vector(to_unsigned(rowCount, playerY'length));
+                                row      <= std_logic_vector(to_unsigned(bigRow, row'length));
                                 check    <= '1';
                                 --------------------------------------------------------
                                 pixelN <= pixelNN;

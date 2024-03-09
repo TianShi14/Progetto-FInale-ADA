@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Tue Nov  7 13:46:41 2023
+| Date         : Fri Mar  8 13:43:50 2024
 | Host         : thisguy running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_control_sets -verbose -file master_control_sets_placed.rpt
 | Design       : master
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              20 |           13 |
+| No           | No                    | No                     |              20 |           10 |
 | No           | No                    | Yes                    |              11 |            7 |
-| No           | Yes                   | No                     |             238 |           67 |
-| Yes          | No                    | No                     |              74 |           30 |
-| Yes          | No                    | Yes                    |              36 |            9 |
-| Yes          | Yes                   | No                     |              42 |           13 |
+| No           | Yes                   | No                     |             238 |           58 |
+| Yes          | No                    | No                     |              74 |           29 |
+| Yes          | No                    | Yes                    |              36 |           12 |
+| Yes          | Yes                   | No                     |              42 |           11 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,24 +73,24 @@ Table of Contents
 +---------------------------------+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------+----------------+--------------+
 |           Clock Signal          |                                    Enable Signal                                    |                            Set/Reset Signal                           | Slice Load Count | Bel Load Count | Bels / Slice |
 +---------------------------------+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------+----------------+--------------+
-|  clk_IBUF_BUFG                  | accelerometer/spi/E[0]                                                              |                                                                       |                2 |              3 |         1.50 |
-|  clk_IBUF_BUFG                  | accelerometer/spi/counter_reg[0]_0[0]                                               |                                                                       |                1 |              3 |         3.00 |
+|  clk_IBUF_BUFG                  | accelerometer/spi/E[0]                                                              |                                                                       |                1 |              3 |         3.00 |
+|  clk_IBUF_BUFG                  | accelerometer/spi/counter_reg[0]_0[0]                                               |                                                                       |                2 |              3 |         1.50 |
 |  atan/thresholds_reg[3]_i_2_n_0 |                                                                                     |                                                                       |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG                  | accelerometer/spi/state_reg[2][0]                                                   |                                                                       |                1 |              4 |         4.00 |
-|  clk_IBUF_BUFG                  | accelerometer/spi/toggles[4]_i_2_n_0                                                | accelerometer/spi/toggles[4]_i_1_n_0                                  |                2 |              5 |         2.50 |
-|  clk_IBUF_BUFG                  | accelerometer/spi/state_reg[1][0]                                                   | accelerometer/spi/reset                                               |                3 |              6 |         2.00 |
-|  clk_IBUF_BUFG                  | accelerometer/spi/E[1]                                                              |                                                                       |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG                  | accelerometer/spi/toggles[4]_i_2_n_0                                                | accelerometer/spi/toggles[4]_i_1_n_0                                  |                1 |              5 |         5.00 |
+|  clk_IBUF_BUFG                  | accelerometer/spi/state_reg[1][0]                                                   | accelerometer/spi/reset                                               |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG                  | accelerometer/spi/E[1]                                                              |                                                                       |                4 |              8 |         2.00 |
 |  clk_IBUF_BUFG                  | accelerometer/spi/out_buffer0                                                       |                                                                       |                2 |              8 |         4.00 |
-|  clk_IBUF_BUFG                  | atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/E[0] | atan/cordic/U0/i_synth/i_has_aresetn.i_reg_reset/opt_has_pipe.first_q |                3 |              8 |         2.67 |
-|  clk_IBUF_BUFG                  | accelerometer/spi/counter_reg[0]_0[1]                                               |                                                                       |                3 |              8 |         2.67 |
-|  clk_IBUF_BUFG                  | accelerometer/spi/in_buffer0                                                        |                                                                       |                2 |              8 |         4.00 |
-|  clk_IBUF_BUFG                  | accelerometer/spi/receive[7]_i_1_n_0                                                | accelerometer/spi/reset                                               |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG                  | atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/E[0] | atan/cordic/U0/i_synth/i_has_aresetn.i_reg_reset/opt_has_pipe.first_q |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG                  | accelerometer/spi/counter_reg[0]_0[1]                                               |                                                                       |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG                  | accelerometer/spi/in_buffer0                                                        |                                                                       |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG                  | accelerometer/spi/receive[7]_i_1_n_0                                                | accelerometer/spi/reset                                               |                2 |              8 |         4.00 |
 |  clk_IBUF_BUFG                  |                                                                                     | accelerometer/spi/reset                                               |                7 |             11 |         1.57 |
-|  clk_IBUF_BUFG                  |                                                                                     |                                                                       |               12 |             19 |         1.58 |
-|  clk_IBUF_BUFG                  | accelerometer/acceleration_x[15]_i_1_n_0                                            | accelerometer/spi/reset                                               |                5 |             22 |         4.40 |
+|  clk_IBUF_BUFG                  |                                                                                     |                                                                       |                9 |             19 |         2.11 |
+|  clk_IBUF_BUFG                  | accelerometer/acceleration_x[15]_i_1_n_0                                            | accelerometer/spi/reset                                               |                8 |             22 |         2.75 |
 |  clk_IBUF_BUFG                  | accelerometer/spi/counter0                                                          | accelerometer/spi/switch_txrx0                                        |                8 |             29 |         3.62 |
-|  clk_IBUF_BUFG                  | accelerometer/spi/busy_reg_1[0]                                                     |                                                                       |               16 |             32 |         2.00 |
-|  clk_IBUF_BUFG                  |                                                                                     | atan/cordic/U0/i_synth/i_has_aresetn.i_reg_reset/opt_has_pipe.first_q |               67 |            238 |         3.55 |
+|  clk_IBUF_BUFG                  | accelerometer/spi/busy_reg_1[0]                                                     |                                                                       |               15 |             32 |         2.13 |
+|  clk_IBUF_BUFG                  |                                                                                     | atan/cordic/U0/i_synth/i_has_aresetn.i_reg_reset/opt_has_pipe.first_q |               58 |            238 |         4.10 |
 +---------------------------------+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------+------------------+----------------+--------------+
 
 

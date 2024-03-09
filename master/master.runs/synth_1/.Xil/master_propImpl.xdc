@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.srcs/constrs_1/new/constr_zedboard.xdc rfile:../../../master.srcs/constrs_1/new/constr_zedboard.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/constrs_1/new/constr_zedboard.xdc rfile:../../../master.srcs/constrs_1/new/constr_zedboard.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:78 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN Y9 [get_ports {clk}];  # "GCLK"
 set_property src_info {type:XDC file:1 line:97 export:INPUT save:INPUT read:READ} [current_design]
@@ -9,8 +9,6 @@ set_property src_info {type:XDC file:1 line:100 export:INPUT save:INPUT read:REA
 set_property PACKAGE_PIN V10 [get_ports {mosi}];  # "JB3"
 set_property src_info {type:XDC file:1 line:101 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W8 [get_ports {sclk}];  # "JB4"
-set_property src_info {type:XDC file:1 line:171 export:INPUT save:INPUT read:READ} [current_design]
-----------------------------------------------------------------------------
 set_property src_info {type:XDC file:1 line:172 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN T22 [get_ports {thresholds[0]}];  # "LD0"
 set_property src_info {type:XDC file:1 line:173 export:INPUT save:INPUT read:READ} [current_design]

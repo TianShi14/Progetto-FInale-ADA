@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.runs/impl_1/master.tcl"
+  variable script "/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.runs/impl_1/master.tcl"
   variable category "vivado_impl"
 }
 
@@ -131,16 +131,16 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.cache/wt [current_project]
-  set_property parent.project_path /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.xpr [current_project]
-  set_property ip_output_repo /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.cache/wt [current_project]
+  set_property parent.project_path /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.xpr [current_project]
+  set_property ip_output_repo /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.runs/synth_1/master.dcp
-  read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/cordic_atan/cordic_atan.srcs/sources_1/ip/cordic_0/cordic_0.xci
+  add_files -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.runs/synth_1/master.dcp
+  read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/cordic_atan/cordic_atan.srcs/sources_1/ip/cordic_0/cordic_0.xci
 OPTRACE "read constraints: implementation" START { }
-  read_xdc /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.srcs/constrs_1/new/constr_zedboard.xdc
+  read_xdc /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/constrs_1/new/constr_zedboard.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }

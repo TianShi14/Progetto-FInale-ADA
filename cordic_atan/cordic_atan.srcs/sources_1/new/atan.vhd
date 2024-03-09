@@ -9,7 +9,8 @@ entity atan is
         x_value      : in     std_logic_vector(15 downto 0);
         y_value      : in     std_logic_vector(15 downto 0);
         reset        : in     std_logic;
-        angle        : out    std_logic_vector(7 downto 0)
+        angle        : out    std_logic_vector(7 downto 0);
+        thresholds   : out    std_logic_vector(3 downto 0)
     );
 end atan;
 
@@ -59,14 +60,19 @@ begin
                 if angle_tvalid = '1' then
                     if signed(buffer_angle) <= 2 and signed(buffer_angle) >= -2 then
                         angle <= (others => '0');
+                        thresholds <= x"0";
                     elsif signed(buffer_angle) >= 16 then
                         angle <= std_logic_vector(to_signed(13, angle'length));
+                        thresholds <= x"1";
                     elsif signed(buffer_angle) <= -16 then
                         angle <= std_logic_vector(to_signed(-13, angle'length));
+                        thresholds <= x"2";
                     elsif signed(buffer_angle) > 2 then
                         angle <= std_logic_vector(signed(buffer_angle) - 3);
+                        thresholds <= x"4";
                     else
                         angle <= std_logic_vector(signed(buffer_angle) + 3);
+                        thresholds <= x"8";
                     end if;
                     next_state <= waits;
                 else

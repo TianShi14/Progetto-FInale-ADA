@@ -1,0 +1,4 @@
+Time resolution is 1 ps
+Warning: OPMODE Input Warning : The OPMODE 01100XX with CARRYINSEL  000 to DSP48E1 instance is invalid.
+Time: 170 ns  Iteration: 4  Process: /test/movement/calculator/inst/i_synth/fma_op/OP/addsub/add/ALIGN_BLK/FRAC_ADDSUB/dsp_add/one_dsp/FRAC_ADDSUB/dsp48e1_add/DSP48E1_ADD/i_no_versal_es1_workaround/DSP/prcs_opmode_drc  File: /wrk/ci/prod/2022.2/rdi_builds/continuous/2022_10_14_3671981/data/vhdl/src/unisims/primitive/DSP48E1.vhd
+INFO: xsimkernel Simulation Memory Usage: 126768 KB (Peak: 176100 KB), Simulation CPU Usage: 16540 ms

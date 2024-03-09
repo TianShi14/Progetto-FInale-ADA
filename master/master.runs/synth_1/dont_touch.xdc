@@ -3,5 +3,5 @@
 
 # XDC: new/constr_zedboard.xdc
 
-# IP: /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/cordic_atan/cordic_atan.srcs/sources_1/ip/cordic_0/cordic_0.xci
+# IP: /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/cordic_atan/cordic_atan.srcs/sources_1/ip/cordic_0/cordic_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==cordic_0 || ORIG_REF_NAME==cordic_0} -quiet] -quiet

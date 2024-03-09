@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.runs/synth_1/master.tcl"
+  variable script "/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.runs/synth_1/master.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 2
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -78,24 +77,24 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.cache/wt [current_project]
-set_property parent.project_path /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.xpr [current_project]
+set_property webtalk.parent_dir /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.cache/wt [current_project]
+set_property parent.project_path /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property board_part_repo_paths {/root/.Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store} [current_project]
 set_property board_part avnet.com:zedboard:part0:1.4 [current_project]
-set_property ip_output_repo /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.cache/ip [current_project]
+set_property ip_output_repo /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.srcs/sources_1/imports/Progetto-FInale-ADA/adxl345/adxl345.srcs/sources_1/new/accelerometer.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/cordic_atan/cordic_atan.srcs/sources_1/new/atan.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.srcs/sources_1/imports/Progetto-FInale-ADA/adxl345/adxl345.srcs/sources_1/new/spi.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.srcs/sources_1/new/master.vhd
+  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/imports/Progetto-FInale-ADA/adxl345/adxl345.srcs/sources_1/new/accelerometer.vhd
+  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/cordic_atan/cordic_atan.srcs/sources_1/new/atan.vhd
+  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/imports/Progetto-FInale-ADA/adxl345/adxl345.srcs/sources_1/new/spi.vhd
+  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/master.vhd
 }
-read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/cordic_atan/cordic_atan.srcs/sources_1/ip/cordic_0/cordic_0.xci
-set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/cordic_atan/cordic_atan.gen/sources_1/ip/cordic_0/cordic_0_ooc.xdc]
+read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/cordic_atan/cordic_atan.srcs/sources_1/ip/cordic_0/cordic_0.xci
+set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/cordic_atan/cordic_atan.gen/sources_1/ip/cordic_0/cordic_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -106,14 +105,14 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.srcs/constrs_1/new/constr_zedboard.xdc
-set_property used_in_implementation false [get_files /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.srcs/constrs_1/new/constr_zedboard.xdc]
+read_xdc /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/constrs_1/new/constr_zedboard.xdc
+set_property used_in_implementation false [get_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/constrs_1/new/constr_zedboard.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/angelonutu/Desktop/ADA2.0/Progetto-FInale-ADA/master/master.srcs/utils_1/imports/synth_1/master.dcp
+read_checkpoint -auto_incremental -incremental /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/utils_1/imports/synth_1/master.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

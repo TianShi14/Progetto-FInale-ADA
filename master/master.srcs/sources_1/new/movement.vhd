@@ -67,7 +67,7 @@ begin
     );
 
     process (clk)
-        variable playerXX : integer range 0 to 192 := 95;
+        variable playerXX : integer := 95;
     begin
         if rising_edge(clk) then
             case state is
@@ -105,9 +105,7 @@ begin
                         remainder(63 downto 32) <= (others => '0');
                         remainder(31 downto 0)  <= fl2fiResult(31 downto 0);
                         
-                        if (playerXX = 0 and fl2fiResult(63) = '1') or (playerXX = 192 and fl2fiResult(63) = '0') then
-                            playerXX := playerXX - to_integer(signed(fl2fiResult(63 downto 32)));                        
-                        end if;
+                        playerXX := playerXX - to_integer(signed(fl2fiResult(63 downto 32)));                        
                         if playerXX < 0 then
                             playerXX := 0;
                         elsif playerXX > 192 then

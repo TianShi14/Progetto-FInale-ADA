@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Fri Mar  8 13:44:13 2024
+| Date         : Wed Mar 13 12:09:14 2024
 | Host         : thisguy running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_methodology -file master_methodology_drc_routed.rpt -pb master_methodology_drc_routed.pb -rpx master_methodology_drc_routed.rpx
 | Design       : master
@@ -23,12 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 425
+             Violations found: 96
 +-----------+------------------+--------------------------------+------------+
 | Rule      | Severity         | Description                    | Violations |
 +-----------+------------------+--------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell    | 420        |
-| TIMING-20 | Warning          | Non-clocked latch              | 4          |
+| TIMING-17 | Critical Warning | Non-clocked sequential cell    | 77         |
+| TIMING-18 | Warning          | Missing input or output delay  | 6          |
+| TIMING-20 | Warning          | Non-clocked latch              | 12         |
 | LATCH-1   | Advisory         | Existing latches in the design | 1          |
 +-----------+------------------+--------------------------------+------------+
 
@@ -36,2127 +37,482 @@ Table of Contents
 -----------------
 TIMING-17#1 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/FSM_sequential_parameter_reg[0]/C is not reached by a timing clock
+The clock pin screen/clk25/clk25mhz_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#2 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/FSM_sequential_parameter_reg[1]/C is not reached by a timing clock
+The clock pin screen/vga/active_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#3 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_x_buff_reg[10]/C is not reached by a timing clock
+The clock pin screen/vga/blue_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#4 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_x_buff_reg[11]/C is not reached by a timing clock
+The clock pin screen/vga/blue_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#5 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_x_buff_reg[12]/C is not reached by a timing clock
+The clock pin screen/vga/blue_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#6 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_x_buff_reg[13]/C is not reached by a timing clock
+The clock pin screen/vga/blue_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#7 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_x_buff_reg[14]/C is not reached by a timing clock
+The clock pin screen/vga/endFrame_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#8 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_x_buff_reg[15]/C is not reached by a timing clock
+The clock pin screen/vga/green_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#9 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_x_buff_reg[5]/C is not reached by a timing clock
+The clock pin screen/vga/green_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#10 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_x_buff_reg[6]/C is not reached by a timing clock
+The clock pin screen/vga/green_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#11 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_x_buff_reg[7]/C is not reached by a timing clock
+The clock pin screen/vga/green_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#12 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_x_buff_reg[8]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#13 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_x_buff_reg[9]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[10]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#14 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_y_buff_reg[10]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[11]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#15 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_y_buff_reg[11]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[12]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#16 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_y_buff_reg[12]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[13]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#17 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_y_buff_reg[13]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[14]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#18 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_y_buff_reg[14]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[15]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#19 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_y_buff_reg[15]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[16]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#20 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_y_buff_reg[5]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[17]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#21 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_y_buff_reg[6]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[18]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#22 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_y_buff_reg[7]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[19]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#23 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_y_buff_reg[8]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#24 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acc_y_buff_reg[9]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[20]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#25 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_x_reg[10]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[21]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#26 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_x_reg[11]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[22]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#27 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_x_reg[12]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[23]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#28 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_x_reg[13]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[24]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#29 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_x_reg[14]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[25]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#30 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_x_reg[15]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[26]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#31 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_x_reg[5]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[27]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#32 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_x_reg[6]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[28]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#33 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_x_reg[7]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[29]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#34 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_x_reg[8]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#35 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_x_reg[9]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[30]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#36 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_y_reg[10]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#37 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_y_reg[11]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#38 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_y_reg[12]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#39 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_y_reg[13]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#40 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_y_reg[14]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#41 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_y_reg[15]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#42 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_y_reg[5]/C is not reached by a timing clock
+The clock pin screen/vga/h_rn_reg[9]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#43 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_y_reg[6]/C is not reached by a timing clock
+The clock pin screen/vga/red_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#44 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_y_reg[7]/C is not reached by a timing clock
+The clock pin screen/vga/red_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#45 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_y_reg[8]/C is not reached by a timing clock
+The clock pin screen/vga/red_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#46 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/acceleration_y_reg[9]/C is not reached by a timing clock
+The clock pin screen/vga/red_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#47 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/cordic_ena_reg/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#48 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[0]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[10]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#49 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[10]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[11]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#50 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[11]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[12]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#51 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[12]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[13]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#52 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[13]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[14]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#53 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[14]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[15]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#54 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[15]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[16]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#55 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[16]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[17]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#56 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[17]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[18]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#57 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[18]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[19]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#58 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[19]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#59 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[1]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[20]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#60 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[20]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[21]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#61 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[21]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[22]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#62 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[22]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[23]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#63 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[23]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[24]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#64 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[24]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[25]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#65 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[25]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[26]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#66 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[26]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[27]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#67 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[27]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[28]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#68 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[28]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[29]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#69 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[29]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#70 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[2]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[30]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#71 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[30]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#72 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[31]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#73 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[3]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#74 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[4]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#75 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[5]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#76 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[6]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#77 Critical Warning
 Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[7]/C is not reached by a timing clock
+The clock pin screen/vga/v_rn_reg[9]/C is not reached by a timing clock
 Related violations: <none>
 
-TIMING-17#78 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[8]/C is not reached by a timing clock
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on miso relative to clock(s) clk
 Related violations: <none>
 
-TIMING-17#79 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/counter_reg[9]/C is not reached by a timing clock
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on reset relative to clock(s) clk
 Related violations: <none>
 
-TIMING-17#80 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/parameter_addr_reg[0]/C is not reached by a timing clock
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on startGame relative to clock(s) clk
 Related violations: <none>
 
-TIMING-17#81 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/parameter_addr_reg[3]/C is not reached by a timing clock
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on cs relative to clock(s) clk
 Related violations: <none>
 
-TIMING-17#82 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/parameter_addr_reg[4]/C is not reached by a timing clock
+TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on mosi relative to clock(s) clk
 Related violations: <none>
 
-TIMING-17#83 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/parameter_data_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#84 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/prev_busy_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#85 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/busy_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#86 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/continue_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#87 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#88 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#89 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#90 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[12]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#91 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[13]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#92 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[14]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#93 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[15]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#94 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[16]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#95 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[17]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#96 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[18]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#97 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[19]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#98 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#99 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[20]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#100 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[21]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#101 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[22]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#102 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[23]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#103 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[24]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#104 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[25]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#105 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[26]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#106 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[27]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#107 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[28]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#108 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[29]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#109 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#110 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[30]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#111 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[31]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#112 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#113 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#114 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#115 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#116 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#117 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#118 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/counter_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#119 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/cs_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#120 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/cs_reg_lopt_replica/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#121 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/in_buffer_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#122 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/in_buffer_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#123 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/in_buffer_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#124 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/in_buffer_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#125 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/in_buffer_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#126 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/in_buffer_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#127 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/in_buffer_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#128 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/in_buffer_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#129 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/mosi_tristate_oe_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#130 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/out_buffer_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#131 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/out_buffer_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#132 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/out_buffer_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#133 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/out_buffer_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#134 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/out_buffer_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#135 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/out_buffer_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#136 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/out_buffer_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#137 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/out_buffer_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#138 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/ratio_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#139 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/ratio_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#140 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/receive_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#141 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/receive_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#142 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/receive_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#143 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/receive_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#144 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/receive_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#145 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/receive_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#146 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/receive_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#147 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/receive_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#148 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/sclk_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#149 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/state_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#150 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/switch_txrx_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#151 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/toggles_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#152 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/toggles_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#153 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/toggles_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#154 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/toggles_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#155 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi/toggles_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#156 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/spi_cont_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#157 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/state_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#158 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/state_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#159 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/state_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#160 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/transmit_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#161 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/transmit_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#162 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/transmit_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#163 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/transmit_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#164 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/transmit_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#165 Critical Warning
-Non-clocked sequential cell  
-The clock pin accelerometer/transmit_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#166 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_has_aresetn.i_reg_reset/opt_has_pipe.first_q_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#167 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.first_q_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#168 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe[10].pipe_reg[10][0]_i_nd_to_rdy_opt_has_pipe.i_pipe_r_7/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#169 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe[11].pipe_reg[11][0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#170 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe[9].pipe_reg[9][0]_srl8___i_nd_to_rdy_opt_has_pipe.i_pipe_r_6/CLK is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#171 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe_r/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#172 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe_r_0/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#173 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe_r_1/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#174 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe_r_2/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#175 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe_r_3/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#176 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe_r_4/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#177 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe_r_5/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#178 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe_r_6/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#179 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_nd_to_rdy/opt_has_pipe.i_pipe_r_7/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#180 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#181 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#182 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#183 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#184 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#185 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#186 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#187 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#188 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#189 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#190 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#191 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#192 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#193 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#194 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#195 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#196 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#197 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#198 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#199 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#200 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#201 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#202 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#203 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#204 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#205 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#206 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#207 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#208 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#209 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#210 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#211 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#212 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[0].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#213 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#214 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#215 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#216 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#217 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#218 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#219 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#220 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#221 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#222 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#223 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#224 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#225 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#226 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#227 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#228 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#229 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#230 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#231 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#232 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#233 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#234 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#235 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#236 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#237 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#238 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#239 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#240 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#241 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#242 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#243 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#244 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#245 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[1].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#246 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#247 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#248 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#249 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#250 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#251 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#252 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#253 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#254 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#255 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#256 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#257 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#258 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#259 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#260 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#261 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#262 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#263 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#264 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#265 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#266 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#267 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#268 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#269 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#270 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#271 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#272 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#273 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#274 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#275 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#276 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#277 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#278 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[2].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#279 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/cntrl/cntrl_vect_dly/gen_rtl.gen_reg.d_reg_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#280 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/cntrl/cntrl_vect_dly/gen_rtl.gen_reg.d_reg_reg[1]_srl5___i_nd_to_rdy_opt_has_pipe.i_pipe_r_3/CLK is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#281 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/cntrl/cntrl_vect_dly/gen_rtl.gen_reg.d_reg_reg[2]_srl5___i_nd_to_rdy_opt_has_pipe.i_pipe_r_3/CLK is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#282 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#283 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#284 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#285 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#286 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#287 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#288 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/x_plus_y_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#289 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#290 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#291 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#292 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#293 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#294 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#295 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#296 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#297 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#298 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#299 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#300 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#301 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#302 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#303 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#304 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#305 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#306 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#307 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#308 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#309 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#310 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[3].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#311 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/cntrl/cntrl_vect_dly/gen_rtl.gen_reg.d_reg_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#312 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/cntrl/cntrl_vect_dly/gen_rtl.gen_reg.d_reg_reg[1]_i_nd_to_rdy_opt_has_pipe.i_pipe_r_4/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#313 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/cntrl/cntrl_vect_dly/gen_rtl.gen_reg.d_reg_reg[2]_i_nd_to_rdy_opt_has_pipe.i_pipe_r_4/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#314 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/cntrl/engine_mode_dly/gen_rtl.gen_reg.d_reg_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#315 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/data_slice/y_plus_x_shift/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#316 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#317 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#318 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#319 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#320 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#321 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#322 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#323 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#324 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#325 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#326 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[4].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#327 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/cntrl/cntrl_vect_dly/gen_rtl.gen_reg.d_reg_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#328 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/cntrl/cntrl_vect_dly/gen_rtl.gen_reg.d_reg_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#329 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/cntrl/cntrl_vect_dly/gen_rtl.gen_reg.d_reg_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#330 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#331 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#332 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#333 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#334 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#335 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#336 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#337 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#338 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#339 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#340 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.cordic_engine/gen_para_arch.gen_iteration[5].eng/phase_slice/phase_plus_atan/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#341 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_x_int_dly/gen_rtl.gen_reg.d_reg_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#342 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_x_int_dly/gen_rtl.gen_reg.d_reg_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#343 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_x_int_dly/gen_rtl.gen_reg.d_reg_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#344 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_x_int_dly/gen_rtl.gen_reg.d_reg_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#345 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_x_int_dly/gen_rtl.gen_reg.d_reg_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#346 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_x_int_dly/gen_rtl.gen_reg.d_reg_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#347 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_x_int_dly/gen_rtl.gen_reg.d_reg_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#348 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_x_int_dly/gen_rtl.gen_reg.d_reg_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#349 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_x_int_dly/gen_rtl.gen_reg.d_reg_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#350 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_x_int_dly/gen_rtl.gen_reg.d_reg_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#351 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_x_int_dly/gen_rtl.gen_reg.d_reg_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#352 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_y_int_dly/gen_rtl.gen_reg.d_reg_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#353 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_y_int_dly/gen_rtl.gen_reg.d_reg_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#354 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_y_int_dly/gen_rtl.gen_reg.d_reg_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#355 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_y_int_dly/gen_rtl.gen_reg.d_reg_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#356 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_y_int_dly/gen_rtl.gen_reg.d_reg_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#357 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_y_int_dly/gen_rtl.gen_reg.d_reg_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#358 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_y_int_dly/gen_rtl.gen_reg.d_reg_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#359 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_y_int_dly/gen_rtl.gen_reg.d_reg_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#360 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_y_int_dly/gen_rtl.gen_reg.d_reg_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#361 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_y_int_dly/gen_rtl.gen_reg.d_reg_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#362 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_data_y_int_dly/gen_rtl.gen_reg.d_reg_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#363 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_x_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#364 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_x_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#365 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_x_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#366 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_x_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#367 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_x_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#368 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_x_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#369 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_x_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#370 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_x_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#371 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_x_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#372 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_x_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#373 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_x_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#374 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#375 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#376 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#377 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#378 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#379 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#380 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#381 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#382 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#383 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#384 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_neg_data_y_swap/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#385 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_min_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[12]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#386 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.input_stage/gen_rotation.gen_rot_xy.gen_x_plus_y/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[12]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#387 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#388 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#389 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#390 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#391 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#392 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#393 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#394 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_phase_out.round/gen_truncate.gen_round_out/gen_rtl.gen_reg.d_reg_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#395 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/gen_rtl.gen_dly.gen_regs.delay_bus_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#396 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_rdy_cr/gen_rtl.gen_dly.gen_regs.delay_bus_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#397 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_addsub_reg/gen_rtl.gen_reg.d_reg_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#398 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#399 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[11]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#400 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#401 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#402 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#403 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#404 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#405 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_cr/inst/i_baseblox.i_baseblox_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/i_no_async_controls.output_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#406 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[0]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#407 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[10]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#408 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[1]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#409 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[2]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#410 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[3]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#411 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[4]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#412 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[5]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#413 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[6]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#414 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#415 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[8]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#416 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_in_reg/gen_rtl.gen_reg.d_reg_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#417 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_rot_reg/gen_rtl.gen_reg.d_reg_reg[7]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#418 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/cordic/U0/i_synth/i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_rot_reg/gen_rtl.gen_reg.d_reg_reg[9]/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#419 Critical Warning
-Non-clocked sequential cell  
-The clock pin atan/present_state_reg/C is not reached by a timing clock
-Related violations: <none>
-
-TIMING-17#420 Critical Warning
-Non-clocked sequential cell  
-The clock pin mosi_OBUFT_inst_i_1/C is not reached by a timing clock
+TIMING-18#6 Warning
+Missing input or output delay  
+An output delay is missing on sclk relative to clock(s) clk
 Related violations: <none>
 
 TIMING-20#1 Warning
 Non-clocked latch  
-The latch atan/thresholds_reg[0] cannot be properly analyzed as its control pin atan/thresholds_reg[0]/G is not reached by a timing clock
+The latch movement/atan/angle_reg[0] cannot be properly analyzed as its control pin movement/atan/angle_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#2 Warning
 Non-clocked latch  
-The latch atan/thresholds_reg[1] cannot be properly analyzed as its control pin atan/thresholds_reg[1]/G is not reached by a timing clock
+The latch movement/atan/angle_reg[1] cannot be properly analyzed as its control pin movement/atan/angle_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#3 Warning
 Non-clocked latch  
-The latch atan/thresholds_reg[2] cannot be properly analyzed as its control pin atan/thresholds_reg[2]/G is not reached by a timing clock
+The latch movement/atan/angle_reg[2] cannot be properly analyzed as its control pin movement/atan/angle_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#4 Warning
 Non-clocked latch  
-The latch atan/thresholds_reg[3] cannot be properly analyzed as its control pin atan/thresholds_reg[3]/G is not reached by a timing clock
+The latch movement/atan/angle_reg[3] cannot be properly analyzed as its control pin movement/atan/angle_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch movement/atan/angle_reg[4] cannot be properly analyzed as its control pin movement/atan/angle_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch movement/atan/angle_reg[5] cannot be properly analyzed as its control pin movement/atan/angle_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch movement/atan/angle_reg[6] cannot be properly analyzed as its control pin movement/atan/angle_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch movement/atan/angle_reg[7] cannot be properly analyzed as its control pin movement/atan/angle_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch movement/atan/thresholds_reg[0] cannot be properly analyzed as its control pin movement/atan/thresholds_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch movement/atan/thresholds_reg[1] cannot be properly analyzed as its control pin movement/atan/thresholds_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch movement/atan/thresholds_reg[2] cannot be properly analyzed as its control pin movement/atan/thresholds_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch movement/atan/thresholds_reg[3] cannot be properly analyzed as its control pin movement/atan/thresholds_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 LATCH-1#1 Advisory
 Existing latches in the design  
-There are 4 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+There are 12 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
 Related violations: <none>
 
 

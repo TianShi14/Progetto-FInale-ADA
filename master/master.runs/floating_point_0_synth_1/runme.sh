@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.runs/floating_point_0_synth_1'
+HD_PWD='/home/angelonutu/Desktop/Vivado/master/master.runs/floating_point_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-// Date        : Fri Mar  8 21:21:49 2024
+// Date        : Wed Mar 13 09:12:26 2024
 // Host        : thisguy running 64-bit Ubuntu 20.04.6 LTS
 // Command     : write_verilog -force -mode synth_stub
-//               /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/floating_point_0/floating_point_0_stub.v
+//               /home/angelonutu/Desktop/Vivado/master/master.gen/sources_1/ip/floating_point_0/floating_point_0_stub.v
 // Design      : floating_point_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1

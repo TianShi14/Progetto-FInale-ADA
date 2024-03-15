@@ -148,6 +148,7 @@ OPTRACE "add files" START { }
   read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/floating_point_1/floating_point_1.xci
   read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/floating_point_2/floating_point_2.xci
   read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/cordic_0/cordic_0.xci
+  read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_5/blk_mem_gen_5.xci
 OPTRACE "read constraints: implementation" START { }
   read_xdc /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/constrs_1/new/constraints.xdc
 OPTRACE "read constraints: implementation" END { }

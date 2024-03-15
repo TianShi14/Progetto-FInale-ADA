@@ -88,9 +88,9 @@ set_property ip_output_repo /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/imports/COEs/angel.coe
 add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/definitivo.coe
 add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/angel.coe
+add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/you_died.coe
 read_vhdl -library xil_defaultlib {
   /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/accelerometer.vhd
   /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/atan.vhd
@@ -133,6 +133,9 @@ set_property used_in_implementation false [get_files -all /home/angelonutu/Deskt
 
 read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/cordic_0/cordic_0.xci
 set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/cordic_0/cordic_0_ooc.xdc]
+
+read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_5/blk_mem_gen_5.xci
+set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_5/blk_mem_gen_5_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

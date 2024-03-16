@@ -299,7 +299,7 @@ begin
                             if memCounter > 240 * 48 * 9 - 1 and HCounter >= deadPosition + 200 - 1 and HCounter < deadPosition + 200 + 48 - 1 then -------
                                 angelCount <= angelCount + 1;
                             end if;
-                            if memCounter > 240 * 48 * 1 - 1 and memCounter < 240 * 48 * 2 then
+                            if memCounter > 240 * 48 * 1 - 1 and memCounter < 240 * 48 * 2 and HCounter >= 200 - 1 and HCounter < 440 - 1 then
                                 deathCount <= deathCount + 1;
                             end if;
                             vgaCount <= vgaCount + 1;                                                            

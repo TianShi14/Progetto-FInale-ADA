@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date             : Sat Mar 16 12:31:54 2024
+| Date             : Sat Mar 16 18:47:34 2024
 | Host             : thisguy running 64-bit Ubuntu 20.04.6 LTS
 | Command          : report_power -file master_power_routed.rpt -pb master_power_summary_routed.pb -rpx master_power_routed.rpx
 | Design           : master
@@ -53,15 +53,15 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.015 |        3 |       --- |             --- |
-| Slice Logic             |     0.016 |     8504 |       --- |             --- |
-|   LUT as Logic          |     0.014 |     3107 |     53200 |            5.84 |
+| Slice Logic             |     0.016 |     8501 |       --- |             --- |
+|   LUT as Logic          |     0.014 |     3106 |     53200 |            5.84 |
 |   Register              |     0.001 |     3145 |    106400 |            2.96 |
 |   CARRY4                |    <0.001 |      539 |     13300 |            4.05 |
-|   LUT as Shift Register |    <0.001 |       47 |     17400 |            0.27 |
+|   LUT as Shift Register |    <0.001 |       48 |     17400 |            0.28 |
 |   BUFG                  |    <0.001 |        1 |        32 |            3.13 |
 |   F7/F8 Muxes           |    <0.001 |      104 |     53200 |            0.20 |
 |   Others                |     0.000 |      787 |       --- |             --- |
-| Signals                 |     0.019 |     6237 |       --- |             --- |
+| Signals                 |     0.019 |     6235 |       --- |             --- |
 | Block RAM               |     0.018 |       91 |       140 |           65.00 |
 | DSPs                    |     0.004 |        6 |       220 |            2.73 |
 | I/O                     |     0.007 |       25 |       200 |           12.50 |
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.080 |       0.070 |      0.009 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.080 |       0.071 |      0.009 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.011 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -174,7 +174,7 @@ Table of Contents
 |       U0                   |     0.011 |
 |     outMaster              |     0.003 |
 |       youDied              |     0.001 |
-|     sDesigner              |     0.003 |
+|     sDesigner              |     0.004 |
 +----------------------------+-----------+
 
 

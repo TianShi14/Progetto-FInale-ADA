@@ -205,7 +205,7 @@ begin
         wea             => writeEna,
         addrb           => addrStruct,
         clkb            => clk,
-        dinb            => inutile,
+        dinb            => inutile(21 downto 0),
         doutb           => dataStruct,
         enb             => enaStruct,
         web             => wrStruct

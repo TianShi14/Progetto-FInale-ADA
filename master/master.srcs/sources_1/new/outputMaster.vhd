@@ -246,7 +246,7 @@ begin
                         address <= std_logic_vector(to_unsigned(memCounter - flipCount - 1, address'length));
                     end if;
                     if active = '1' then
-                        if memCounter > 240 * 48 * 9 - 1 and HCounter >= playerX + 200 - 1 and HCounter < playerX + 200 + 48 - 1 then
+                        if memCounter > 240 * 48 * 9 - 1 and HCounter >= deadPosition + 200 - 1 and HCounter < deadPosition + 200 + 48 - 1 then
                             enaAngel  <= '1';
                             if move then 
                                 addrAngel <= std_logic_vector(to_unsigned(angelCount, addrAngel'length));
@@ -267,13 +267,13 @@ begin
                         end if;                                                                              
                         if HCounter > 200 - 1 and HCounter <= 440 - 1 then                                   
                             ena <= '1';
-                            if memCounter > 240 * 48 * 9 - 1 and HCounter >= playerX + 200 and HCounter < playerX + 200 + 48 
+                            if memCounter > 240 * 48 * 9 - 1 and HCounter >= deadPosition + 200 and HCounter < deadPosition + 200 + 48 
                             and dataAngel /= x"D15" then
                                 r <= dataAngel(11 downto 8);
                                 g <= dataAngel(7  downto 4);
                                 b <= dataAngel(3  downto 0);
                             else 
-                                if memCounter > 240 * 48 * 1 - 1 and HCounter >= 200 and HCounter < 440 then
+                                if memCounter > 240 * 48 * 1 - 1 and memCounter < 240 * 48 * 2 then
                                     r <= deathData(11 downto 8);
                                     g <= deathData(7  downto 4);
                                     b <= deathData(3  downto 0);
@@ -296,7 +296,7 @@ begin
                             b   <= "0101";                                                               
                         end if;
                         if prevClk25 = '0' and clk25 = '1' then
-                            if memCounter > 240 * 48 * 9 - 1 and HCounter >= playerX + 200 - 1 and HCounter < playerX + 200 + 48 - 1 then -------
+                            if memCounter > 240 * 48 * 9 - 1 and HCounter >= deadPosition + 200 - 1 and HCounter < deadPosition + 200 + 48 - 1 then -------
                                 angelCount <= angelCount + 1;
                             end if;
                             if memCounter > 240 * 48 * 1 - 1 and memCounter < 240 * 48 * 2 then

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.runs/synth_1/master.tcl"
+  variable script "C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.runs/synth_1/master.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,7 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 2
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -78,65 +78,65 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.cache/wt [current_project]
-set_property parent.project_path /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.cache/wt [current_project]
+set_property parent.project_path C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property board_part_repo_paths {/root/.Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store} [current_project]
+set_property board_part_repo_paths {C:/Users/aless/AppData/Roaming/Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store} [current_project]
 set_property board_part avnet.com:zedboard:part0:1.4 [current_project]
-set_property ip_output_repo /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.cache/ip [current_project]
+set_property ip_output_repo c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/definitivo.coe
-add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/angel.coe
-add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/you_died.coe
+add_files C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/definitivo.coe
+add_files C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/angel.coe
+add_files C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/you_died.coe
 read_vhdl -library xil_defaultlib {
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/accelerometer.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/atan.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/clk25.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/collision.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/dataStructure.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/move.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/movement.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/randomizer.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/screenDesigner.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/outputMaster.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/vga.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/screen.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/spi.vhd
-  /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/master.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/accelerometer.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/atan.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/clk25.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/collision.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/dataStructure.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/move.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/movement.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/randomizer.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/screenDesigner.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/outputMaster.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/vga.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/screen.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/spi.vhd
+  C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/new/master.vhd
 }
-read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
-set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
+read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
 
-read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci
-set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1_ooc.xdc]
+read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci
+set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1_ooc.xdc]
 
-read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2.xci
-set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2_ooc.xdc]
+read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2.xci
+set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_2/blk_mem_gen_2_ooc.xdc]
 
-read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3.xci
-set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3_ooc.xdc]
+read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3.xci
+set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3_ooc.xdc]
 
-read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_4/blk_mem_gen_4.xci
-set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_4/blk_mem_gen_4_ooc.xdc]
+read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_4/blk_mem_gen_4.xci
+set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_4/blk_mem_gen_4_ooc.xdc]
 
-read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/floating_point_0/floating_point_0.xci
-set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/floating_point_0/floating_point_0_ooc.xdc]
+read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/floating_point_0/floating_point_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.gen/sources_1/ip/floating_point_0/floating_point_0_ooc.xdc]
 
-read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/floating_point_1/floating_point_1.xci
-set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/floating_point_1/floating_point_1_ooc.xdc]
+read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/floating_point_1/floating_point_1.xci
+set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.gen/sources_1/ip/floating_point_1/floating_point_1_ooc.xdc]
 
-read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/floating_point_2/floating_point_2.xci
-set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/floating_point_2/floating_point_2_ooc.xdc]
+read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/floating_point_2/floating_point_2.xci
+set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.gen/sources_1/ip/floating_point_2/floating_point_2_ooc.xdc]
 
-read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/cordic_0/cordic_0.xci
-set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/cordic_0/cordic_0_ooc.xdc]
+read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/cordic_0/cordic_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.gen/sources_1/ip/cordic_0/cordic_0_ooc.xdc]
 
-read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_5/blk_mem_gen_5.xci
-set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_5/blk_mem_gen_5_ooc.xdc]
+read_ip -quiet C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_5/blk_mem_gen_5.xci
+set_property used_in_implementation false [get_files -all c:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_5/blk_mem_gen_5_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -147,12 +147,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/constrs_1/new/constraints.xdc
-set_property used_in_implementation false [get_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/constrs_1/new/constraints.xdc]
+read_xdc C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/constrs_1/new/constraints.xdc
+set_property used_in_implementation false [get_files C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/constrs_1/new/constraints.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/utils_1/imports/synth_1/master.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/aless/OneDrive/Documenti/GitHub/ada/Progetto-Finale-ADA/master/master.srcs/utils_1/imports/synth_1/master.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

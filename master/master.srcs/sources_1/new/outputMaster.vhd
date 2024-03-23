@@ -237,7 +237,7 @@ begin
                             if HCounter < 200 - 1 or HCounter >= 440 - 2 then
                                 borderCount <= borderCount + 1;
                                 if HCounter = 440 - 2 then
-                                    borderCount <= borderCount - 220;
+                                    borderCount <= borderCount - 200;
                                 end if;
                                 if borderCount = 200 * 480 - 1 and HCounter > 440 then
                                     borderCount <= 0;
@@ -384,7 +384,7 @@ begin
                             if HCounter < 200 - 1 or HCounter >= 440 - 2 then
                                 borderCount <= borderCount + 1;
                                 if HCounter = 440 - 2 then
-                                    borderCount <= borderCount - 220;
+                                    borderCount <= borderCount - 200;
                                 end if;
                                 if borderCount = 200 * 480 - 1 and HCounter > 440 then
                                     borderCount <= 0;

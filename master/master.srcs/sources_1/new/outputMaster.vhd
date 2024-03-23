@@ -46,6 +46,7 @@ architecture behavioral of outputMaster is
     signal trCount      : integer range 0 to 10_000_000 - 1 := 0;
     signal deathCount   : integer range 0 to 240 * 48 - 1   := 0;
     signal startCount   : integer range 0 to 315 * 57 - 1   := 0;
+    signal borderCount  : integer range 0 to 200 * 480      := 1;
     signal rowCount     : integer range 0 to 20 * 48 - 1    := 20 * 48 - 1;
     signal bigRow       : integer range 0 to 20 - 1 := 0;
     signal startAddr    : integer := 480 * 240;
@@ -66,6 +67,11 @@ architecture behavioral of outputMaster is
     signal initAddr  : std_logic_vector(14 downto 0) := (others => '0');
     signal initData  : std_logic_vector(11 downto 0);
     signal initEna   : std_logic;
+    
+    -- border screen signals
+    signal borderAddr  : std_logic_vector(16 downto 0) := (others => '0');
+    signal borderData  : std_logic_vector(11 downto 0);
+    signal borderEna   : std_logic;
 begin
 
     youDied: entity work.blk_mem_gen_5
@@ -84,13 +90,20 @@ begin
         ena           => initEna
     );
 
+    border: entity work.blk_mem_gen_7
+    port map(
+        clka          => clk,
+        addra         => borderAddr,
+        douta         => borderData,
+        ena           => borderEna
+    );
+
     wena <= "0";
 
     process (clk)
         variable timeCount : integer := 0;       -- contiamo fino a 3 sec per la transizione
         variable rowNN     : integer;
         variable pixelNN   : integer;
-        
     begin
         
         if rising_edge(clk) then
@@ -151,9 +164,10 @@ begin
                         end if;
                     end if;
                 when game =>
-                    check    <= '0';
-                    multiple <= '1';
-                    newRow   <= '0';
+                    check     <= '0';
+                    multiple  <= '1';
+                    newRow    <= '0';
+                    borderEna <= '0';
                     if not flip then
                         address <= std_logic_vector(to_unsigned(startAddr + memCounter, address'length));
                         if startAddr + memCounter = 960 * 240 - 1 then
@@ -175,6 +189,12 @@ begin
                             end if;
                         else
                             enaAngel  <= '0';
+                        end if;
+                        if HCounter < 200 - 1 or HCounter >= 440 - 1 then
+                            borderAddr <= std_logic_vector(to_unsigned(borderCount, borderAddr'length));
+                            borderEna <= '1';
+                        else
+                            borderEna <= '0';
                         end if;
                         if HCounter = 200 - 1 then                                                           
                             ena     <= '1';                                                                  
@@ -198,10 +218,11 @@ begin
                                 end if;
                             end if;                                           
                         else        -- verde
-                            ena <= '0';                                                                         
-                            r   <= "1000";                                                               
-                            g   <= "1111";                                                               
-                            b   <= "0101";                                                               
+                            ena        <= '0';    
+                                                                                            
+                            r   <= borderData(11 downto 8);                                                               
+                            g   <= borderData(7  downto 4);                                                               
+                            b   <= borderData(3  downto 0);                                                               
                         end if;
                         if prevClk25 = '0' and clk25 = '1' then
                             if trCount >= 10_000_000 - 1 then
@@ -212,6 +233,15 @@ begin
                             end if;
                             if memCounter > 240 * 48 * 9 - 1 and HCounter >= playerX + 200 - 1 and HCounter < playerX + 200 + 48 - 1 then -------
                                 angelCount <= angelCount + 1;
+                            end if;
+                            if HCounter < 200 - 1 or HCounter >= 440 - 2 then
+                                borderCount <= borderCount + 1;
+                                if HCounter = 440 - 2 then
+                                    borderCount <= borderCount - 220;
+                                end if;
+                                if borderCount = 200 * 480 - 1 and HCounter > 440 then
+                                    borderCount <= 0;
+                                end if;
                             end if;
                             vgaCount <= vgaCount + 1;                                                            
                             HCounter <= HCounter + 1; 
@@ -304,6 +334,12 @@ begin
                         else
                             deathEna <= '0';
                         end if;
+                        if HCounter < 200 - 1 or HCounter >= 440 - 1 then
+                            borderAddr <= std_logic_vector(to_unsigned(borderCount, borderAddr'length));
+                            borderEna <= '1';
+                        else
+                            borderEna <= '0';
+                        end if;
                         if HCounter = 200 - 1 then                                                           
                             ena     <= '1';                                                                  
                         end if;                                                                              
@@ -332,10 +368,11 @@ begin
                                 end if;
                             end if;                                           
                         else        -- verde
-                            ena <= '0';                                                                         
-                            r   <= "1000";                                                               
-                            g   <= "1111";                                                               
-                            b   <= "0101";                                                               
+                            ena <= '0';
+                                                                                                     
+                            r   <= borderData(11 downto 8);                                                               
+                            g   <= borderData(7  downto 4);                                                               
+                            b   <= borderData(3  downto 0);                                                                
                         end if;
                         if prevClk25 = '0' and clk25 = '1' then
                             if memCounter > 240 * 48 * 9 - 1 and HCounter >= deadPosition + 200 - 1 and HCounter < deadPosition + 200 + 48 - 1 then -------
@@ -343,6 +380,15 @@ begin
                             end if;
                             if memCounter > 240 * 48 * 1 - 1 and memCounter < 240 * 48 * 2 and HCounter >= 200 - 1 and HCounter < 440 - 1 then
                                 deathCount <= deathCount + 1;
+                            end if;
+                            if HCounter < 200 - 1 or HCounter >= 440 - 2 then
+                                borderCount <= borderCount + 1;
+                                if HCounter = 440 - 2 then
+                                    borderCount <= borderCount - 220;
+                                end if;
+                                if borderCount = 200 * 480 - 1 and HCounter > 440 then
+                                    borderCount <= 0;
+                                end if;
                             end if;
                             vgaCount <= vgaCount + 1;                                                            
                             HCounter <= HCounter + 1; 

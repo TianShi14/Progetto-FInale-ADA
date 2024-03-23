@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1711199142">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1711216208">
   <File Type="PA-TCL" Name="master.tcl"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="master_bus_skew_routed.pb"/>
   <File Type="REPORTS-TCL" Name="master_reports.tcl"/>
@@ -189,6 +189,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../border.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="master"/>
@@ -235,6 +241,7 @@
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_6"/>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_5"/>
+  <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_7"/>
   <BlockFileSet Type="BlockSrcs" Name="cordic_0"/>
   <BlockFileSet Type="BlockSrcs" Name="floating_point_2"/>
   <BlockFileSet Type="BlockSrcs" Name="floating_point_1"/>

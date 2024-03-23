@@ -45,6 +45,7 @@ architecture behavioral of outputMaster is
     signal angelCount   : integer range 0 to 48 * 48 - 1    := 0;
     signal trCount      : integer range 0 to 10_000_000 - 1 := 0;
     signal deathCount   : integer range 0 to 240 * 48 - 1   := 0;
+    signal startCount   : integer range 0 to 315 * 57 - 1   := 0;
     signal rowCount     : integer range 0 to 20 * 48 - 1    := 20 * 48 - 1;
     signal bigRow       : integer range 0 to 20 - 1 := 0;
     signal startAddr    : integer := 480 * 240;
@@ -60,6 +61,11 @@ architecture behavioral of outputMaster is
     signal deathAddr : std_logic_vector(13 downto 0) := (others => '0');
     signal deathData : std_logic_vector(11 downto 0);
     signal deathEna  : std_logic;
+    
+    -- start screen signals
+    signal initAddr  : std_logic_vector(14 downto 0) := (others => '0');
+    signal initData  : std_logic_vector(11 downto 0);
+    signal initEna   : std_logic;
 begin
 
     youDied: entity work.blk_mem_gen_5
@@ -68,6 +74,14 @@ begin
         addra         => deathAddr,
         douta         => deathData,
         ena           => deathEna
+    );
+    
+    startScreen: entity work.blk_mem_gen_6
+    port map(
+        clka          => clk,
+        addra         => initAddr,
+        douta         => initData,
+        ena           => initEna
     );
 
     wena <= "0";
@@ -84,20 +98,48 @@ begin
             
             case state is
                 when start =>
-                    r <= (others => '0');
-                    g <= (others => '0');
-                    b <= (others => '0');
-                    if startGame = '1' then
-                        state    <= transition;
-                        genFrame <= '1';
-                        enable    <= '1';
+                    if active = '1' then
+                        r <= x"4";
+                        g <= x"6";
+                        b <= x"7";
+                        if vgaCount > 640 * 48 * 3 - 1 and vgaCount < 640 * (48 * 3 + 57) - 1 and HCounter >= 161 - 1 and HCounter <= 161 + 315 - 1 then
+                            initEna  <= '1';
+                            initAddr <= std_logic_vector(to_unsigned(startCount, initAddr'length));
+                            if HCounter /= 161 - 1 then
+                                r <= initData(11 downto 8);
+                                g <= initData(7  downto 4);
+                                b <= initData(3  downto 0);
+                            end if;
+                        else
+                            initEna  <= '0';
+                        end if;
+                        if prevClk25 = '0' and clk25 = '1' then
+                            if vgaCount > 640 * 48 * 3 - 1 and vgaCount < 640 * (48 * 3 + 57) - 1 and HCounter >= 161 - 1 and HCounter < 161 + 315 - 1 then
+                                startCount <= startCount + 1;
+                            end if;
+                            vgaCount <= vgaCount + 1;                                                            
+                            HCounter <= HCounter + 1; 
+                            if HCounter = 640 -1 then
+                                HCounter   <= 0;
+                            end if;       
+                            if vgaCount = 640 * 480 - 1 then
+                                HCounter   <= 0;
+                                vgaCount   <= 0;
+                                startCount <= 0;
+                                if startGame = '1' then
+                                    state     <= transition;
+                                    genFrame  <= '1';
+                                    enable    <= '1';
+                                end if;
+                            end if;                                                                      
+                        end if;
                     end if;
                 when transition =>
                     enable   <= '0';
                     genFrame <= '0';
-                    r <= (others => '1');
-                    g <= (others => '0');
-                    b <= (others => '1');
+                    r <= x"4";
+                    g <= x"6";
+                    b <= x"7";
                     if timeCount < 200_000_000 then  
                         timeCount := timeCount + 1;
                     else
@@ -256,7 +298,7 @@ begin
                         else
                             enaAngel  <= '0';
                         end if;
-                        if memCounter > 240 * 48 * 4 - 1 and memCounter < 240 * 48 * 5 and HCounter >= 200 - 1 and HCounter < 440 - 1 then
+                        if memCounter > 240 * 48 * 1 - 1 and memCounter < 240 * 48 * 2 and HCounter >= 200 - 1 and HCounter < 440 - 1 then
                             deathEna  <= '1';
                             deathAddr <= std_logic_vector(to_unsigned(deathCount, deathAddr'length));
                         else
@@ -273,7 +315,7 @@ begin
                                 g <= dataAngel(7  downto 4);
                                 b <= dataAngel(3  downto 0);
                             else 
-                                if memCounter > 240 * 48 * 4 - 1 and memCounter < 240 * 48 * 5 then
+                                if memCounter > 240 * 48 * 1 - 1 and memCounter < 240 * 48 * 2 then
                                     r <= deathData(11 downto 8);
                                     g <= deathData(7  downto 4);
                                     b <= deathData(3  downto 0);
@@ -299,7 +341,7 @@ begin
                             if memCounter > 240 * 48 * 9 - 1 and HCounter >= deadPosition + 200 - 1 and HCounter < deadPosition + 200 + 48 - 1 then -------
                                 angelCount <= angelCount + 1;
                             end if;
-                            if memCounter > 240 * 48 * 4 - 1 and memCounter < 240 * 48 * 5 and HCounter >= 200 - 1 and HCounter < 440 - 1 then
+                            if memCounter > 240 * 48 * 1 - 1 and memCounter < 240 * 48 * 2 and HCounter >= 200 - 1 and HCounter < 440 - 1 then
                                 deathCount <= deathCount + 1;
                             end if;
                             vgaCount <= vgaCount + 1;                                                            

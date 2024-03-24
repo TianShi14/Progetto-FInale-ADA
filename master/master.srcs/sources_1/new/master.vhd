@@ -22,12 +22,14 @@ end master;
 
 architecture behavioral of master is
     signal move    : std_logic;
+    signal death   : std_logic;
     signal playerX : natural;
 begin
 
     movement: entity work.movement
     port map(
         clk        => clk,
+        death      => death,
         reset      => reset,
         miso       => miso,
         move       => move,
@@ -46,6 +48,7 @@ begin
         move       => move,
         hsync      => hsync,
         vsync      => vsync,
+        dead       => death,
         red        => red, 
         green      => green,
         blue       => blue

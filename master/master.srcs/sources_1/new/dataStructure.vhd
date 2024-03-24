@@ -5,6 +5,7 @@ use IEEE.numeric_std.all;
 entity dataStructure is
     port(
         clk      : in  std_logic;
+        death    : in  std_logic;
         genFrame : in  std_logic;
         newRow   : in  std_logic;
         random   : in  std_logic_vector(11 downto 0);
@@ -32,21 +33,6 @@ architecture behavioral of dataStructure is
             return 4;
         end if;
     end function;
-    
---    function control2 (posX: std_logic_vector(2 downto 0)) return std_logic_vector is
---    begin
---        if posX = "000" or posX = "001" then
---            return "00000000";
---        elsif posX = "010" then
---            return "00110000";
---        elsif posX = "011" or posX = "100" then
---            return "01100000";
---        elsif posX = "101" then
---            return "10010000";
---        else
---            return "11000000";
---        end if;
---    end function;
     
     function row (distance: std_logic) return integer is
     begin
@@ -143,6 +129,13 @@ begin
                     enable  <= '1';
                     state   <= waitRow;
             end case;
+            if death = '1' then
+                state   <= waitGen;
+                prevRow <= 2;
+                currRow <= 0;
+                enable  <= '0';
+                ena     <= '0'; 
+            end if;
         end if;
     end process;
 

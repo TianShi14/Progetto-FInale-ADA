@@ -10,6 +10,7 @@ entity screen is
         hsync     : out std_logic;
         vsync     : out std_logic;
         move      : out std_logic;
+        dead      : out std_logic;
         red       : out std_logic_vector(3 downto 0);
         green     : out std_logic_vector(3 downto 0);
         blue      : out std_logic_vector(3 downto 0)
@@ -69,14 +70,18 @@ architecture behavioral of screen is
     signal playerY  : std_logic_vector(9  downto 0);
     signal death    : std_logic;
     
-    signal inutile : std_logic_vector(21 downto 0);
+    signal rst      : std_logic;
+    
+    signal inutile  : std_logic_vector(21 downto 0);
     
 begin
     move <= check;
-
+    dead <= death;
+    
     rand: entity work.randomizer
     port map(
         clk             => clk,
+        death           => death,
         random          => random,
         enable          => e,
         request         => request
@@ -85,6 +90,7 @@ begin
     dStruct: entity work.dataStructure
     port map(
         clk            => clk,
+        death          => death,
         genFrame       => genFrame,
         random         => random,
         enable         => enable,
@@ -99,7 +105,9 @@ begin
     sDesigner: entity work.screenDesigner
     port map(
         clk            => clk,
+        rst            => rst,
         draw           => enable,
+        death          => death,
         sData          => dataStruct,
         eData          => dataEnt,
         vData          => dataVGA,
@@ -140,7 +148,8 @@ begin
         row             => row,
         playerY         => playerY,
         check           => check,
-        multiple        => multiple
+        multiple        => multiple,
+        rst             => rst
     );
     
     clk25: entity work.clk25

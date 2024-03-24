@@ -5,6 +5,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity movement is
     port( 
         clk        : in     std_logic;
+        death      : in     std_logic;
         reset      : in     std_logic;
         miso       : in     std_logic;
         move       : in     std_logic;
@@ -53,6 +54,7 @@ begin
     mover: entity work.move
     port map(
         clk        => clk,
+        death      => death,
         move       => move,
         angle      => angle,
         playerX    => playerX

@@ -9,7 +9,7 @@ entity outputMaster is
         startGame  : in  std_logic;
         active     : in  std_logic;
         endFrame   : in  std_logic;
-        genFrame   : out std_logic; -- preparazione schermata successiva
+        genFrame   : out std_logic;                            -- preparazione schermata successiva
         r, g, b    : out std_logic_vector(3 downto 0);
         -- segnali per mem Game
         clkGame    : out std_logic;                            -- specific clock for Start screen ROM, useful for clock masking                  
@@ -30,12 +30,14 @@ entity outputMaster is
         row        : out std_logic_vector(4  downto 0); 
         playerY    : out std_logic_vector(9  downto 0); 
         check      : out std_logic;
-        multiple   : out std_logic                                                                                                                 
+        multiple   : out std_logic;
+        
+        rst        : out std_logic                                                                                                               
     );
 end outputMaster;
 
 architecture behavioral of outputMaster is
-    type msf is (start, transition, game, dead);                     -- state types
+    type msf is (start, transition, game, dead, reset);                     -- state types
     signal state        : msf := start;                              -- state machine 
     signal vgaCount     : integer range 0 to 640 * 480-1    := 0;    -- global counter
     signal memCounter   : integer range 0 to 480 * 240-1    := 0;    -- Mem counter  
@@ -48,7 +50,8 @@ architecture behavioral of outputMaster is
     signal startCount   : integer range 0 to 315 * 57 - 1   := 0;
     signal borderCount  : integer range 0 to 200 * 480      := 1;
     signal rowCount     : integer range 0 to 20 * 48 - 1    := 20 * 48 - 1;
-    signal bigRow       : integer range 0 to 20 - 1 := 0;
+    signal restart      : integer range 0 to 180 - 1        := 0;
+    signal bigRow       : integer range 0 to 20 - 1         := 0;
     signal startAddr    : integer := 480 * 240;
     signal flipCount    : integer := 0;
     signal deadPosition : integer := 0;
@@ -406,8 +409,55 @@ begin
                                 angelCount <= 0;
                                 deathCount <= 0;
                                 flip       <= false;
+                                if restart /= 180 - 1 then
+                                    restart      <= restart + 1;
+                                else
+                                    state        <= reset;                      
+                                    vgaCount     <= 0;    
+                                    memCounter   <= 0;    
+                                    HCounter     <= 0;          
+                                    pixelN       <= 0;          
+                                    rowN         <= 10;         
+                                    angelCount   <= 0;          
+                                    trCount      <= 0;          
+                                    deathCount   <= 0;          
+                                    startCount   <= 0;          
+                                    borderCount  <= 1;          
+                                    rowCount     <= 20 * 48 - 1;
+                                    restart      <= 0;          
+                                    bigRow       <= 0;          
+                                    startAddr    <= 480 * 240;                            
+                                    flipCount    <= 0;                                    
+                                    deadPosition <= 0;                                    
+                                    flip         <= false;                                
+                                    isStarting   <= false;                                
+                                    move         <= false;                                
+                                    lost         <= false;
+                                    deathEna     <= '0';
+                                    initEna      <= '0';
+                                    borderEna    <= '0';
+                                    
+                                    genFrame     <= '0';
+                                    ena          <= '0';
+                                    newRow       <= '0';
+                                    enable       <= '0';
+                                    enaAngel     <= '0';
+                                    check        <= '0';
+                                    multiple     <= '0';  
+                                    row          <= (others => '0'); 
+                                    playerY      <= (others => '0');                                                  
+                                end if;
                             end if;                                                                      
                         end if;
+                    end if;
+                when reset => 
+                    if trCount = 10_000_000 - 1 then
+                        rst     <= '0';
+                        trCount <= 0;
+                        state   <= start;
+                    else
+                        trCount <= trCount + 1;
+                        rst     <= '1';
                     end if;
             end case;
             if death = '1' then

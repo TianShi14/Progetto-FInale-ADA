@@ -6,6 +6,7 @@ entity move is
     port(
         clk     : in  std_logic;
         move    : in  std_logic;
+        death   : in  std_logic;
         angle   : in  std_logic_vector(7 downto 0);
         playerX : out natural
     );
@@ -117,6 +118,13 @@ begin
                         state   <= waits;
                     end if;
             end case;
+            if death = '1' then
+                state       <= waits;                               
+                remainder   <= (others => '0');  
+                fi2flValid  <= '0';                                                                 
+                angleValid  <= '0';                      
+                remainValid <= '0';                                          
+            end if;
         end if;
     end process;
 

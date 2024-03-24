@@ -5,7 +5,9 @@ use IEEE.NUMERIC_STD.ALL;
 entity screenDesigner is
     port(
         clk   : in  std_logic;
+        rst   : in  std_logic;
         draw  : in  std_logic;
+        death : in  std_logic;
         sData : in  std_logic_vector(21 downto 0);
         eData : in  std_logic_vector(11 downto 0);
         vData : out std_logic_vector(11 downto 0);
@@ -22,23 +24,22 @@ entity screenDesigner is
 end screenDesigner;
 
 architecture behavioral of screenDesigner is
-    type fsm is (waitSignal, wasteClk, prepareData, wasteH, drawEntity, setStreet);
+    type fsm is (waitSignal, wasteClk, prepareData, wasteH, drawEntity, setStreet, reset);
     
     constant rowPx : natural := 240 * 48;
     constant entPx : natural := 48 * 48;
     
-    signal state    : fsm := waitSignal;
+    signal state    : fsm := waitSignal;   
     signal count    : natural range 0 to rowPx       := 0; -- rowPx non rowPx - 1
     signal row      : natural range 0 to 20 - 1      := 0;
     signal hCount   : natural range 0 to 48 - 1      := 0;
     signal vCount   : natural range 0 to 48 - 1      := 0;
     signal entCount : natural range 0 to 48 * 48 - 1 := 0;
+    signal rstCount : natural range 0 to 960 * 240   := 0;
     signal vStart   : natural;
     signal continue : boolean := false;
     signal firstGen : boolean := true;
-    signal eStart   : std_logic_vector(13 downto 0);  
-    
-    signal color : natural range 0 to 7 := 0;   
+    signal eStart   : std_logic_vector(13 downto 0);   
     
     -- indirizzo di partenza dell'entità
     function getEntityAddress (
@@ -139,11 +140,6 @@ begin
                             sEna  <= '0';
                             if row = 20 - 1 then
                                 row <= 0;
-                                if color = 7 then
-                                    color <= 0;
-                                else 
-                                    color <= color + 1;
-                                end if;
                             else
                                 row <= row + 1;
                             end if;
@@ -179,11 +175,6 @@ begin
                             else
                                 if row = 20 - 1 then
                                     row <= 0;
-                                    if color = 7 then
-                                    color <= 0;
-                                else 
-                                    color <= color + 1;
-                                end if;
                                 else
                                     row <= row + 1;
                                 end if;
@@ -207,23 +198,6 @@ begin
                 when setStreet => 
                     count  <= count + 1;
                     vEna   <= '1';
---                    if color = 0 then
---                        vData  <= x"000";
---                    elsif color = 1 then
---                        vData  <= x"A00";
---                    elsif color = 2 then
---                        vData  <= x"0A0";
---                    elsif color = 3 then
---                        vData  <= x"00A";
---                    elsif color = 4 then
---                        vData  <= x"AA0";
---                    elsif color = 5 then
---                        vData  <= x"0AA";
---                    elsif color = 6 then
---                        vData  <= x"A0A";
---                    elsif color = 7 then
---                        vData  <= x"AAA";  
---                    end if;
                     vData  <= x"AAA";
                     vAddr  <= std_logic_vector(to_unsigned(vStart, vAddr'length));
                     vStart <= vStart + 1;
@@ -234,7 +208,32 @@ begin
                         sEna   <= '1';
                         state  <= wasteClk;
                     end if;
+                when reset =>
+                    if rst = '1' then
+                        vEna  <= '1';
+                        vAddr <= std_logic_vector(to_unsigned(rstCount, vAddr'length));
+                        vData <= x"AAA";
+                        if rstCount /= 960 * 240 then
+                            rstCount <= rstCount + 1;
+                        else
+                            rstCount <= 0;
+                            vEna     <= '0';
+                            state    <= waitSignal;
+                        end if;
+                    end if;
             end case;
+            if death = '1' then
+                state <= reset;
+                                    
+                count    <= 0;
+                row      <= 0;
+                hCount   <= 0;
+                vCount   <= 0;
+                entCount <= 0;
+                rstCount <= 0;                              
+                continue <= false;                     
+                firstGen <= true;                              
+            end if;
         end if;
     end process;
 

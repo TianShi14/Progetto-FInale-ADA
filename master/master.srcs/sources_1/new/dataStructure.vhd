@@ -37,9 +37,9 @@ architecture behavioral of dataStructure is
     function row (distance: std_logic) return integer is
     begin
         if distance = '0' then
-            return 2;
+            return 1;
         else
-            return 3;
+            return 2;
         end if;
     end function;
     

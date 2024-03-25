@@ -68,10 +68,10 @@ begin
                         angle <= std_logic_vector(to_signed(-13, angle'length));
                         thresholds <= x"2";
                     elsif signed(buffer_angle) > 2 then
-                        angle <= std_logic_vector(signed(buffer_angle) - 3);
+                        angle <= std_logic_vector(signed(buffer_angle) - 2);
                         thresholds <= x"4";
                     else
-                        angle <= std_logic_vector(signed(buffer_angle) + 3);
+                        angle <= std_logic_vector(signed(buffer_angle) + 2);
                         thresholds <= x"8";
                     end if;
                     next_state <= waits;

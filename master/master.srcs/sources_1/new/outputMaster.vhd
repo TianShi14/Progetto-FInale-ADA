@@ -156,7 +156,7 @@ begin
                     r <= x"4";
                     g <= x"6";
                     b <= x"7";
-                    if timeCount < 200_000_000 then  
+                    if timeCount < 100_000_000 then  
                         timeCount := timeCount + 1;
                     else
                         if endFrame = '1' then  -- aspettare che finisca di disegnare il frame

@@ -119,6 +119,7 @@ begin
                     end if;
             end case;
             if death = '1' then
+                playerXX    := 95;
                 state       <= waits;                               
                 remainder   <= (others => '0');  
                 fi2flValid  <= '0';                                                                 

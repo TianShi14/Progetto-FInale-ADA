@@ -71,6 +71,7 @@ begin
         if rising_edge(clk) then
             case state is
                 when waits    =>
+                    death <= '0';
                     if check = '1' then
                         address <= row;
                         ena     <= '1';

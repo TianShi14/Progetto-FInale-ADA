@@ -331,7 +331,7 @@ begin
                         else
                             enaAngel  <= '0';
                         end if;
-                        if memCounter > 240 * 48 * 1 - 1 and memCounter < 240 * 48 * 2 and HCounter >= 200 - 1 and HCounter < 440 - 1 then
+                        if memCounter > 240 * 48 * 4 - 1 and memCounter < 240 * 48 * 5 and HCounter >= 200 - 1 and HCounter < 440 - 1 then
                             deathEna  <= '1';
                             deathAddr <= std_logic_vector(to_unsigned(deathCount, deathAddr'length));
                         else
@@ -354,7 +354,7 @@ begin
                                 g <= dataAngel(7  downto 4);
                                 b <= dataAngel(3  downto 0);
                             else 
-                                if memCounter > 240 * 48 * 1 - 1 and memCounter < 240 * 48 * 2 then
+                                if memCounter > 240 * 48 * 4 - 1 and memCounter < 240 * 48 * 5 then
                                     r <= deathData(11 downto 8);
                                     g <= deathData(7  downto 4);
                                     b <= deathData(3  downto 0);
@@ -381,7 +381,7 @@ begin
                             if memCounter > 240 * 48 * 9 - 1 and HCounter >= deadPosition + 200 - 1 and HCounter < deadPosition + 200 + 48 - 1 then -------
                                 angelCount <= angelCount + 1;
                             end if;
-                            if memCounter > 240 * 48 * 1 - 1 and memCounter < 240 * 48 * 2 and HCounter >= 200 - 1 and HCounter < 440 - 1 then
+                            if memCounter > 240 * 48 * 4 - 1 and memCounter < 240 * 48 * 5 and HCounter >= 200 - 1 and HCounter < 440 - 1 then
                                 deathCount <= deathCount + 1;
                             end if;
                             if HCounter < 200 - 1 or HCounter >= 440 - 2 then

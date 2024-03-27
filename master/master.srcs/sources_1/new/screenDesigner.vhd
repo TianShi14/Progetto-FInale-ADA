@@ -24,22 +24,28 @@ entity screenDesigner is
 end screenDesigner;
 
 architecture behavioral of screenDesigner is
-    type fsm is (waitSignal, wasteClk, prepareData, wasteH, drawEntity, setStreet, reset);
+    type fsm is (waitSignal, wasteStreetClk, makeRoad, wasteClk, prepareData, wasteH, drawEntity, setStreet, reset);
     
     constant rowPx : natural := 240 * 48;
     constant entPx : natural := 48 * 48;
     
     signal state    : fsm := waitSignal;   
-    signal count    : natural range 0 to rowPx       := 0; -- rowPx non rowPx - 1
-    signal row      : natural range 0 to 20 - 1      := 0;
-    signal hCount   : natural range 0 to 48 - 1      := 0;
-    signal vCount   : natural range 0 to 48 - 1      := 0;
-    signal entCount : natural range 0 to 48 * 48 - 1 := 0;
-    signal rstCount : natural range 0 to 960 * 240   := 0;
+    signal count    : natural range 0 to rowPx        := 0; -- rowPx non rowPx - 1
+    signal row      : natural range 0 to 20 - 1       := 0;
+    signal hCount   : natural range 0 to 48 - 1       := 0;
+    signal vCount   : natural range 0 to 48 - 1       := 0;
+    signal entCount : natural range 0 to 48 * 48 - 1  := 0;
+    signal rstCount : natural range 0 to 960 * 240    := 0;
+    signal strCount : natural range 0 to 240 * 48 - 1 := 0;
     signal vStart   : natural;
     signal continue : boolean := false;
     signal firstGen : boolean := true;
-    signal eStart   : std_logic_vector(13 downto 0);   
+    signal eStart   : std_logic_vector(13 downto 0);
+    
+    -- segnali per memStreet
+    signal addrStreet : std_logic_vector(13 downto 0);
+    signal dataStreet : std_logic_vector(11 downto 0);
+    signal enaStreet  : std_logic;
     
     -- indirizzo di partenza dell'entità
     function getEntityAddress (
@@ -75,7 +81,16 @@ architecture behavioral of screenDesigner is
     end function;
 begin
     -- l'indirizzo della nostra struttura sarà sempre legata alla riga che stiamo disegnando
-    sAddr <= std_logic_vector(to_unsigned(row, sAddr'length));
+    sAddr      <= std_logic_vector(to_unsigned(row, sAddr'length));
+    addrStreet <= std_logic_vector(to_unsigned(strCount, addrStreet'length));
+    
+    memStreet: entity work.blk_mem_gen_8
+    port map(
+        clka        => clk,
+        addra       => addrStreet,
+        douta       => dataStreet,
+        ena         => enaStreet
+    );
     
     process(clk)
     begin
@@ -85,20 +100,43 @@ begin
                 when waitSignal => 
                     -- se si riceve il segnale d'inizio
                     if draw = '1' then
-                        if firstGen then
-                            sEna   <= '1';
-                            state  <= wasteClk;
-                        else
-                            
+                        if not firstGen then
                             vStart <= (19 - row) * rowPx;
-                            state  <= setStreet;
                         end if;
+                        enaStreet <= '1';
+                        state <= wasteStreetClk;
                     end if;
                 -- gestisce il disegno di tutte la riga
                 -- in  <- waitSignal: sEna = 1, eEna = 0, vEna = 0
                 -- in  <- drawEntity: sEna = 0, eEna = 0, vEna = 1, row++ (continue = false)
                 -- in  <- drawEntity: sEna = 1, eEna = 0, vEna = 1        (continue = true )
                 -- out -> drawEntity: sEna = 0, eEna = 1, vEna = 0
+                when wasteStreetClk =>
+                    strCount <= strCount + 1;
+                    if firstGen then
+                        state <= makeRoad;
+                    else 
+                        state <= setStreet;
+                    end if;
+                when makeRoad =>
+                    vEna  <= '1';
+                    vData <= dataStreet;
+                    vAddr <= std_logic_vector(to_unsigned(rstCount, vAddr'length));
+                    if rstCount = 960 * 240 then
+                        enaStreet <= '0';
+                        vEna      <= '0';
+                        strCount  <= 0;
+                        rstCount  <= 0;
+                        sEna      <= '1';
+                        state     <= wasteClk;
+                    else
+                        rstCount <= rstCount + 1;
+                        if strCount = 240 * 48 - 1 then
+                            strCount <= 0;
+                        else
+                            strCount <= strCount + 1;
+                        end if;
+                    end if;
                 when wasteClk =>
                     state <= prepareData;
                 when prepareData =>
@@ -157,7 +195,11 @@ begin
                     -- disegna nella memoria della VGA
                     vEna  <= '1';
                     vAddr <= getVgaAddress(vStart, hCount, vCount);
-                    vData <= eData;
+                    if eData = x"999" then
+                        vEna  <= '0';
+                    else
+                        vData <= eData; 
+                    end if;
                     -- prepara il prossimo pixel dalla memoria delle entità
                     eAddr <= getEntityAddress(eStart, entCount + 2);----------------------------------------- 
                     -- incremento dei contatori
@@ -196,17 +238,20 @@ begin
                         hCount <= hCount + 1;
                     end if;
                 when setStreet => 
-                    count  <= count + 1;
-                    vEna   <= '1';
-                    vData  <= x"AAA";
-                    vAddr  <= std_logic_vector(to_unsigned(vStart, vAddr'length));
-                    vStart <= vStart + 1;
+                    count    <= count + 1;
+                    vEna     <= '1';
+                    vData    <= dataStreet;
+                    vAddr    <= std_logic_vector(to_unsigned(vStart, vAddr'length));
+                    vStart   <= vStart + 1;
+                    strCount <= strCount + 1;
                     
                     if count = rowPx then
-                        count <= 0;
-                        vEna  <= '0';
-                        sEna   <= '1';
-                        state  <= wasteClk;
+                        count     <= 0;
+                        strCount  <= 0;
+                        enaStreet <= '0';
+                        vEna      <= '0';
+                        sEna      <= '1';
+                        state     <= wasteClk;
                     end if;
                 when reset =>
                     if rst = '1' then

@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -93,6 +94,7 @@ add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/angel.coe
 add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/you_died.coe
 add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/startScreen.coe
 add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/border.coe
+add_files /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/street.coe
 read_vhdl -library xil_defaultlib {
   /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/accelerometer.vhd
   /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/new/atan.vhd
@@ -144,6 +146,9 @@ set_property used_in_implementation false [get_files -all /home/angelonutu/Deskt
 
 read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_7/blk_mem_gen_7.xci
 set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_7/blk_mem_gen_7_ooc.xdc]
+
+read_ip -quiet /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.srcs/sources_1/ip/blk_mem_gen_8/blk_mem_gen_8.xci
+set_property used_in_implementation false [get_files -all /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_8/blk_mem_gen_8_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1711456269">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1711554476">
   <File Type="PA-TCL" Name="master.tcl"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="master_bus_skew_routed.pb"/>
   <File Type="REPORTS-TCL" Name="master_reports.tcl"/>
@@ -195,6 +195,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../street.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="master"/>
@@ -239,16 +245,17 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_8"/>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_6"/>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_5"/>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_7"/>
   <BlockFileSet Type="BlockSrcs" Name="cordic_0"/>
   <BlockFileSet Type="BlockSrcs" Name="floating_point_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="floating_point_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="floating_point_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_4"/>
+  <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_3"/>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_2"/>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_1"/>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_3"/>
-  <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_4"/>
-  <BlockFileSet Type="BlockSrcs" Name="floating_point_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="floating_point_1"/>
 </GenRun>

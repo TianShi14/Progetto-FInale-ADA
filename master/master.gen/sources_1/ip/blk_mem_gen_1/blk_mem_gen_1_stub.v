@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-// Date        : Mon Mar 25 13:01:04 2024
+// Date        : Mon Mar 25 13:01:03 2024
 // Host        : thisguy running 64-bit Ubuntu 20.04.6 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /home/angelonutu/Desktop/ADA2.0/Progetto-Finale-ADA/master/master.gen/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top blk_mem_gen_1 -prefix
+//               blk_mem_gen_1_ blk_mem_gen_1_stub.v
 // Design      : blk_mem_gen_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1

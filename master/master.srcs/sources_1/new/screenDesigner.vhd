@@ -212,9 +212,10 @@ begin
                             entCount  <= 0;
                             eEna      <= '0';
                             
-                            if continue then
+                            if continue and sData(19 downto 12) /= sData(11 downto 4) then
                                 state <= prepareData;
                             else
+                                continue <= false;
                                 if row = 20 - 1 then
                                     row <= 0;
                                 else
